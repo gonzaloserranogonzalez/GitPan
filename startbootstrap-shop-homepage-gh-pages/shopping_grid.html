@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>PANAPP</title>
+<script type="text/javascript">
+    function obtenerNombre(i){
+      
+        var oferta;
+        var auxiliar=i.getAttribute("id");
+        auxiliar=auxiliar[auxiliar.length-1];
+        var variable=document.getElementById('headermodal').innerHTML=productos[auxiliar];
+        variable=document.getElementById('parrafo2').innerHTML=descripcion[auxiliar];
+        oferta="El precio es= "+conoferta[auxiliar]+"€";
+        document.getElementById('precio1').innerHTML=oferta;
+        
+        }
+ </script>
+<script type="text/javascript">
+    var productos = ["Baguette", "Pan de Trigo","Pan de Centeno","Pan de Maíz","Pan de Espelta"];
+	var imgGrandes = ["pan1.jpg", "pan2.jpg","pan3.jpg","pan4.jpg","pan5.jpg"];
+	var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos "];
+	var precios = [16, 5,100,20,1];
+    var ofertas = [50, 20,10,30,15];
+    var aux;
+    var conoferta=[5];
+    for(i=0;i<5;i++)
+        conoferta[i]=precios[i]-precios[i]*ofertas[i]/100;
+	var precioTransporte = [6, 12];
+    window.onload=function(){
+    var IMGS=document.getElementsByClassName("product-image");
+    var PRODUCTOS=document.getElementsByClassName("product-content");
+    for(i in productos){
+    
+        aux=parseInt(i);
+      
+        var imagenfinal= "<img class=\"pic-1\" src=\""+imgGrandes[i]+"\" >";
+        imagenfinal=imagenfinal+"<span class=\"product-new-label\">Oferta</span> <span class=\"product-discount-label\">"+ofertas[i]+"%</span>";
+        IMGS[i].innerHTML=imagenfinal;
+        var nombre="<h3 class=\"title\"  data-puntero=\""+i+"\"><a href=\"#openModal\" id=\"Producto"+(aux)+"\" onclick=\" obtenerNombre(this);\">"+productos[i]+"</a></h3>"+"<div class=\"price\">€"+conoferta[i]+"<span>"+precios[i]+"€</span></div>";
+        PRODUCTOS[i].innerHTML=nombre;
+    }
+   
+    }
+</script>
+
+<link rel="stylesheet" href="shopping_grid.css" />
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+</style>
+    </head>
+    <h3 class="h3">PanAPP </h3>
+<div id="openModal" class="modalDialog">
+	<div>
+        <div>
+		<a href="#close" title="Close" class="close">X</a>
+		<div id="headermodal" style="font-family:Montserrat;text-align: center"><h></h></div>
+		<p id="parrafo2" style="font-family: Montserrat"></p>
+		<p id="precio1" style="font-family: Montserrat"></p>
+        </div>
+        <ul style="padding-inline-start:0px;"><button type="button" class="button1">Añadir al Carrito</button>
+            <button type="button" class="button1">     Comprar     </button></ul>
+	</div>
+   
+</div>
+
+
+<div class="container">
+        <div class="product-grid" id="Producto1">
+            <div class="product-image" id='Imagen1'>
+                    <span class="product-new-label">Oferta</span>
+                    <span class="product-discount-label">20%</span>
+                </div>
+                <div class="product-content" id='Contenido1'>
+                    <div class="price">$16.00
+                        <span>$20.00</span>
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+            <div class="product-grid" id="Producto2">
+                <div class="product-image" id="Imagen2">
+                    <a href="#">
+                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-3.jpg">
+                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo9/images/img-4.jpg">
+                    </a>
+                    <span class="product-new-label">Oferta</span>
+                    <span class="product-discount-label">50%</span>
+                </div>
+                <div class="product-content">
+                    <div class="price">$5.00
+                        <span>$10.00</span>
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+    
+    <div class="product-grid" id="Producto3">
+            <div class="product-image" id='Imagen1'>
+                    <span class="product-new-label">Oferta</span>
+                    <span class="product-discount-label">20%</span>
+                </div>
+                <div class="product-content" id='Contenido1'>
+                    <div class="price">$16.00
+                        <span>$20.00</span>
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+    <div class="product-grid" id="Producto4">
+            <div class="product-image" id='Imagen1'>
+                    <span class="product-new-label">Oferta</span>
+                    <span class="product-discount-label">20%</span>
+                </div>
+                <div class="product-content" id='Contenido1'>
+                    <div class="price">$16.00
+                        <span>$20.00</span>
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+    <div class="product-grid" id="Producto5">
+            <div class="product-image" id='Imagen1'>
+                    <span class="product-new-label">Oferta</span>
+                    <span class="product-discount-label">20%</span>
+                </div>
+                <div class="product-content" id='Contenido1'>
+                    <div class="price">$16.00
+                        <span>$20.00</span>
+                    </div>
+                    <a class="add-to-cart" href="">+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+
+
+
+</html>
