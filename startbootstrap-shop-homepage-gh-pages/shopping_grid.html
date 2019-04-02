@@ -3,14 +3,14 @@
 <title>PANAPP</title>
 <script type="text/javascript">
     var contadorCarrito=0;
-    var productos = ["Le baguette", "El cucho","Hostia Divina","Chapata Rústica","Susana Sierra"];
-	var imgGrandes = ["pan1.jpg", "pan2.jpg","pan3.jpg","pan4.jpg","pan5.jpg"];
-	var descripcion = ["Soy una guarra y esto es para que me violen", "Eres un lloron","El mejor pan del Vaticano","Bayern de los Caidos","mi amor"];
-	var precios = [16, 5,100,20,1];
-    var ofertas = [50, 20,10,30,15];
+    var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda","Baguette","Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso"];
+    var imgGrandes = ["Rustica1.png","Picos2.png", "Chapata3.jpg","Torta4.jpg","Baguette5.png","Santiago6.jpg", "TresChocolates7.png", "RedVelvet8.png", "CarrotCake9.jpg", "Queso10.jpg"];
+    var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos "];
+	var precios = [16, 5,100,20,1, 4,5];
+    var ofertas = [50, 20,10,30,15, 2,4];
     var aux;
-    var conoferta=[5];
-    for(var i=0;i<5;i++)
+    var conoferta=[7];
+    for(var i=0;i<7;i++)
         conoferta[i]=precios[i]-precios[i]*ofertas[i]/100;
    
     
@@ -111,7 +111,7 @@
             </div>
     
             <div class="product-grid" id="Producto3">
-                    <div class="product-image" id='Imagen1'>
+                    <div class="product-image" id='Imagen3'>
                             <span class="product-new-label">Oferta</span>
                             <span class="product-discount-label">20%</span>
                         </div>
@@ -124,7 +124,7 @@
             </div>
       
     <div class="product-grid" id="Producto4">
-            <div class="product-image" id='Imagen1'>
+            <div class="product-image" id='Imagen4'>
                     <span class="product-new-label">Oferta</span>
                     <span class="product-discount-label">20%</span>
                 </div>
@@ -138,7 +138,7 @@
   
     
     <div class="product-grid" id="Producto5">
-            <div class="product-image" id='Imagen1'>
+            <div class="product-image" id='Imagen5'>
                     <span class="product-new-label">Oferta</span>
                     <span class="product-discount-label">20%</span>
                 </div>
@@ -149,8 +149,69 @@
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
             </div>
+        <div class="product-grid" id="Producto6">
+            <div class="product-image" id='Imagen6'>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
+            </div>
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
         </div>
-    
+
+        <div class="product-grid" id="Producto7">
+            <div class="product-image" id='Imagen7'>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
+            </div>
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
+        </div>
+        <div class="product-grid" id="Producto8">
+            <div class="product-image" id='Imagen8'>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
+            </div>
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
+        </div>
+        <div class="product-grid" id="Producto9">
+            <div class="product-image" id='Imagen9'>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
+            </div>
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
+        </div>
+        <div class="product-grid" id="Producto10">
+            <div class="product-image" id='Imagen10'>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
+            </div>
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
+        </div>
+        </div>
+
 <div id="divTotal">
             <p><b>Carrito de la compra, si quiere hacer alguna modificacion aun esta a tiempo:</b></p>
             <table id="tablaTotal" style="width:80%;"></table>
