@@ -71,7 +71,7 @@ transition: opacity 400ms ease-in;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
-.button1 {
+.buttonAddtocart {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -91,11 +91,17 @@ transition: opacity 400ms ease-in;
 .close:hover { background: #00d9ff; }
 /********************* shopping Demo-1 **********************/
 .container{display: grid;
-    grid-template-columns: 31% 31% 31%;
-    grid-template-rows: 450px 450px;
+    grid-template-columns: 78% 20%;
     grid-column-gap: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.container2{
+     display:grid;
+     grid-template-columns: 32% 32% 32%;
+     grid-template-rows: 400px 400px;
+
+    
 }
 .product-grid{font-family:Raleway,sans-serif;text-align:center;padding:0 0 72px;border:1px solid rgba(0,0,0,.1);overflow:hidden;position:relative;z-index:1;}
 .product-grid .product-image{position:relative;transition:all .3s ease 0s;width:100%;height: 200px;}
@@ -125,5 +131,95 @@ transition: opacity 400ms ease-in;
 .product-grid .price span{color:#999;font-size:13px;font-weight:400;text-decoration:line-through;margin-left:3px;display:inline-block}
 .product-grid .add-to-cart{color:#000;font-size:13px;font-weight:600}
 @media only screen and (max-width:990px){.product-grid{margin-bottom:30px}
+
+    
+    
+    /*Divs del carrito y formularios*/
+ #divTotal{
+ background:#378582;
+ }
+ #divDatos{
+ background:#378582;
+ }
+ 
+ #divPago{
+ height: 150px;
+ padding-left:10px;
+ background:#378582;
+ }
+ 
+ #divDatosPersonales0 {
+ position:relative;
+ left:0px;
+ padding:0px 0px 0px 10px;
+ width:440px;
+ height:140px;
+ }
+ 
+ #divDatosPersonales1 {
+ position:relative;
+ width:230px;
+ height:130px;
+ }
+ 
+ #divDatosPersonales2 {
+ position:relative;
+ top:-130px;
+ left:260px;
+ width:200px;
+ height:130px;
+ }
+ 
+ #divDomicilio{
+ padding:0px 0px 0px 10px;
+ }
+    
+ #tablaTotal {
+ margin: 0px 0px 0px 0px;
+ }
+ td.pro {
+ width:300px;
+ text-align:center;
+ background:#1a6c68;
+ }
+ td.uni {
+ width:150px;
+ text-align:center;
+ background:#1a6c68;
+ }
+ td.preUni {
+ width:150px;
+ text-align:center;
+ background:#1a6c68;
+ }
+ td.preTotal {
+ width:150px;
+ text-align:center;
+ background:#1a6c68;
+ }
+ tr.proCarrito {
+ text-align:center;
+ }
+    div.divZonaCompraSi{
+ position:relative;
+ top:742px;
+ padding:0px 11px 20px 11px;
+ display:yes;
+ width:693px;
+ height:auto;
+ 
+ background:#3c8c89;
+ }
+ 
+    div.divZonaCompraNo{
+ position:relative;
+ top:742px;
+ padding:0px 11px 20px 11px;
+ display:none;
+ width:693px;
+ height:385px;
+ 
+ background:#3c8c89;
+ }
 
 }
