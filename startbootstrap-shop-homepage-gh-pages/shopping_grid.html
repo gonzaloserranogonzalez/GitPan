@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>PANAPP</title>
 <script type="text/javascript">
     var contadorCarrito=0;
@@ -21,7 +22,7 @@
         auxiliar=auxiliar[auxiliar.length-1];
         var variable=document.getElementById('headermodal').innerHTML=productos[auxiliar];
         variable=document.getElementById('parrafo2').innerHTML=descripcion[auxiliar];
-        oferta="El precio es= "+conoferta[auxiliar]+"€";
+        oferta="El precio por unidad es "+conoferta[auxiliar]+"€";
         document.getElementById('precio1').innerHTML=oferta;
         
         }
@@ -72,11 +73,11 @@
 		<p id="parrafo2" style="font-family: Montserrat"></p>
 		<p id="precio1" style="font-family: Montserrat"></p>
         </div>
-        Cantidad: <input type="number" min="1" name="cantidades" id="cantidades">
+        Cantidad: <input type="number" value="1" min="1" name="cantidades" id="cantidades">
         <ul style="padding-inline-start:0px;"><button type="button" class="buttonAddtocart" onclick="
             var comprar=document.getElementById('headermodal').innerHTML;var cantidad=document.getElementById('cantidades');
             anadircarrito(comprar,cantidad.value);">Añadir al Carrito</button>
-            <button type="button" class="buttonAddtocart">     Comprar     </button></ul>
+            <!--<button type="button" class="buttonAddtocart">     Comprar     </button>--></ul>
 	</div>
    
 </div>
@@ -86,69 +87,68 @@
     <div class="container2">
         <div class="product-grid" id="Producto1">
             <div class="product-image" id='Imagen1'>
-                    <span class="product-new-label">Oferta</span>
-                    <span class="product-discount-label">20%</span>
-                </div>
-                <div class="product-content" id='Contenido1'>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
             </div>
-            <div class="product-grid" id="Producto2">
-                <div class="product-image" id="Imagen2">
-            
-                    <span class="product-new-label">Oferta</span>
-                    <span class="product-discount-label">50%</span>
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
                 </div>
-                <div class="product-content">
-                    <div class="price">$5.00
-                        <span>$10.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
             </div>
-    
-            <div class="product-grid" id="Producto3">
-                    <div class="product-image" id='Imagen3'>
-                            <span class="product-new-label">Oferta</span>
-                            <span class="product-discount-label">20%</span>
-                        </div>
-                <div class="product-content" id='Contenido1'>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
+        </div>
+        <div class="product-grid" id="Producto2">
+            <div class="product-image" id="Imagen2">
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">50%</span>
             </div>
-      
-    <div class="product-grid" id="Producto4">
+            <div class="product-content">
+                <div class="price">$5.00
+                    <span>$10.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
+        </div>
+
+        <div class="product-grid" id="Producto3">
+            <div class="product-image" id='Imagen3'>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
+            </div>
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
+        </div>
+
+        <div class="product-grid" id="Producto4">
             <div class="product-image" id='Imagen4'>
-                    <span class="product-new-label">Oferta</span>
-                    <span class="product-discount-label">20%</span>
-                </div>
-                <div class="product-content" id='Contenido1'>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
             </div>
-  
-    
-    <div class="product-grid" id="Producto5">
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
+        </div>
+
+
+        <div class="product-grid" id="Producto5">
             <div class="product-image" id='Imagen5'>
-                    <span class="product-new-label">Oferta</span>
-                    <span class="product-discount-label">20%</span>
-                </div>
-                <div class="product-content" id='Contenido1'>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
+                <span class="product-new-label">Oferta</span>
+                <span class="product-discount-label">20%</span>
             </div>
+            <div class="product-content" id='Contenido1'>
+                <div class="price">$16.00
+                    <span>$20.00</span>
+                </div>
+                <a class="add-to-cart" href="">+ Add To Cart</a>
+            </div>
+        </div>
         <div class="product-grid" id="Producto6">
             <div class="product-image" id='Imagen6'>
                 <span class="product-new-label">Oferta</span>
@@ -271,11 +271,11 @@
                 <a class="add-to-cart" href="">+ Add To Cart</a>
             </div>
         </div>
-        </div>
+    </div>
 
 <div id="divTotal">
-            <p><b>Carrito de la compra, si quiere hacer alguna modificacion aun esta a tiempo:</b></p>
-            <table id="tablaTotal" style="width:80%;"></table>
+    <p><b>Carrito de la compra, si quiere hacer alguna modificacion aun esta a tiempo:</b></p>
+    <table id="tablaTotal" style="width:80%;"></table>
 </div>
 </div>
 </html>
