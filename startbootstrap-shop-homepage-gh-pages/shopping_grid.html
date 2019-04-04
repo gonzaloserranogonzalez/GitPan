@@ -2,6 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>PANAPP</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     var contadorCarrito=0;
     var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda","Baguette","Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
@@ -9,40 +10,63 @@
     var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos "];
 	var precios = [16, 5,100,20,1, 4,5];
     var ofertas = [50, 20,10,30,15, 2,4];
-    var aux;
+    var preciofactura=0;
     var conoferta=[7];
     for(var i=0;i<7;i++)
         conoferta[i]=precios[i]-precios[i]*ofertas[i]/100;
-   
+    var carrito=new Array();
     
-    function obtenerNombre(i){
+function obtenerNombre(i){
       var contador=0;
         var oferta;
         var auxiliar=i.getAttribute("id");
         auxiliar=auxiliar[auxiliar.length-1];
         var variable=document.getElementById('headermodal').innerHTML=productos[auxiliar];
         variable=document.getElementById('parrafo2').innerHTML=descripcion[auxiliar];
-        oferta="El precio por unidad es "+conoferta[auxiliar]+"€";
+        oferta="El precio es= "+conoferta[auxiliar]+"€";
         document.getElementById('precio1').innerHTML=oferta;
-        
-        }
-    function anadircarrito(nombre,cantidad){
-        var j=0;
-        for(j in productos && productos[j]!=nombre);
-        var precio=conoferta[j+1];
-        var table=document.getElementById("tablaTotal");
-        var fila=table.insertRow(0);
-        var columna = fila.insertCell(0);
-        columna.innerHTML="<b>Producto: "+nombre+".</b><br>Precio: "+precio+"€.Cantidad: "+cantidad+".Precio total: "+cantidad*precio+"€";
-        contadorCarrito++;
         
     }
 
+  function enviardatos(){
+        var carritojson=JSON.stringify(carrito);
+        localStorage.setItem("carritojson",carritojson);
+    }
+  
+function anadircarrito(nombre,cantidad){
+        var j=0;
+      
+        for(j;j<productos.length && productos[j]!=nombre;j++);
+        var precio=conoferta[j];
+        var table=document.getElementById("tablaTotal");
+        var fila=table.insertRow(0);
+        var columna = fila.insertCell(0);
+        columna.id="carrito"+contadorCarrito;
+        columna.className="carrodecompra";
+        columna.innerHTML="<b>Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€";
+        columna.innerHTML+="<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);alert(contadorCarrito);'>Eliminar</a>";
+        carrito[contadorCarrito]= {"nombre": nombre, "cantidad": cantidad, "precioproducto":precio, "precioporcantidad":precio*cantidad};         
+        contadorCarrito++;
+        preciofactura=preciofactura+cantidad*precio;
+        var p=document.getElementById('Facturafinal');p.innerHTML="El precio total es: "+preciofactura;
+         
+        
+    }
+    
+    
+function eliminarcarrito(puntero){
+    var a = puntero.parentNode;
+    var td = a.parentNode;
+    var tr = td.parentNode;
+    tr.removeChild(td);   
+    contadorCarrito--;
+    if(contadorCarrito<=0)
+        document.getElementById('Finalizarcompra').style.display='none';
+    }
      
  </script>
-<script type="text/javascript">
-   
 
+<script type="text/javascript">
     var aux;
     window.onload=function(){
     var IMGS=document.getElementsByClassName("product-image");
@@ -65,18 +89,18 @@
 </style>
     </head>
     <h3 class="h3">PanAPP </h3>
-<div id="openModal" class="modalDialog">
-	<div style="font-family:Montserrat">
-        <div>
-		<a href="#close" title="Close" class="close">X</a>
-		<div id="headermodal" style="font-family:Montserrat;text-align: center"><h></h></div>
-		<p id="parrafo2" style="font-family: Montserrat"></p>
-		<p id="precio1" style="font-family: Montserrat"></p>
-        </div>
+    <div id="openModal" class="modalDialog">
+        <div style="font-family:Montserrat">
+            <div>
+            <a href="#close" title="Close" class="close" onclick="document.getElementById('cantidades').value = 1;">X</a>
+            <div id="headermodal" style="font-family:Montserrat;text-align: center"><h></h></div>
+            <p id="parrafo2" style="font-family: Montserrat"></p>
+            <p id="precio1" style="font-family: Montserrat"></p>
+            </div>
         Cantidad: <input type="number" value="1" min="1" name="cantidades" id="cantidades">
         <ul style="padding-inline-start:0px;"><button type="button" class="buttonAddtocart" onclick="
             var comprar=document.getElementById('headermodal').innerHTML;var cantidad=document.getElementById('cantidades');
-            anadircarrito(comprar,cantidad.value);">Añadir al Carrito</button>
+            anadircarrito(comprar,cantidad.value);if(contadorCarrito>0)document.getElementById('Finalizarcompra').style.display='block';">Añadir al Carrito</button>
             <!--<button type="button" class="buttonAddtocart">     Comprar     </button>--></ul>
 	</div>
    
@@ -275,7 +299,9 @@
 
 <div id="divTotal">
     <p><b>Carrito de la compra, si quiere hacer alguna modificacion aun esta a tiempo:</b></p>
-    <table id="tablaTotal" style="width:80%;"></table>
+    <table id="tablaTotal" name="factura" style="width:80%; "></table>
+    <p id="Facturafinal"></p>
+            <a id="Finalizarcompra" style="display:none; font-family:Montserrat" href="destino.html" onclick="enviardatos()">Finalizar Compra</a>
 </div>
 </div>
 </html>
