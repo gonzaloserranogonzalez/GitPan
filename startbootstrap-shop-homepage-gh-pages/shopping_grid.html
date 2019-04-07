@@ -14,7 +14,7 @@
     var conoferta=[7];
     for(var i=0;i<precios.length;i++)
         conoferta[i]=precios[i]-precios[i]*ofertas[i]/100;
-    var carrito=new Array();
+    var carrito=new Object();
     
 function obtenerNombre(i){
       var contador=0;
@@ -30,10 +30,10 @@ function obtenerNombre(i){
     }
 
   function enviardatos(){
-        var carritojson=JSON.stringify(carrito);
-        alert(carritojson);
-        localStorage.setItem("carritodecompra",carrito);
-        localStorage.setItem("carritojson",carritojson);
+        var carritofinal=jQuery.makeArray(carrito);
+        var enviar=(JSON.stringify(carritofinal));
+        localStorage.setItem("carrocompra",enviar);
+      //alert(enviar);
       
     }
   
@@ -42,16 +42,17 @@ function anadircarrito(nombre,cantidad){
         var p;
         for(j;j<productos.length && productos[j]!=nombre;j++);
         var precio=conoferta[j];
-       
+         var sinespacios=nombre.replace(/ /g,"-");
+       // alert(sinespacios);
         var table=document.getElementById("tablaTotal");
         if(carrito[nombre]==undefined){
             carrito[nombre]={"nombre": productos[j], "cantidad": cantidad, "precioproducto":precio, "precioporcantidad":precio*cantidad};
             var fila=table.insertRow(0);
             fila.id="carrito"+contadorCarrito;
             var columna = fila.insertCell(0);
-            columna.id="producto"+contadorCarrito;
+            columna.id="producto"+nombre;
             columna.className="carrodecompra";
-            columna.innerHTML+="<b id="+nombre+" data-indice=\""+nombre+"\">Producto: "+productos[j]+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€";
+            columna.innerHTML+="<b  data-indice=\""+sinespacios+"\">Producto: "+productos[j]+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€";
             columna.innerHTML+="<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
             contadorCarrito++;
             preciofactura=preciofactura + cantidad*precio;
@@ -60,12 +61,14 @@ function anadircarrito(nombre,cantidad){
         else   {
             carrito[nombre].cantidad=parseInt(carrito[nombre].cantidad)+parseInt(cantidad);
             carrito[nombre].precioporcantidad=parseInt(precio*carrito[productos[j]].cantidad);
+            var column=document.getElementById("producto"+nombre);
+            //alert(column);
             if(contadorCarrito>0)
             var eliminar="carrito"+(contadorCarrito-1);
             else
             var eliminar="carrito"+(contadorCarrito);
-            //alert(eliminar);
-            document.getElementById(eliminar).innerHTML="<b id="+nombre+" data-indice=\""+nombre+"\">Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+carrito[nombre].cantidad+" unidades.<br>Precio total: "+carrito[nombre].precioporcantidad+"€<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
+           // alert(eliminar);
+            column.innerHTML="<b data-indice=\""+sinespacios+"\">Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+carrito[nombre].cantidad+" unidades.<br>Precio total: "+carrito[nombre].precioporcantidad+"€<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
             preciofactura=preciofactura+cantidad*precio;
         
             
@@ -79,18 +82,22 @@ function anadircarrito(nombre,cantidad){
     
     
 function eliminarcarrito(puntero){
-    var a = puntero.parentNode;
-    var td = a.parentNode;
-    var tr = td.parentNode;
+    var a = puntero.parentElement;
+    var b;
+    var tr;
+    contadorCarrito--;
     var producto=document.getElementById(a.id).firstChild.dataset.indice;
+    producto=producto.replace(/-/g," ");
+    b=document.getElementById("producto"+producto);
+    tr=b.parentElement;
+    tr.removeChild(b);
+    //alert(carrito[producto].nombre);
     preciofactura=parseInt(preciofactura-carrito[producto].precioporcantidad);
     var p=document.getElementById('Facturafinal');
     p.innerHTML="El precio total es: "+preciofactura;
-    carrito[producto]=undefined;
-        tr.removeChild(td); 
-        if(contadorCarrito>0)
-        contadorCarrito--;
-        if(contadorCarrito<=0)
+    carrito[producto]=undefined; 
+       
+        if(contadorCarrito<0)
             document.getElementById('Finalizarcompra').style.display='none';
         document.getElementById('Facturafinal');p.innerHTML="El precio total es: "+preciofactura;
     }
