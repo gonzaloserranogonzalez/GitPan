@@ -8,11 +8,11 @@
     var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda","Baguette","Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
     var imgGrandes = ["Rustica1.png","Picos2.png", "Chapata3.jpg","Torta4.jpg","Baguette5.png","Santiago6.jpg", "TresChocolates7.png", "RedVelvet8.png", "CarrotCake9.jpg", "Queso10.jpg", "Atun11.jpg", "Pollo12.jpg", "JamonQueso13.jpg", "Vegana14.jpg", "Bacalao15.jpg"];
     var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos "];
-	var precios = [16, 5,100,20,1, 4,5];
-    var ofertas = [50, 20,10,30,15, 2,4];
+	var precios = [16, 5,100,20,1, 4,5,8,10,11,15,13,14,10,15];
+    var ofertas = [50, 20,10,30,15, 2,4,0,0,0,0,0,0,0,0];
     var preciofactura=0;
     var conoferta=[7];
-    for(var i=0;i<7;i++)
+    for(var i=0;i<precios.length;i++)
         conoferta[i]=precios[i]-precios[i]*ofertas[i]/100;
     var carrito=new Array();
     
@@ -20,7 +20,8 @@ function obtenerNombre(i){
       var contador=0;
         var oferta;
         var auxiliar=i.getAttribute("id");
-        auxiliar=auxiliar[auxiliar.length-1];
+        auxiliar=auxiliar.slice(8);
+       // alert(auxiliar);
         var variable=document.getElementById('headermodal').innerHTML=productos[auxiliar];
         variable=document.getElementById('parrafo2').innerHTML=descripcion[auxiliar];
         oferta="El precio es= "+conoferta[auxiliar]+"€";
@@ -30,27 +31,50 @@ function obtenerNombre(i){
 
   function enviardatos(){
         var carritojson=JSON.stringify(carrito);
+        alert(carritojson);
+        localStorage.setItem("carritodecompra",carrito);
         localStorage.setItem("carritojson",carritojson);
+      
     }
   
 function anadircarrito(nombre,cantidad){
         var j=0;
-      
+        var p;
         for(j;j<productos.length && productos[j]!=nombre;j++);
         var precio=conoferta[j];
+       
         var table=document.getElementById("tablaTotal");
-        var fila=table.insertRow(0);
-        var columna = fila.insertCell(0);
-        columna.id="carrito"+contadorCarrito;
-        columna.className="carrodecompra";
-        columna.innerHTML="<b>Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€";
-        columna.innerHTML+="<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);alert(contadorCarrito);'>Eliminar</a>";
-        carrito[contadorCarrito]= {"nombre": nombre, "cantidad": cantidad, "precioproducto":precio, "precioporcantidad":precio*cantidad};         
-        contadorCarrito++;
-        preciofactura=preciofactura+cantidad*precio;
-        var p=document.getElementById('Facturafinal');p.innerHTML="El precio total es: "+preciofactura;
-         
+        if(carrito[nombre]==undefined){
+            carrito[nombre]={"nombre": productos[j], "cantidad": cantidad, "precioproducto":precio, "precioporcantidad":precio*cantidad};
+            var fila=table.insertRow(0);
+            fila.id="carrito"+contadorCarrito;
+            var columna = fila.insertCell(0);
+            columna.id="producto"+contadorCarrito;
+            columna.className="carrodecompra";
+            columna.innerHTML+="<b id="+nombre+" data-indice=\""+nombre+"\">Producto: "+productos[j]+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€";
+            columna.innerHTML+="<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
+            contadorCarrito++;
+            preciofactura=preciofactura + cantidad*precio;
+             
+        }
+        else   {
+            carrito[nombre].cantidad=parseInt(carrito[nombre].cantidad)+parseInt(cantidad);
+            carrito[nombre].precioporcantidad=parseInt(precio*carrito[productos[j]].cantidad);
+            if(contadorCarrito>0)
+            var eliminar="carrito"+(contadorCarrito-1);
+            else
+            var eliminar="carrito"+(contadorCarrito);
+            //alert(eliminar);
+            document.getElementById(eliminar).innerHTML="<b id="+nombre+" data-indice=\""+nombre+"\">Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+carrito[nombre].cantidad+" unidades.<br>Precio total: "+carrito[nombre].precioporcantidad+"€<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
+            preciofactura=preciofactura+cantidad*precio;
         
+            
+        }
+        
+         p=document.getElementById('Facturafinal');
+        if(preciofactura<0)
+            preciofactura=0;
+         p.innerHTML="El precio total es: "+preciofactura;
     }
     
     
@@ -58,10 +82,17 @@ function eliminarcarrito(puntero){
     var a = puntero.parentNode;
     var td = a.parentNode;
     var tr = td.parentNode;
-    tr.removeChild(td);   
-    contadorCarrito--;
-    if(contadorCarrito<=0)
-        document.getElementById('Finalizarcompra').style.display='none';
+    var producto=document.getElementById(a.id).firstChild.dataset.indice;
+    preciofactura=parseInt(preciofactura-carrito[producto].precioporcantidad);
+    var p=document.getElementById('Facturafinal');
+    p.innerHTML="El precio total es: "+preciofactura;
+    carrito[producto]=undefined;
+        tr.removeChild(td); 
+        if(contadorCarrito>0)
+        contadorCarrito--;
+        if(contadorCarrito<=0)
+            document.getElementById('Finalizarcompra').style.display='none';
+        document.getElementById('Facturafinal');p.innerHTML="El precio total es: "+preciofactura;
     }
      
  </script>
@@ -74,10 +105,18 @@ function eliminarcarrito(puntero){
     for(i in productos){    
         aux=parseInt(i);
         var imagenfinal= "<img class=\"pic-1\" src=\""+imgGrandes[i]+"\" >";
-        imagenfinal=imagenfinal+"<span class=\"product-new-label\">Oferta</span> <span class=\"product-discount-label\">"+ofertas[i]+"%</span>";
+        var sinrebaja="<span class=\"product-new-label\">Oferta</span> <span class=\"product-discount-label\">"+ofertas[i]+"%</span>";
         IMGS[i].innerHTML=imagenfinal;
-        var nombre="<h3 class=\"title\"  data-puntero=\""+i+"\"><a href=\"#openModal\" id=\"Producto"+(aux)+"\" onclick=\" obtenerNombre(this);\">"+productos[i]+"</a></h3>"+"<div class=\"price\">€"+conoferta[i]+"<span>"+precios[i]+"€</span></div>";
+        if(ofertas[i]!=0)
+            IMGS[i].innerHTML=IMGS[i].innerHTML+sinrebaja;
+        var nombre="<h3 class=\"title\"  data-puntero=\""+i+"\"><a href=\"#openModal\" id=\"Producto"+(aux)+"\" onclick=\" obtenerNombre(this);\">"+productos[i]+"</a></h3>";
         PRODUCTOS[i].innerHTML=nombre;
+        var rebaja="<div class=\"price\">€"+conoferta[i]+"<span>"+precios[i]+"€</span></div>";
+        sinrebaja="<div class='price'>€"+precios[i]+"</div>";
+        if(ofertas[i]!=0)
+            PRODUCTOS[i].innerHTML=PRODUCTOS[i].innerHTML+rebaja;
+        else
+            PRODUCTOS[i].innerHTML=PRODUCTOS[i].innerHTML+sinrebaja;
     }
    
     }
@@ -241,9 +280,9 @@ function eliminarcarrito(puntero){
             </div>
             <div class="product-content" id='Contenido1'>
                 <div class="price">$16.00
-                    <span>$20.00</span>
+                    
                 </div>
-                <a class="add-to-cart" href="">+ Add To Cart</a>
+           
             </div>
         </div>
 
@@ -285,14 +324,10 @@ function eliminarcarrito(puntero){
         </div>
         <div class="product-grid" id="Producto15">
             <div class="product-image" id='Imagen15'>
-                <span class="product-new-label">Oferta</span>
-                <span class="product-discount-label">20%</span>
             </div>
             <div class="product-content" id='Contenido1'>
-                <div class="price">$16.00
-                    <span>$20.00</span>
+                <div class="price">
                 </div>
-                <a class="add-to-cart" href="">+ Add To Cart</a>
             </div>
         </div>
     </div>
