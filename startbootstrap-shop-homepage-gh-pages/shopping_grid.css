@@ -99,7 +99,7 @@ transition: opacity 400ms ease-in;
 .container2{
      display:grid;
      grid-template-columns: 32% 32% 32%;
-     grid-template-rows: 400px 400px;
+     grid-template-rows: 400px 400px 400px 400px 400px;
 
 
 }
