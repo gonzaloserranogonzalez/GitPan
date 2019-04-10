@@ -144,9 +144,10 @@ function eliminarcarrito(puntero){
             <p id="precio1" style="font-family: Montserrat"></p>
             </div>
         Cantidad: <input type="number" value="1" min="1" name="cantidades" id="cantidades">
-        <ul style="padding-inline-start:0px;"><button type="button" class="buttonAddtocart" onclick="
+        <a href="#close" onclick="document.getElementById('cantidades').value = 1;"><ul style="padding-inline-start:0px;"><button type="button" class="buttonAddtocart" onclick="
             var comprar=document.getElementById('headermodal').innerHTML;var cantidad=document.getElementById('cantidades');
             anadircarrito(comprar,cantidad.value);if(contadorCarrito>0)document.getElementById('Finalizarcompra').style.display='block';">Añadir al Carrito</button>
+            </a>
             <!--<button type="button" class="buttonAddtocart">     Comprar     </button>--></ul>
 	</div>
    
