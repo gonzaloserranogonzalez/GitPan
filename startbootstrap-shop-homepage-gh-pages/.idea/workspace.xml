@@ -114,8 +114,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eleccion.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="323">
               <caret line="73" column="66" lean-forward="true" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
+=======
+            <state relative-caret-position="493">
+              <caret line="77" column="57" lean-forward="true" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="57" />
+>>>>>>> 2fab8e2fcb78649c81f35d9f22beb01af55de0ba
             </state>
           </provider>
         </entry>
@@ -132,14 +137,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="256">
               <caret line="326" column="1" selection-start-line="326" selection-start-column="1" selection-end-line="326" selection-end-column="1" />
+=======
+            <state relative-caret-position="459">
+              <caret line="148" column="208" selection-start-line="148" selection-start-column="208" selection-end-line="148" selection-end-column="208" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+              </folding>
+>>>>>>> 2fab8e2fcb78649c81f35d9f22beb01af55de0ba
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -147,6 +162,13 @@
         <option value="CSS File" />
       </list>
     </option>
+=======
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>añadir al</find>
+      <find>si quiere</find>
+    </findStrings>
+>>>>>>> 2fab8e2fcb78649c81f35d9f22beb01af55de0ba
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -226,13 +248,21 @@
       <workItem from="1554205025600" duration="2749000" />
       <workItem from="1554375953804" duration="26000" />
       <workItem from="1554981136853" duration="70000" />
+<<<<<<< HEAD
       <workItem from="1554981242490" duration="73000" />
       <workItem from="1554983952208" duration="2295000" />
+=======
+      <workItem from="1554981242490" duration="3309000" />
+>>>>>>> 2fab8e2fcb78649c81f35d9f22beb01af55de0ba
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="5213000" />
+=======
+    <option name="totallyTimeSpent" value="6154000" />
+>>>>>>> 2fab8e2fcb78649c81f35d9f22beb01af55de0ba
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="925" extended-state="6" />
@@ -263,8 +293,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="408">
           <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+=======
+        <state relative-caret-position="493">
+          <caret line="77" column="57" lean-forward="true" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="57" />
+>>>>>>> 2fab8e2fcb78649c81f35d9f22beb01af55de0ba
         </state>
       </provider>
     </entry>
@@ -273,8 +308,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shopping_grid.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="164">
           <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+=======
+        <state relative-caret-position="459">
+          <caret line="148" column="208" selection-start-line="148" selection-start-column="208" selection-end-line="148" selection-end-column="208" />
+>>>>>>> 2fab8e2fcb78649c81f35d9f22beb01af55de0ba
           <folding>
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />

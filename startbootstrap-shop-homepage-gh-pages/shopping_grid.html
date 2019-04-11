@@ -180,7 +180,7 @@ function eliminarcarrito(puntero){
         Cantidad: <input type="number" value="1" min="1" name="cantidades" id="cantidades">
         <a href="#close" onclick="document.getElementById('cantidades').value = 1;"><ul style="padding-inline-start:0px;"><button type="button" class="buttonAddtocart" onclick="
             var comprar=document.getElementById('headermodal').innerHTML;var cantidad=document.getElementById('cantidades');
-            anadircarrito(comprar,cantidad.value);if(contadorCarrito>0)document.getElementById('Finalizarcompra').style.display='block';">Añadir al Carrito</button>
+            anadircarrito(comprar,cantidad.value);if(contadorCarrito>0)document.getElementById('Finalizarcompra').style.display='block';">Añadir al Carrito <img src="MetaforaCarrito.png" width="20" height="20" ></button>
             </a>
             <!--<button type="button" class="buttonAddtocart">     Comprar     </button>--></ul>
 	</div>
@@ -375,7 +375,7 @@ function eliminarcarrito(puntero){
     </div>
 
 <div id="divTotal">
-    <p><b>Carrito de la compra, si quiere hacer alguna modificacion aun esta a tiempo:</b></p>
+    <p align="center"><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></p>
     <table id="tablaTotal" name="factura" style="width:80%; "></table>
     <p id="Facturafinal"></p>
             <a id="Finalizarcompra" style="display:none; font-family:Montserrat" href="destino.html" onclick="enviardatos()">Finalizar Compra</a>
