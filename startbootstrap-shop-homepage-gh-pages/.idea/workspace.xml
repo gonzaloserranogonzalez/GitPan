@@ -2,102 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc7b3571-a6dc-4b28-beba-a7f1125a70b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../login/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../login/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.eot" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.svg" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.woff" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/animated.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/core.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/core.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/font-awesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/icons.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/larger.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/larger.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/list.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/list.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/path.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/path.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/screen-reader.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/less/variables.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_animated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_larger.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_path.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_stacked.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/font-awesome-4.7.0/scss/font-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-Black.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-Black.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-BlackItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-BlackItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-BoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-ExtraBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-ExtraBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-ExtraBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-ExtraBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-ExtraLight.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-ExtraLight.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-ExtraLightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-ExtraLightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-LightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-LightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-Medium.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-MediumItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-MediumItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-SemiBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-SemiBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-SemiBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-SemiBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-Thin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-Thin.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/Montserrat-ThinItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/Montserrat-ThinItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/montserrat/OFL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/montserrat/OFL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-Black.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-Black.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-BlackItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-BlackItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-BoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-ExtraBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-ExtraBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-ExtraBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-ExtraBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-ExtraLight.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-ExtraLight.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-ExtraLightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-ExtraLightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-LightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-LightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-Medium.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-MediumItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-MediumItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-SemiBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-SemiBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-SemiBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-SemiBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-Thin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-Thin.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/poppins/Poppins-ThinItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/poppins/Poppins-ThinItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/UFL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/UFL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/Ubuntu-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/Ubuntu-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/Ubuntu-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/Ubuntu-BoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/Ubuntu-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/Ubuntu-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/Ubuntu-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/Ubuntu-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/Ubuntu-LightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/Ubuntu-LightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/Ubuntu-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/Ubuntu-Medium.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/Ubuntu-MediumItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/Ubuntu-MediumItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/fonts/ubuntu/Ubuntu-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/ubuntu/Ubuntu-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/images/icons/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/images/icons/icon-google.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/icon-google.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/images/icons/map-marker.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/map-marker.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/images/icons/symbol-01.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icons/symbol-01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eleccion.html" beforeDir="false" afterPath="$PROJECT_DIR$/eleccion.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -114,8 +18,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eleccion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="73" column="66" lean-forward="true" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
+            <state relative-caret-position="595">
+              <caret line="94" column="65" selection-start-line="94" selection-start-column="65" selection-end-line="94" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1087">
+              <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -154,7 +67,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,6 +78,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -211,7 +124,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6299000" />
+    <option name="totallyTimeSpent" value="8605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="925" extended-state="6" />
@@ -277,15 +190,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
+        <state relative-caret-position="1087">
           <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eleccion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="73" column="66" lean-forward="true" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
+        <state relative-caret-position="595">
+          <caret line="94" column="65" selection-start-line="94" selection-start-column="65" selection-end-line="94" selection-end-column="65" />
         </state>
       </provider>
     </entry>
