@@ -91,16 +91,14 @@ transition: opacity 400ms ease-in;
 .close:hover { background: #00d9ff; }
 /********************* shopping Demo-1 **********************/
 .container{display: grid;
-    grid-template-columns: 78% 20%;
+    grid-template-columns: 65% 30%;
     grid-column-gap: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    
 }
 .container2{
      display:grid;
-     grid-template-columns: 32% 32% 32%;
-     grid-template-rows: 400px 400px 400px 400px 400px;
-
 
 }
 .product-grid{font-family:Raleway,sans-serif;text-align:center;padding:0 0 72px;border:1px solid rgba(0,0,0,.1);overflow:hidden;position:relative;z-index:1;}
