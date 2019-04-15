@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Login V10</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -27,84 +28,86 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
 </head>
+
 <body>
 
 
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100 p-t-50 p-b-90">
-            <form class="login100-form validate-form flex-sb flex-w">
-					<span class="login100-form-title p-b-51">
-						Bienvenido a PanApp
-						<p> <br> Por favor, introduzca sus datos de acceso </br> </p>
-					</span>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90">
+                <form class="login100-form validate-form flex-sb flex-w">
+                    <span class="login100-form-title p-b-51">
+                        Bienvenido a PanApp
+                        <p> <br> Por favor, introduzca sus datos de acceso </br> </p>
+                    </span>
 
 
-                <div class="wrap-input100 validate-input m-b-16" data-validate = "Introduzca su nombre de usuario">
-                    <input class="input100" type="text" id ="usuario" name="username" placeholder="Nombre de usuario">
-                    <span class="focus-input100"></span>
-                </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Introduzca su nombre de usuario">
+                        <input class="input100" type="text" id="usuario" name="username"
+                            placeholder="Nombre de usuario">
+                        <span class="focus-input100"></span>
+                    </div>
 
 
-                <div class="wrap-input100 validate-input m-b-16" data-validate = "Introduzca su contraseña">
-                    <input class="input100" type="password" id="contraseña" name="pass" placeholder="Contraseña">
-                    <span class="focus-input100"></span>
-                </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Introduzca su contraseña">
+                        <input class="input100" type="password" id="contraseña" name="pass" placeholder="Contraseña">
+                        <span class="focus-input100"></span>
+                    </div>
 
 
-                <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn" onclick="return go()">
-                        Entrar
-                    </button>
+                    <div class="container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn" onclick="return go()">
+                            Entrar
+                        </button>
 
-                </div>
-
-
+                    </div>
 
 
-                <SCRIPT  language=JavaScript>
-                    function go(){
 
-                        //	if (document.form.password.value=='CONTRASEÑA' && document.form.username.value=='USUARIO'){
-                        // document.form.submit();
 
-                        if(document.getElementById("usuario").value == 'pepe' && document.getElementById("contraseña").value == 'b'){
-
-                           // window.location.href="eleccion.html";
-                            window.location="eleccion.html?pepe";
-                            return false;
-                        }
-                        else{
+                    <SCRIPT language=JavaScript>
+                        function go() {
+                            var bdusuarios = ["panadero", "yoel", "santos", "guille", "gonzalo", "eva", "manuel", "luisa", "alexa"];
+                            var bdpassword = ["passpan", "passyoel", "passsantos", "passguille", "passgonzalo", "passeva", "passmanuel", "passluisa", "passalexa"];
+                            //	if (document.form.password.value=='CONTRASEÑA' && document.form.username.value=='USUARIO'){
+                            // document.form.submit();
+                            for (var i = 0; i < bdusuarios.length; i++) {
+                                if (document.getElementById("usuario").value == bdusuarios[i] && document.getElementById("contraseña").value == bdpassword[i]) {
+                                    // window.location.href="eleccion.html";
+                                    window.location = "eleccion.html?" + document.getElementById("usuario").value;
+                                    return false;
+                                }
+                            }
                             alert("Por favor, ingrese nombre de usuario y contraseña correctos.");
                         }
-                    }
-                </SCRIPT>
+                    </SCRIPT>
 
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 
-<!--	<div id="dropDownSelect1"></div> -->
+    <!--	<div id="dropDownSelect1"></div> -->
 
-<!--===============================================================================================-->
-<!--	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>  ESTO ES EL POP-UP DE LOGIN QUE MOLESTA -->
-<!--===============================================================================================-->
-<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-<script src="js/main.js"></script>
+    <!--===============================================================================================-->
+    <!--	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>  ESTO ES EL POP-UP DE LOGIN QUE MOLESTA -->
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>
