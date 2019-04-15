@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial;
+                color: whitesmoke;
+                no-repeat: center center fixed;
+                background-size: cover;
+                -moz-background-size: cover;
+                -webkit-background-size: cover;
+                -o-background-size: cover;
+
+            }
+
+            h1 {
+                height: 90%;
+                text-align: center;
+                display: table;
+                width: 100%;
+            }
+
+            h2 {
+                font-family: Arial;
+                font-size: 2.81em;
+                -webkit-text-stroke-color: black;
+                -webkit-text-stroke-width: 1.5px;
+            }
+
+            .split {
+                height: 100%;
+                width: 50%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                overflow-x: hidden;
+                padding-top: 20px;
+            }
+
+            .left {
+                left: 0;
+                background-color: rgba(195, 178, 153, 0.3);
+            }
+
+            .right {
+                right: 0;
+                background-color: rgba(195, 178, 153, 0.3);
+            }
+
+            .centered {
+                text-align: center;
+            }
+
+            .centered img {
+                width: 350px;
+                height: 250px;
+                border-radius: 50%;
+            }
+
+            .botonizq {
+
+                background: transparent;
+                border: none;
+                font-size: 0;
+                height: 100%;
+                /*Takes all available height*/
+                width: 100%;
+                /*Takes all available width*/
+                position: absolute;
+                border: none;
+                outline: none;
+            }
+
+            .botonder {
+
+                background: transparent;
+                border: none;
+                font-size: 0;
+                height: 100%;
+                /*Takes all available height*/
+                width: 100%;
+                /*Takes all available width*/
+                position: absolute;
+                border: none;
+                outline: none;
+            }
+
+            .col-lg-2 {
+                flex: 0 0 50%
+            }
+
+            .col-md-1 {
+                max-width: 100%
+            }
+
+            .imagen {
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                width: 80%;
+            }
+
+            fondo {
+                width: 100%;
+                height: auto;
+            }
+        </style>
+    </head>
+
+<body background="background.jpg" class="fondo">
+    <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+        <a class="navbar-brand" href="#">PanAPP</a>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item avatar">
+                <a class="nav-link p-0" href="#">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                        alt="avatar image" height="35">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col" onclick="return compradirecta()">
+                <div class="centered">
+
+
+
+                    <img class="imagen" src="ProductoDelDia.jpg" alt="Avatar man" border="3">
+                    <h2>
+                        Productos del día
+                    </h2>
+
+
+                </div>
+            </div>
+            <div class="col" onclick="return compradirecta()">
+                <div class="centered">
+
+
+
+                    <img class="imagen" src="tarta.jpg" alt="Avatar man" border="3">
+                    <h2>
+                        Realizar encargos
+                    </h2>
+
+
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col" onclick="return compradirecta()">
+                <div class="centered">
+
+
+
+                    <img class="imagen" src="ProductoDelDia.jpg" alt="Avatar man" border="3">
+                    <h2>
+                        Productos del día
+                    </h2>
+
+
+                </div>
+            </div>
+            <div class="col" onclick="return compradirecta()">
+                <div class="centered">
+
+
+
+                    <img class="imagen" src="tarta.jpg" alt="Avatar man" border="3">
+                    <h2>
+                        Realizar encargos
+                    </h2>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <SCRIPT language=JavaScript>
+        function compradirecta() {
+            var parameters = location.search.substring(1);
+            window.location.href = "shopping_grid.html?" + parameters;
+        }
+    </SCRIPT>
+
+</body>
+
+</html>
+
+
+</head>
