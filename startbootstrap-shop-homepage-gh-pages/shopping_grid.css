@@ -135,6 +135,9 @@ transition: opacity 400ms ease-in;
  #divTotal{
  background:#378582;
  }
+ a{
+   color: #FFFFFF
+ }
  #divDatos{
  background:#378582;
  }

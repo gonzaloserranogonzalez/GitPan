@@ -6,6 +6,7 @@
                   <meta charset="utf-8">
                   <meta name="viewport" content="width=device-width, initial-scale=1">
                   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+                  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
                   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -86,7 +87,7 @@ function anadircarrito(nombre,cantidad){
             columna.id="producto"+nombre;
             columna.className="carrodecompra";
             columna.innerHTML+="<b  data-indice=\""+sinespacios+"\">Producto: "+productos[j]+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€";
-            columna.innerHTML+="<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
+            columna.innerHTML+="<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'>Eliminar<i class='em em-x'></i></a>";
             contadorCarrito++;
             preciofactura=preciofactura + cantidad*precio;
              
@@ -380,7 +381,7 @@ function eliminarcarrito(puntero){
     <p align="center"><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></p>
     <table id="tablaTotal" name="factura" style="width:80%; "></table>
     <p id="Facturafinal"></p>
-            <a id="Finalizarcompra" style="display:none; font-family:Montserrat" href="destino.html" onclick="enviardatos()">Finalizar Compra</a>
+            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="destino.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
 </div>
 </div>
 
