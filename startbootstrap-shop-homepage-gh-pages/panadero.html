@@ -78,10 +78,19 @@
     function actualizarstock(i){
        var sumar=document.getElementById("stock"+i);
         var suma=document.getElementById("modificarstock"+i);
+        if(parseInt(stock[i])+parseInt(suma.value)>0){
         var total=parseInt(stock[i])+parseInt(suma.value);
         //alert(total);
+
         sumar.innerHTML="<p> El stock es: "+total;
         suma.value=null;
+            stock[i]=total;
+        }
+        else{
+            sumar.innerHTML="<p> El stock es: 0";
+            suma.value=null;
+            stock[i]=0;
+        }
         
         
     }
