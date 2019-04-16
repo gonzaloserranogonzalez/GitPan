@@ -8,25 +8,25 @@
                   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
                   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
                 </head>
-        
+                <div id="myDIV">
                         <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
-                                <a class="navbar-brand" href="#">PanAPP</a>
+                                <a class="navbar-brand" href="eleccionpanadero.html">PanAPP - Administración</a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                                   aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
                                   <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <ul class="navbar-nav">
                                   <li class="nav-item active">
-                                    <a class="nav-link" hrefh="#" onclick="mostrarInventario();">Inventario</a>
+                                    <a class="nav-link" href="#inventario" onclick="mostrarInventario();">Inventario</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#">Recaudacion</a>
+                                    <a class="nav-link" href="#recaudacion">Recaudacion</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#">Agenda reparto</a>
+                                    <a class="nav-link" href="#agenda">Agenda reparto</a>
                                   </li>
                                   <li class="nav-item">
-                                        <a class="nav-link" href="#">Clientes</a>
+                                        <a class="nav-link" href="#clientes">Clientes</a>
                                   </li>
                                 </ul>
                                 <ul class="navbar-nav ml-auto nav-flex-icons">
@@ -38,6 +38,7 @@
                                         </li>
                                       </ul>
                               </nav>
+                  </div>
             <div class="container" id="contenedor">
                 <table id= 'tablainventario' style="margin-top:20px"></table>
             </div> 
@@ -75,23 +76,42 @@
                
         
     }
-    function actualizarstock(i){
-       var sumar=document.getElementById("stock"+i);
-        var suma=document.getElementById("modificarstock"+i);
-        if(parseInt(stock[i])+parseInt(suma.value)>0){
-        var total=parseInt(stock[i])+parseInt(suma.value);
-        //alert(total);
+      function actualizarstock(i) {
+        var sumar = document.getElementById("stock" + i);
+        var suma = document.getElementById("modificarstock" + i);
+        if (parseInt(stock[i]) + parseInt(suma.value) > 0) {
+          var total = parseInt(stock[i]) + parseInt(suma.value);
+          //alert(total);
 
-        sumar.innerHTML="<p> El stock es: "+total;
-        suma.value=null;
-            stock[i]=total;
+          sumar.innerHTML = "<p> El stock es: " + total;
+          suma.value = null;
+          stock[i] = total;
         }
-        else{
-            sumar.innerHTML="<p> El stock es: 0";
-            suma.value=null;
-            stock[i]=0;
+        else {
+          sumar.innerHTML = "<p> El stock es: 0";
+          suma.value = null;
+          stock[i] = 0;
         }
-        
-        
-    }
-</script>
+
+
+      }
+      // Highlight a la pestaña de navbar en la que nos encontramos
+      var header = document.getElementById("myDIV");
+      var btns = header.getElementsByClassName("nav-item");
+      for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function () {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+      var URLactual = location.hash;
+      switch (URLactual){
+        case "#inventario":mostrarInventario();
+        case "#recaudacion":
+        case "#agenda":
+        case "#clientes":
+      }
+
+
+    </script>

@@ -136,7 +136,7 @@
     <br><br>
     <div class="container">
         <div class="row">
-            <div class="col" onclick="return compradirecta()">
+            <div class="col" onclick="window.location.href = 'panadero.html#inventario'">
                 <div class="centered">
 
 
@@ -149,7 +149,7 @@
 
                 </div>
             </div>
-            <div class="col" onclick="return compradirecta()">
+            <div class="col" onclick="window.location.href = 'panadero.html#recaudacion'">
                 <div class="centered">
 
 
@@ -164,9 +164,9 @@
                 </div>
             </div>
         </div>
-        <br>
+        <br> <br>
         <div class="row">
-            <div class="col" onclick="return compradirecta()">
+            <div class="col" onclick="window.location.href = 'panadero.html#agenda'">
                 <div class="centered">
 
 
@@ -179,7 +179,7 @@
 
                 </div>
             </div>
-            <div class="col" onclick="return compradirecta()">
+            <div class="col" onclick="window.location.href = 'panadero.html#clientes'">
                 <div class="centered">
 
 
@@ -196,14 +196,6 @@
         </div>
     </div>
     </div>
-
-
-    <SCRIPT language=JavaScript>
-        function compradirecta() {
-            var parameters = location.search.substring(1);
-            window.location.href = "panadero.html?" + parameters;
-        }
-    </SCRIPT>
 
 </body>
 
