@@ -44,6 +44,9 @@
     var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos "];
 	var precios = [16, 5,100,20,1, 4,5,8,10,11,15,13,14,10,15];
     var ofertas = [50, 20,10,30,15, 2,4,0,0,0,0,0,0,0,0];
+    var stock= [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10];
+    localStorage.setItem("productos",productos);
+    localStorage.setItem("stock",stock);
     var preciofactura=0;
     var conoferta=[7];
     for(var i=0;i<precios.length;i++)
@@ -60,7 +63,7 @@ function obtenerNombre(i){
         variable=document.getElementById('parrafo2').innerHTML=descripcion[auxiliar];
         oferta="El precio es "+conoferta[auxiliar]+"€";
         document.getElementById('precio1').innerHTML=oferta;
-        
+        document.getElementById('precio1').innerHTML+="<br>El stock es: "+stock[auxiliar];
     }
 
   function enviardatos(){
@@ -90,10 +93,12 @@ function anadircarrito(nombre,cantidad){
             columna.innerHTML+="<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'>Eliminar<i class='em em-x'></i></a>";
             contadorCarrito++;
             preciofactura=preciofactura + cantidad*precio;
+            stock[j]-=cantidad;
              
         }
         else   {
             carrito[nombre].cantidad=parseInt(carrito[nombre].cantidad)+parseInt(cantidad);
+            var dif=parseInt(carrito[nombre].cantidad)-parseInt(cantidad);
             carrito[nombre].precioporcantidad=parseInt(precio*carrito[productos[j]].cantidad);
             var column=document.getElementById("producto"+nombre);
             //alert(column);
@@ -104,7 +109,7 @@ function anadircarrito(nombre,cantidad){
            // alert(eliminar);
             column.innerHTML="<b data-indice=\""+sinespacios+"\">Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+carrito[nombre].cantidad+" unidades.<br>Precio total: "+carrito[nombre].precioporcantidad+"€<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
             preciofactura=preciofactura+cantidad*precio;
-        
+            stock[j]-=cantidad;
             
         }
         
