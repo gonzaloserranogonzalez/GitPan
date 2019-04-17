@@ -1,7 +1,58 @@
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script type="application/javascript">
 
+    var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda","Baguette","Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
+
+
+    var bdusuarios = ["panadero", "yoel", "santos", "guille", "gonzalo", "eva", "manuel", "luisa", "alexa"];
+    var bdpassword = ["passpan", "passyoel", "passsantos", "passguille", "passgonzalo", "passeva", "passmanuel", "passluisa", "passalexa"];
+
     var carrito=localStorage.getItem("carrocompra");
-    alert(carrito);
-    
+
+    var carrito2=JSON.parse(localStorage.getItem("carrocompra"));
+
+    console.log(carrito2);
+
+    var compras  = [];
+
+
+  /*  for(var i=0; i<bdusuarios.length; i++) {
+
+        if (compras[bdusuarios[i]] == undefined) {
+            compras[bdusuarios[i]] = {
+                "nombreUsuario": bdusuarios[i],
+                "producto": productos[0],
+
+            }
+        }
+
+    }
+
+
+    console.log(compras);*/
+
+    for(var x=0; x<productos.length; x++)
+    {
+        if(carrito2[0][productos[x]])
+            console.log(carrito2[0][productos[x]].nombre);
+    }
+
+    for(var i=0; i<bdusuarios.length; i++) {
+        for (var x = 0; x < productos.length; x++) {
+            if (carrito2[0][productos[x]]) {
+                //console.log(carrito2[0][productos[x]].nombre);
+                if (compras[productos[x]] == undefined && compras[bdusuarios[i]] == undefined) {
+                    compras[productos[x]] = {
+                        "nombreUsuario": bdusuarios[i],
+                        "producto": productos[x],
+                    }
+                }
+            }
+        }
+    }
+
+    console.log(compras);
+
+
 </script>
