@@ -42,21 +42,41 @@
             <div class="container" id="contenedor">
                 <table id= 'tablainventario' style="margin-top:20px"></table>
             </div> 
+            <link rel="stylesheet" href="panadero.css" />
  </html>
 <script type="text/javascript">
-     var stock, productos,fotos,tabla;
+        
+    window.onload=function(){
+    var URLactual = location.hash;
+      switch (URLactual){
+        case "#inventario":mostrarInventario();
+        case "#recaudacion":
+        case "#agenda":
+        case "#clientes":
+      }
+    
+    }
+     var stock, productos,fotos,tabla,usuarios;
         stock=JSON.parse(localStorage.getItem("stock"));
+        //alert(stock);
         productos=JSON.parse(localStorage.getItem("productos"));
         fotos=JSON.parse(localStorage.getItem("imagenes"));
+        usuarios=JSON.parse(localStorage.getItem("usuarios"));
     function mostrarInventario(){
         
        
-       for(var i=0;i<stock.length;i++)
-           {
-              
                 tabla=document.getElementById('tablainventario');
                 var fila=tabla.insertRow(-1);
                 fila.className="filainventario";
+                var columnainicial=fila.insertCell(-1);
+                columnainicial.className="tablainicial";
+                columnainicial.innerHTML="Nombre de producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir al stock? ";
+        
+        
+       for(var i=0;i<stock.length;i++)
+           {
+                var fila=tabla.insertRow(-1);
+                fila.className="filainventario"
                 var columna=fila.insertCell(-1);
                 columna.innerHTML="<img src="+fotos[i]+" style='margin-top:15px;' class='rounded-rectangle z-depth-0' alt='avatar image' height='100'>";
                 columna=fila.insertCell(-1);
@@ -68,7 +88,7 @@
                columna=fila.insertCell(-1);
                 columna.id="anadirstock"+i;
                document.getElementById('anadirstock'+i).style.paddingLeft="35px";
-                columna.innerHTML+="¿Cuantos productos quiere añadir al stock? <input type='number' min='1' id='modificarstock"+i+"'></input><button type='button' onclick='actualizarstock("+i+");'>Confirmar</button> ";
+                columna.innerHTML+="<input type='number' min='1' id='modificarstock"+i+"'></input><button type='button' onclick='actualizarstock("+i+");'>Confirmar</button> ";
                
                 
                
@@ -105,13 +125,7 @@
           this.className += " active";
         });
       }
-      var URLactual = location.hash;
-      switch (URLactual){
-        case "#inventario":mostrarInventario();
-        case "#recaudacion":
-        case "#agenda":
-        case "#clientes":
-      }
+ 
 
 
     </script>
