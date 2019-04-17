@@ -68,8 +68,11 @@ function obtenerNombre(i){
 
   function enviardatos(){
         var carritofinal=jQuery.makeArray(carrito);
-        var enviar=(JSON.stringify(carritofinal));
-        localStorage.setItem("carrocompra",enviar);
+        var enviarcarrito=(JSON.stringify(carritofinal));
+        localStorage.setItem("producto1","Chapata");
+        localStorage.setItem("costecarrito",preciofactura);
+        localStorage.setItem("numproductos",contadorCarrito);
+        //localStorage.setItem("costecarrito", enviarcarrito) ES EL CARRITO EN FORMA DE ARRAY
       //alert(enviar);
       
     }
@@ -386,7 +389,7 @@ function eliminarcarrito(puntero){
     <p align="center"><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></p>
     <table id="tablaTotal" name="factura" style="width:80%; "></table>
     <p id="Facturafinal"></p>
-            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="destino.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
+            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="C:\GitPan\formulariopago\checkout.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
 </div>
 </div>
 
