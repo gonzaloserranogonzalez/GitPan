@@ -46,6 +46,16 @@
  </html>
 <script type="text/javascript">
         
+    window.onload=function(){
+    var URLactual = location.hash;
+      switch (URLactual){
+        case "#inventario":mostrarInventario();
+        case "#recaudacion":
+        case "#agenda":
+        case "#clientes":
+      }
+    
+    }
      var stock, productos,fotos,tabla,usuarios;
         stock=JSON.parse(localStorage.getItem("stock"));
         //alert(stock);
@@ -115,13 +125,7 @@
           this.className += " active";
         });
       }
-      var URLactual = location.hash;
-      switch (URLactual){
-        case "#inventario":mostrarInventario();
-        case "#recaudacion":
-        case "#agenda":
-        case "#clientes":
-      }
+ 
 
 
     </script>
