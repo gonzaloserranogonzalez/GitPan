@@ -10,9 +10,11 @@
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
                   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                  <script src="scroll-down.js"></script>
                 </head>
-        
-                        <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+<body>
+<section id 	= "arriba">
+                         <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
                                 <a class="navbar-brand" href="#">PanAPP</a>
                                 <ul class="navbar-nav">
                                   <li class="nav-item active">
@@ -34,9 +36,9 @@
                                         </li>
                                       </ul>
                               </nav>
-        <img style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: 40px; width: auto" src="FlechaScroll.png"></img>
-
-"></img>
+</section>
+        <a class='flotante' href="#arriba"  style="width:50px; padding-bottom:65px;"> <img style="display: scroll; position: fixed; bottom: 40px; top: auto; right: 15px; left: auto; height: auto; width: 20px" src="upscrollarrow.png"></img></a>
+        <a class='flotante' href="#section2" style="width:50px;" > <img style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: auto; width: 20px" src="downscrollarrow.png"></img></a>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -55,7 +57,7 @@
     for(var i=0;i<precios.length;i++)
         conoferta[i]=precios[i]-precios[i]*ofertas[i]/100;
     var carrito=new Object();
-    
+
 function obtenerNombre(i){
       var contador=0;
         var oferta;
@@ -74,9 +76,9 @@ function obtenerNombre(i){
         var enviar=(JSON.stringify(carritofinal));
         localStorage.setItem("carrocompra",enviar);
       //alert(enviar);
-      
+
     }
-  
+
 function anadircarrito(nombre,cantidad){
         var j=0;
         var p;
@@ -97,7 +99,7 @@ function anadircarrito(nombre,cantidad){
             contadorCarrito++;
             preciofactura=preciofactura + cantidad*precio;
             stock[j]-=cantidad;
-             
+
         }
         else   {
             carrito[nombre].cantidad=parseInt(carrito[nombre].cantidad)+parseInt(cantidad);
@@ -113,16 +115,16 @@ function anadircarrito(nombre,cantidad){
             column.innerHTML="<b data-indice=\""+sinespacios+"\">Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+carrito[nombre].cantidad+" unidades.<br>Precio total: "+carrito[nombre].precioporcantidad+"€<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
             preciofactura=preciofactura+cantidad*precio;
             stock[j]-=cantidad;
-            
+
         }
-        
+
          p=document.getElementById('Facturafinal');
         if(preciofactura<0)
             preciofactura=0;
          p.innerHTML="El precio total es: "+preciofactura;
     }
-    
-    
+
+
 function eliminarcarrito(puntero){
     var a = puntero.parentElement;
     var b;
@@ -137,13 +139,13 @@ function eliminarcarrito(puntero){
     preciofactura=parseInt(preciofactura-carrito[producto].precioporcantidad);
     var p=document.getElementById('Facturafinal');
     p.innerHTML="El precio total es: "+preciofactura;
-    carrito[producto]=undefined; 
-       
+    carrito[producto]=undefined;
+
         if(contadorCarrito<0)
             document.getElementById('Finalizarcompra').style.display='none';
         document.getElementById('Facturafinal');p.innerHTML="El precio total es: "+preciofactura;
     }
-     
+
  </script>
 
 <script type="text/javascript">
@@ -151,7 +153,7 @@ function eliminarcarrito(puntero){
     window.onload=function(){
     var IMGS=document.getElementsByClassName("product-image");
     var PRODUCTOS=document.getElementsByClassName("product-content");
-    for(i in productos){    
+    for(i in productos){
         aux=parseInt(i);
         var imagenfinal= "<img class=\"pic-1\" src=\""+imgGrandes[i]+"\" >";
         var sinrebaja="<span class=\"product-new-label\">Oferta</span> <span class=\"product-discount-label\">"+ofertas[i]+"%</span>";
@@ -167,7 +169,7 @@ function eliminarcarrito(puntero){
         else
             PRODUCTOS[i].innerHTML=PRODUCTOS[i].innerHTML+sinrebaja;
     }
-   
+
     }
 </script>
 
