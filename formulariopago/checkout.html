@@ -27,18 +27,7 @@
     <!--[if lt IE 9]>
       <link href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie8.min.css" rel="stylesheet">
     <![endif]-->
-    <script type="text/javascript">
-        // var carrito=localStorage.getItem("carrocompra");
-        // alert(carrito);
-        //document.getElementById("costetotal").innerHTML = "4";
-        function showDiv() {
-            document.getElementById('dias').style.display = "block";
 
-        }
-        function hideDiv() {
-            document.getElementById('dias').style.display = "none";
-        }
-    </script>
 </head>
 
 <body>
@@ -70,17 +59,17 @@
                                 <div class="custom-control custom-radio">
                                     <input id="tienda" name="shippingMethod" type="radio" onclick="hideDiv()"
                                         class="custom-control-input" checked required>
-                                    <label class="custom-control-label" for="tienda">Recogida en tienda</label>
+                                    <label class="custom-control-label" for="tienda">Recogida en tienda<p font=" small-caption;">Tus productos están preparados. Ven a recogerlo a nuestra tienda en cualquier momento</p></label>
                                 </div>
                                 <div class="custom-control custom-radio">
                                     <input id="unico" name="shippingMethod" type="radio" onclick="hideDiv()"
                                         class="custom-control-input" required>
-                                    <label class="custom-control-label" for="unico">Envío único</label>
+                                    <label class="custom-control-label" for="unico">Envío único<p font=" small-caption;">Recibirás tu pedido mañana en la dirección asociada a tu cuenta</p></label>
                                 </div>
                                 <div class="custom-control custom-radio">
                                     <input id="reparto" name="shippingMethod" type="radio" value="Show Div"
                                         onclick="showDiv()" class="custom-control-input" required>
-                                    <label class="custom-control-label" for="reparto">Reparto diario</label>
+                                    <label class="custom-control-label" for="reparto">Reparto diario<p font=" small-caption;">Indica los días de la semana que deseas recibir el pedido en la dirección asociada a tu cuenta </p></label>
                                     <div id="dias" style="display:none;" class="answer_list">
                                         <form id="diasform">
                                             <label class="checkbox-inline">
@@ -105,6 +94,7 @@
                                                 <input type="checkbox" value="">Domingo
                                             </label>
                                         </form>
+                                        <input type='button' onclick='window.countdays();' value='Confirmar selección'/>
                                     </div>
                                 </div>
                             </div>
@@ -189,13 +179,43 @@
 
             }
         }
-        document.getElementById("carritoderecha").innerHTML += "<li class='list-group-item d-flex justify-content-between' id='preciofinal'><span>Total</span><strong>" + costecarrito + "€" + "</strong></li>"
+        document.getElementById("carritoderecha").innerHTML += "<li class='list-group-item d-flex justify-content-between' id='preciofinal'><span id='idtotal'>Total</span><strong>" + costecarrito + "€" + "</strong></li>"
+        function showDiv() {
+            document.getElementById('dias').style.display = "block";
+
+        }
+        function hideDiv() {
+            document.getElementById('dias').style.display = "none";
+            document.getElementById("carritoderecha").innerHTML ="";
+            for (var x = 0; x < productos.length; x++) {
+            if (carrito[0][productos[x]]) {
+                console.log(carrito[0][productos[x]].nombre);
+                console.log(carrito[0][productos[x]].cantidad);
+                console.log(carrito[0][productos[x]].precioporcantidad);
+                document.getElementById("carritoderecha").innerHTML += " <li class='list-group-item d-flex justify-content-between lh-condensed'><div><h6 class='my-0'>" + carrito[0][productos[x]].nombre + "</h6><small class='text-muted'>" + "Cantidad: " + carrito[0][productos[x]].cantidad + "</small></div><span class='text-muted'>" + carrito[0][productos[x]].precioporcantidad + "€" + "</span></li>"
+
+            }
+        }
+        document.getElementById("carritoderecha").innerHTML += "<li class='list-group-item d-flex justify-content-between' id='preciofinal'><span id='idtotal'>Total</span><strong>" + costecarrito + "€" + "</strong></li>"
+        }
     </script>
     <script>
+        function countdays(){
+            
+            var diasencargo=document.querySelectorAll('input[type="checkbox"]:checked').length;
+            if(document.getElementById('semanal') ==null){
+            document.getElementById("idtotal").innerHTML += " diario";
+            document.getElementById("carritoderecha").innerHTML += "<li class='list-group-item d-flex justify-content-between' id='semanal'><span id='idtotalsemanal'>Total semanal</span><strong id=costexdias>" + costecarrito*diasencargo + "€" + "</strong></li>"
+            }
+            else{
+                document.getElementById("costexdias").innerHTML = costecarrito*diasencargo + "€" ;
+            }
+        }
+        
         function printbill(){
             var factura=document.getElementById("factura").innerHTML;
-            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Factura #928481</p>"+factura+"<br><p>"+"Cliente 1"+"<br>"+"Tipo de entrega:"+"<br>"+"Tipo de pago:"+"</p></div></body></html>";
-            window.print();
+            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Ticket #928481</p>"+factura+"<br><p>"+"Cliente 1"+"<br>"+"Tipo de entrega:"+"<br>"+"Tipo de pago:"+"</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/></div></body></html>";
+            //window.print();
         }
     </script>
 </body>
