@@ -77,6 +77,8 @@ body{
                             var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda","Baguette","Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
                             var stock= [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10];
                             var imgGrandes = ["Rustica1.png","Picos2.png", "Chapata3.jpg","Torta4.jpg","Baguette5.png","Santiago6.jpg", "TresChocolates7.png", "RedVelvet8.png", "CarrotCake9.jpg", "Queso10.jpg", "Atun11.jpg", "Pollo12.jpg", "JamonQueso13.jpg", "Vegana14.jpg", "Bacalao15.jpg"];
+                             var elpedido=0;
+                            localStorage.setItem("pedidos",elpedido);
                             localStorage.setItem("productos",JSON.stringify(productos));
                             localStorage.setItem("stock",JSON.stringify(stock));
                             localStorage.setItem("imagenes",JSON.stringify(imgGrandes));
@@ -91,9 +93,11 @@ body{
                                         
                                         window.location="eleccionpanadero.html";}
                                     // window.location.href="eleccion.html";
-                                   else    
+                                   else{    
                                     window.location = "eleccion.html?" + document.getElementById("usuario").value;
+                                    localStorage.setItem("usuarioactual",bdusuarios[i]);
                                     return false;
+                                   }
                                 }
                             }
                             alert("Por favor, ingrese nombre de usuario y contraseña correctos.");

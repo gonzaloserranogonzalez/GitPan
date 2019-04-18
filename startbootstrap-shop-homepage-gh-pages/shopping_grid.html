@@ -49,6 +49,8 @@
     var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos "];
 	var precios = [16, 5,100,20,1, 4,5,8,10,11,15,13,14,10,15];
     var ofertas = [50, 20,10,30,15, 2,4,0,0,0,0,0,0,0,0];
+    var pedidoactual=new Array();
+  
     var stock= [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10];
     localStorage.setItem("productos",productos);
     localStorage.setItem("stock",stock);
@@ -78,6 +80,9 @@ function obtenerNombre(i){
         localStorage.setItem("costecarrito",preciofactura);
         localStorage.setItem("numproductos",contadorCarrito);
         localStorage.setItem("carrito", enviarcarrito) //ES EL CARRITO EN FORMA DE ARRAY
+        var a=localStorage.getItem("pedidos");
+        pedidoactual[a]=carrito;
+        localStorage.setItem("pedidoactual",pedidoactual);
       //alert(enviar);
 
     }
@@ -154,8 +159,10 @@ function eliminarcarrito(puntero){
 <script type="text/javascript">
     var aux;
     window.onload=function(){
+
     var IMGS=document.getElementsByClassName("product-image");
     var PRODUCTOS=document.getElementsByClassName("product-content");
+       
     for(i in productos){
         aux=parseInt(i);
         var imagenfinal= "<img class=\"pic-1\" src=\""+imgGrandes[i]+"\" >";
@@ -398,7 +405,7 @@ function eliminarcarrito(puntero){
     <p align="center"><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></p>
     <table id="tablaTotal" name="factura" style="width:80%; "></table>
     <p id="Facturafinal"></p>
-            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="C:\GitPan\formulariopago\checkout.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
+            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="formulariopago\checkout.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
 </div>
 </div>
 
