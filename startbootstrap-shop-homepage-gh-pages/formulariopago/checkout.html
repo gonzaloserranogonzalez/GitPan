@@ -135,7 +135,7 @@
                             <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-expiration">Fecha de vencimiento</label>
-                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required="required">
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
                                     <div class="invalid-feedback">
                                         Fecha de vencimiento necesario
                                     </div>
@@ -143,7 +143,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-expiration">CVV</label>
                                     <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                                    <div class="invalid-feedback" style="width: 100%;">
+                                    <div class="invalid-feedback">
                                         Codigo de seguridad necesario
                                     </div>
                                 </div>
@@ -253,8 +253,8 @@
                 }
             }
             var factura=document.getElementById("factura").innerHTML;
-        
-            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Ticket #928481</p>"+factura+"<br><p>"+"Cliente "+ usuarioactual +"<br>"+"Tipo de entrega:"+ tipoentrega +"<br>"+"Tipo de pago: "+ tipopago+ "</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/></div></body></html>";
+            var nFactura=Math.floor(Math.random() * 10000000)+100000;
+            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Ticket #"+nFactura+"</p>"+factura+"<br><p>"+"Cliente "+ usuarioactual +"<br>"+"Tipo de entrega:"+ tipoentrega +"<br>"+"Tipo de pago: "+ tipopago+ "</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/></div></body></html>";
             //window.print();
         }
     </script>
