@@ -21,7 +21,7 @@
                                     <a class="nav-link" href="#inventario" onclick="mostrarInventario();">Inventario</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#recaudacion">Recaudacion</a>
+                                    <a class="nav-link" href="#recaudacion" onclick="mostrarRecaudacion();">Recaudacion</a>
                                   </li>
                                   <li class="nav-item">
                                     <a class="nav-link" href="#agenda">Agenda reparto</a>
@@ -70,7 +70,8 @@
      
     function mostrarInventario(){
         
-       
+                var a=document.getElementById("contenedor");
+                a.innerHTML="<table id='tablainventario' style='margin-top:20px;'></table>";
                 tabla=document.getElementById('tablainventario');
                 var fila=tabla.insertRow(-1);
                 fila.className="filainventario";
