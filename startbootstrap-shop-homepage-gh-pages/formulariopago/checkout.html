@@ -57,41 +57,41 @@
 
                             <div class="d-block my-3">
                                 <div class="custom-control custom-radio">
-                                    <input id="tienda" name="shippingMethod" type="radio" onclick="hideDiv()"
+                                    <input id="tienda" name="shippingMethod" type="radio" onclick="hideDiv('Recogida en tienda')"
                                         class="custom-control-input" checked required>
                                     <label class="custom-control-label" for="tienda">Recogida en tienda<p font=" small-caption;">Tus productos están preparados. Ven a recogerlo a nuestra tienda en cualquier momento</p></label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input id="unico" name="shippingMethod" type="radio" onclick="hideDiv()"
+                                    <input id="unico" name="shippingMethod" type="radio" onclick="hideDiv('Envío único')"
                                         class="custom-control-input" required>
                                     <label class="custom-control-label" for="unico">Envío único<p font=" small-caption;">Recibirás tu pedido mañana en la dirección asociada a tu cuenta</p></label>
                                 </div>
                                 <div class="custom-control custom-radio">
                                     <input id="reparto" name="shippingMethod" type="radio" value="Show Div"
-                                        onclick="showDiv()" class="custom-control-input" required>
+                                        onclick="showDiv('Reparto diario')" class="custom-control-input" required>
                                     <label class="custom-control-label" for="reparto">Reparto diario<p font=" small-caption;">Indica los días de la semana que deseas recibir el pedido en la dirección asociada a tu cuenta </p></label>
                                     <div id="dias" style="display:none;" class="answer_list">
                                         <form id="diasform">
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Lunes
+                                                <input type="checkbox" class="checks" value="Lunes">Lunes
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Martes
+                                                <input type="checkbox" class="checks" value="Martes">Martes
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Miercoles
+                                                <input type="checkbox" class="checks" value="Miercoles">Miercoles
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Jueves
+                                                <input type="checkbox" class="checks" value="Jueves">Jueves
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Viernes
+                                                <input type="checkbox" class="checks" value="Viernes">Viernes
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Sabado
+                                                <input type="checkbox" class="checks" value="Sabado">Sabado
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Domingo
+                                                <input type="checkbox" class="checks" value="Domingo">Domingo
                                             </label>
                                         </form>
                                         <input type='button' onclick='window.countdays();' value='Confirmar selección'/>
@@ -105,13 +105,13 @@
                             <div class="d-block my-3">
                                 <div class="custom-control custom-radio">
                                     <input id="credit" name="paymentMethod" type="radio" class="custom-control-input"
-                                        checked required>
+                                        checked required onclick="tipopagofuncion('Tarjeta de crédito')">
                                     <label class="custom-control-label" for="credit">Tarjeta de crédito <img
                                             src="img/credit.png" width="184" height="35"></label>
                                 </div>
                                 <div class="custom-control custom-radio">
                                     <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input"
-                                        required>
+                                        required onclick="tipopagofuncion('PayPal')">
                                     <label class="custom-control-label" for="paypal"><img src="img/paypal.png"
                                             width="80" height="80"></label>
                                 </div>
@@ -135,7 +135,7 @@
                             <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-expiration">Fecha de vencimiento</label>
-                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required="required">
                                     <div class="invalid-feedback">
                                         Fecha de vencimiento necesario
                                     </div>
@@ -143,7 +143,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-expiration">CVV</label>
                                     <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                                    <div class="invalid-feedback">
+                                    <div class="invalid-feedback" style="width: 100%;">
                                         Codigo de seguridad necesario
                                     </div>
                                 </div>
@@ -170,6 +170,8 @@
         var numproductos = localStorage.getItem("numproductos");
         document.getElementById("numproductos").innerHTML = numproductos;
         var carrito = JSON.parse(localStorage.getItem("carrito"));
+        var tipopago="Tarjeta de credito";
+        var tipoentrega="Recogida en tienda";
         for (var x = 0; x < productos.length; x++) {
             if (carrito[0][productos[x]]) {
                 //console.log(carrito[0][productos[x]].nombre);
@@ -180,11 +182,13 @@
             }
         }
         document.getElementById("carritoderecha").innerHTML += "<li class='list-group-item d-flex justify-content-between' id='preciofinal'><span id='idtotal'>Total</span><strong>" + costecarrito + "€" + "</strong></li>"
-        function showDiv() {
+        function showDiv(tipo) {
             document.getElementById('dias').style.display = "block";
+            tipoentrega=tipo;
 
         }
-        function hideDiv() {
+        function hideDiv(tipo) {
+            tipoentrega=tipo;
             document.getElementById('dias').style.display = "none";
             document.getElementById("carritoderecha").innerHTML ="";
             for (var x = 0; x < productos.length; x++) {
@@ -198,10 +202,21 @@
         }
         document.getElementById("carritoderecha").innerHTML += "<li class='list-group-item d-flex justify-content-between' id='preciofinal'><span id='idtotal'>Total</span><strong>" + costecarrito + "€" + "</strong></li>"
         }
-    </script>
-    <script>
+
+
+        function tipopagofuncion(tipo){
+            tipopago=tipo;
+        }
+
         function countdays(){
-            
+            var checks = document.getElementsByClassName('checks');
+            tipoentrega=" Reparto semanal los dias: ";
+            for(var i=0;i<7;i++){
+                if(checks[i].checked===true){
+                    tipoentrega += checks[i].value + " ";
+                }
+            }    
+
             var diasencargo=document.querySelectorAll('input[type="checkbox"]:checked').length;
             if(document.getElementById('semanal') ==null){
             document.getElementById("idtotal").innerHTML += " diario";
@@ -239,7 +254,7 @@
             }
             var factura=document.getElementById("factura").innerHTML;
         
-            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Ticket #928481</p>"+factura+"<br><p>"+"Cliente 1"+"<br>"+"Tipo de entrega:"+"<br>"+"Tipo de pago:"+"</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/></div></body></html>";
+            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Ticket #928481</p>"+factura+"<br><p>"+"Cliente "+ usuarioactual +"<br>"+"Tipo de entrega:"+ tipoentrega +"<br>"+"Tipo de pago: "+ tipopago+ "</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/></div></body></html>";
             //window.print();
         }
     </script>
