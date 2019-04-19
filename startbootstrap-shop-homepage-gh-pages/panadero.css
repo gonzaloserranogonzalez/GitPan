@@ -4,3 +4,23 @@
     font-weight: bold;
     
 }
+.contenedor2{
+    
+    display: grid;
+    grid-template-columns: 20% 70%;
+    grid-column-gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+
+}
+.numpedidos{
+    
+    
+    margin-left:40px;
+    align-content: center;
+}
+.nombre{
+    font-weight: bold;
+    width:30px;
+}

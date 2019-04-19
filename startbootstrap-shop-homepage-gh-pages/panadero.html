@@ -49,23 +49,25 @@
             <link rel="stylesheet" href="panadero.css" />
  </html>
 <script type="text/javascript">
-        
-    window.onload=function(){
-    var URLactual = location.hash;
-      switch (URLactual){
-        case "#inventario":mostrarInventario();
-        case "#recaudacion":
-        case "#agenda":
-        case "#clientes":
-      }
-    
-    }
-     var stock, productos,fotos,tabla,usuarios;
+         var stock, productos,fotos,tabla,usuarios;
         stock=JSON.parse(localStorage.getItem("stock"));
         //alert(stock);
         productos=JSON.parse(localStorage.getItem("productos"));
         fotos=JSON.parse(localStorage.getItem("imagenes"));
         usuarios=JSON.parse(localStorage.getItem("usuarios"));
+    window.onload=function(){
+       
+       // alert(usuarios);
+    var URLactual = location.hash;
+      switch (URLactual){
+        case "#inventario":mostrarInventario();break;
+        case "#recaudacion":mostrarRecaudacion();break;
+        case "#agenda":
+        case "#clientes":
+      }
+    
+    }
+     
     function mostrarInventario(){
         
        
@@ -119,6 +121,55 @@
 
 
       }
+    
+    function mostrarRecaudacion(){
+       
+        var a=document.getElementById("contenedor");
+        a.innerHTML="<br>Seleccione el usuario sobre el cual quiere ver información:<br>";
+        for(var i=1;i<usuarios.length;i++){
+             a.innerHTML+="<br><a href='#' id='"+usuarios[i]+"' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>"+usuarios[i]+"</a>";
+             for(var j=0;j<arrayPedidos.length;j++){
+                  var numpedidos=0;
+                for(var z=0;z<arrayPedidos.length;z++){
+                    if(arrayPedidos[j][z]!=null)
+                        numpedidos=numpedidos+1;
+                    
+                }
+                
+              console.log(numpedidos);
+                
+            }
+              a.innerHTML+="<br><a  class='numpedidos'>       Numero de pedidos del usuario: "+numpedidos+"<br></a>";
+           
+    }
+
+}
+    
+function mostrarcompracliente( login){
+    var a=document.getElementById("contenedor");
+    var comprausuario=0;
+    //console.log(arrayPedidos[0][0][0][productos[6]].nombre);
+    a.innerHTML="<br><br> Usuario: "+login;
+    var i=0;
+    for(;i<usuarios.length && usuarios[i]!=login;i++);
+    for(var j=0;arrayPedidos[i][j]!=null;j++){
+         var precioporpedido=0;
+        a.innerHTML+="<br>Pedido numero "+j+":<br>";
+        console.log(arrayPedidos[i][j][0]);
+        for(var z=0;z<productos.length ;z++){
+            if(arrayPedidos[i][j][0][productos[z]]!=null){
+            a.innerHTML+="Producto: "+arrayPedidos[i][j][0][productos[z]].nombre;
+            a.innerHTML+="   Cantidad: "+arrayPedidos[i][j][0][productos[z]].cantidad;
+            a.innerHTML+="   Precio del producto: "+arrayPedidos[i][j][0][productos[z]].precioproducto;
+            a.innerHTML+="   Precio total por producto: "+arrayPedidos[i][j][0][productos[z]].precioporcantidad+"<br>";
+            precioporpedido+=arrayPedidos[i][j][0][productos[z]].precioporcantidad;
+            }
+        }
+        a.innerHTML+="Precio total pedido "+j+": "+precioporpedido+"<br>";
+        comprausuario+=precioporpedido;
+    }
+    a.innerHTML+="<br><br> El usuario "+usuarios[i]+" ha aportado a PanAPP: "+comprausuario;
+}
       // Highlight a la pestaña de navbar en la que nos encontramos
       var header = document.getElementById("myDIV");
       var btns = header.getElementsByClassName("nav-item");
