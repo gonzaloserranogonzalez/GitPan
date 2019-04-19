@@ -165,29 +165,18 @@
     <script src="dist/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/main.min.js"></script>
     <script>
-        var usuario="santos";
-        var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda","Baguette","Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
+        var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda", "Baguette", "Tarta de Santiago", "Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
         var costecarrito = localStorage.getItem("costecarrito");
-        var pedidos=new Object();
-        var prueba=new Array();
-        var elpedido=(localStorage.getItem("pedidos"));
-        //alert(elpedido);
         var numproductos = localStorage.getItem("numproductos");
         document.getElementById("numproductos").innerHTML = numproductos;
-        var cont=0;
-        var pedidoactual = (localStorage.getItem("pedidoactual"));
-        //console.log(pedidoactual);
-        //alert(pedidoactual);
         var carrito = JSON.parse(localStorage.getItem("carrito"));
         for (var x = 0; x < productos.length; x++) {
             if (carrito[0][productos[x]]) {
                 //console.log(carrito[0][productos[x]].nombre);
                 //console.log(carrito[0][productos[x]].cantidad);
                 //console.log(carrito[0][productos[x]].precioporcantidad);
-                document.getElementById("carritoderecha").innerHTML += " <li class='list-group-item d-flex justify-content-between lh-condensed'><div><h6 class='my-0'>" + carrito[0][productos[x]].nombre + "</h6><small class='text-muted'>" + "Cantidad: " + carrito[0][productos[x]].cantidad + "</small></div><span class='text-muted'>" + carrito[0][productos[x]].precioporcantidad + "€" + "</span></li>";
-                pedidoactual[cont]=carrito[0][productos[x]];
-                cont++;
-              
+                document.getElementById("carritoderecha").innerHTML += " <li class='list-group-item d-flex justify-content-between lh-condensed'><div><h6 class='my-0'>" + carrito[0][productos[x]].nombre + "</h6><small class='text-muted'>" + "Cantidad: " + carrito[0][productos[x]].cantidad + "</small></div><span class='text-muted'>" + carrito[0][productos[x]].precioporcantidad + "€" + "</span></li>"
+
             }
         }
         document.getElementById("carritoderecha").innerHTML += "<li class='list-group-item d-flex justify-content-between' id='preciofinal'><span id='idtotal'>Total</span><strong>" + costecarrito + "€" + "</strong></li>"
@@ -204,7 +193,6 @@
                 console.log(carrito[0][productos[x]].cantidad);
                 console.log(carrito[0][productos[x]].precioporcantidad);
                 document.getElementById("carritoderecha").innerHTML += " <li class='list-group-item d-flex justify-content-between lh-condensed'><div><h6 class='my-0'>" + carrito[0][productos[x]].nombre + "</h6><small class='text-muted'>" + "Cantidad: " + carrito[0][productos[x]].cantidad + "</small></div><span class='text-muted'>" + carrito[0][productos[x]].precioporcantidad + "€" + "</span></li>"
-              
 
             }
         }
@@ -225,29 +213,34 @@
         }
         
         function printbill(){
-            var factura=document.getElementById("factura").innerHTML;
-            prueba[elpedido]=pedidoactual;
-           // alert(pedidoactual);
-            if(pedidos[usuario]==null){
-                pedidos[usuario]=prueba;
-                elpedido=(localStorage.getItem("pedidos"));
-                elpedido++;
-                localStorage.setItem("pedidos",elpedido);
-                localStorage.setItem("pedidoactual",pedidoactual);
+            var usuarioactual=localStorage.getItem("usuarioactual");
+            //var pedidoprueba=localStorage.getItem("carrito");
+            //pedidoprueba=JSON.parse(pedidoprueba);
+            console.log("Usuario actual",usuarioactual);
+            var arrayPedidos= new Array(4);
+            for (var i = 0; i < 10; i++) {
+            arrayPedidos[i] = new Array(2);
             }
-            else
-                {    elpedido=(localStorage.getItem("pedidos"));
-                     pedidos[usuario]=prueba; 
-                     elpedido++;
-                     localStorage.setItem("pedidos",elpedido);
-                     localStorage.setItem("pedidoactual",pedidoactual);
+            //arrayPedidos[0][0]="Usuario 0 Pedido 1";
+            //arrayPedidos[0][1]="Usuario 0 Pedido 2";
+            //arrayPedidos[1][0]="Usuario 1 Pedido 1";
+            //arrayPedidos[3][1]=pedidoprueba;
+            //alert(localStorage.getItem("carrito"));
+            for (var j = 0; j < 10; j++) {
+            if(arrayPedidos[usuarioactual][j] === undefined){
+                arrayPedidos[usuarioactual][j]=carrito;
+                break;
                 }
-            console.log(pedidos[usuario]);
-            console.log(prueba);
-            console.log(pedidoactual);
+            }
+            for(var i=0; i<10;i++){
+                for(var j=0;j<10;j++){
+                console.log("arrayBidimensional["+i+"]["+j+"]:",arrayPedidos[i][j]);
+                }
+            }
+            var factura=document.getElementById("factura").innerHTML;
+        
             document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Ticket #928481</p>"+factura+"<br><p>"+"Cliente 1"+"<br>"+"Tipo de entrega:"+"<br>"+"Tipo de pago:"+"</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/></div></body></html>";
             //window.print();
-            document.body.innerHTML+="<a href='../shopping_grid.html'>Hola</a>"
         }
     </script>
 </body>
