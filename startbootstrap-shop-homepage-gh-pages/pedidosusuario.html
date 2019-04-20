@@ -79,9 +79,7 @@
                     }
                     console.log(arrayPedidos[usuarioactual][i][0][productos[j]]);
                     document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1'>Pedido diario "+contador+"</h5></div><p class='mb-1'>" + productos[j] + "</p><p class='mb-1'> Cantidad: " + cantidad + " unidades</p><p class='mb-1'> Coste diario: " + costediario+ "€</p><p class='mb-1'>" + stringDiario + "</p></a>";
-                    if(dias === undefined){
-                        stringDiario="Lo recibes en tu dirección cada: "
-                    }
+                    stringDiario="Lo recibes en tu dirección cada: ";
                 }
             }
         }
