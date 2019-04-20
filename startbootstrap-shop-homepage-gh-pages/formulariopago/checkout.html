@@ -172,6 +172,7 @@
         var carrito = JSON.parse(localStorage.getItem("carrito"));
         var tipopago="Tarjeta de credito";
         var tipoentrega="Recogida en tienda";
+        var dias=",\"dias\":";
         for (var x = 0; x < productos.length; x++) {
             if (carrito[0][productos[x]]) {
                 //console.log(carrito[0][productos[x]].nombre);
@@ -210,13 +211,16 @@
 
         function countdays(){
             var checks = document.getElementsByClassName('checks');
+            var days = "\"";
             tipoentrega=" Reparto semanal los dias: ";
             for(var i=0;i<7;i++){
                 if(checks[i].checked===true){
                     tipoentrega += checks[i].value + " ";
+                    days += checks[i].value + " ";
                 }
             }    
-
+            days += "\"";
+            dias += days;
             var diasencargo=document.querySelectorAll('input[type="checkbox"]:checked').length;
             if(document.getElementById('semanal') ==null){
             document.getElementById("idtotal").innerHTML += " diario";
@@ -226,12 +230,21 @@
                 document.getElementById("costexdias").innerHTML = costecarrito*diasencargo + "€" ;
             }
         }
-        
+        function adddays(stringbuscar, dias){
+            var n = stringbuscar.search(",");
+            console.log("Posicion de la coma",n);
+
+            var output = stringbuscar.substr(0, n) + dias + stringbuscar.substr(n);
+            console.log("Nueva salida:", output)
+            return output;
+        }
         function printbill(){
             var usuarioactual=localStorage.getItem("usuarioactual");
-            //var pedidoprueba=localStorage.getItem("carrito");
+            var pedidoprueba=localStorage.getItem("carrito");
+            pedidoprueba=adddays(pedidoprueba, dias);
             //pedidoprueba=JSON.parse(pedidoprueba);
             console.log("Usuario actual",usuarioactual);
+            //alert(pedidoprueba);
             var arrayPedidos= new Array(4);
             for (var i = 0; i < 10; i++) {
             arrayPedidos[i] = new Array(2);

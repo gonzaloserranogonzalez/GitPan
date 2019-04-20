@@ -1,237 +1,241 @@
 <html xmlns="http://www.w3.org/1999/html">
-        <html lang="en">
-                <head>
-                  <meta charset="utf-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1">
-                  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-                </head>
-                <div id="myDIV">
-                    <section id = "arriba">
-                        <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
-                                <a class="navbar-brand" href="eleccionpanadero.html">PanAPP - Administración</a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-                                  aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-                                  <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <ul class="navbar-nav">
-                                  <li class="nav-item active">
-                                    <a class="nav-link" href="#inventario" onclick="mostrarInventario();">Inventario</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#recaudacion" onclick="mostrarRecaudacion();">Recaudacion</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#agenda">Agenda reparto</a>
-                                  </li>
-                                  <li class="nav-item">
-                                        <a class="nav-link" href="#clientes">Clientes</a>
-                                  </li>
-                                </ul>
-                                <ul class="navbar-nav ml-auto nav-flex-icons">
-                                        <li class="nav-item avatar">
-                                          <a class="nav-link p-0" href="#">
-                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                                              alt="avatar image" height="35">
-                                          </a>
-                                        </li>
-                                      </ul>
-                              </nav>
-                  </div>
-        </section>
-                <a class='flotante' href="#arriba"  style="width:50px; padding-bottom:65px;"> <img style="display: scroll; position: fixed; bottom: 40px; top: auto; right: 15px; left: auto; height: auto; width: 20px" src="upscrollarrow.png"></img></a>
-                <img style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: auto; width: 20px" src="downscrollarrow.png"></img></a>
-            <div class="container" id="contenedor">
-                <table id= 'tablainventario' style="margin-top:20px"></table>
-            </div> 
-            <link rel="stylesheet" href="panadero.css" />
- </html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<div id="myDIV">
+  <section id="arriba">
+    <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+      <a class="navbar-brand" href="eleccionpanadero.html">PanAPP - Administración</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+        aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#inventario" onclick="mostrarInventario();">Inventario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#recaudacion" onclick="mostrarRecaudacion();">Recaudacion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#agenda">Agenda reparto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#clientes">Clientes</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item avatar">
+          <a class="nav-link p-0" href="#">
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+              alt="avatar image" height="35">
+          </a>
+        </li>
+      </ul>
+    </nav>
+</div>
+</section>
+<a class='flotante' href="#arriba" style="width:50px; padding-bottom:65px;"> <img
+    style="display: scroll; position: fixed; bottom: 40px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
+    src="upscrollarrow.png"></img></a>
+<img
+  style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
+  src="downscrollarrow.png"></img></a>
+<div class="container" id="contenedor">
+  <table id='tablainventario' style="margin-top:20px"></table>
+</div>
+<link rel="stylesheet" href="panadero.css" />
+
+</html>
 <script type="text/javascript">
-         var stock, productos,fotos,tabla,usuarios;
-        stock=JSON.parse(localStorage.getItem("stock"));
-        //alert(stock);
-        productos=JSON.parse(localStorage.getItem("productos"));
-        fotos=JSON.parse(localStorage.getItem("imagenes"));
-        usuarios=JSON.parse(localStorage.getItem("usuarios"));
-    window.onload=function(){
-       
-       // alert(usuarios);
+  var stock, productos, fotos, tabla, usuarios;
+  stock = JSON.parse(localStorage.getItem("stock"));
+  //alert(stock);
+  productos = JSON.parse(localStorage.getItem("productos"));
+  fotos = JSON.parse(localStorage.getItem("imagenes"));
+  usuarios = JSON.parse(localStorage.getItem("usuarios"));
+  window.onload = function () {
+
+    // alert(usuarios);
     var URLactual = location.hash;
-      switch (URLactual){
-        case "#inventario":mostrarInventario();break;
-        case "#recaudacion":mostrarRecaudacion();break;
-        case "#agenda":
-        case "#clientes":
-      }
-    
+    switch (URLactual) {
+      case "#inventario": mostrarInventario(); break;
+      case "#recaudacion": mostrarRecaudacion(); break;
+      case "#agenda":
+      case "#clientes":
     }
-     
-    function mostrarInventario(){
-        
-                var a=document.getElementById("contenedor");
-                a.innerHTML="<table id='tablainventario' style='margin-top:20px;'></table>";
-                tabla=document.getElementById('tablainventario');
-                var fila=tabla.insertRow(-1);
-                fila.className="filainventario";
-                var columnainicial=fila.insertCell(-1);
-                columnainicial.className="tablainicial";
-                columnainicial.innerHTML="Nombre de producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir al stock? ";
-        
-        
-       for(var i=0;i<stock.length;i++)
-           {
-                var fila=tabla.insertRow(-1);
-                fila.className="filainventario"
-                var columna=fila.insertCell(-1);
-                columna.innerHTML="<img src="+fotos[i]+" style='margin-top:15px;' class='rounded-rectangle z-depth-0' alt='avatar image' height='100'>";
-                columna=fila.insertCell(-1);
-                columna.innerHTML+="<br><p style:'padding-left:20px; font-family:Montserrat'>"+productos[i]+"</p>";
-                columna=fila.insertCell(-1);
-                columna.id="stock"+i;
-               document.getElementById('stock'+i).style.paddingLeft="35px";
-                columna.innerHTML+="<br><p> El stock es: "+stock[i]+"</p>";
-               columna=fila.insertCell(-1);
-                columna.id="anadirstock"+i;
-               document.getElementById('anadirstock'+i).style.paddingLeft="35px";
-                columna.innerHTML+="<input type='number' min='1' id='modificarstock"+i+"'></input><button type='button' onclick='actualizarstock("+i+");'>Confirmar</button> ";
-               
-                
-               
-           }
-               
-        
-    }
-      function actualizarstock(i) {
-        var sumar = document.getElementById("stock" + i);
-        var suma = document.getElementById("modificarstock" + i);
-        if (parseInt(stock[i]) + parseInt(suma.value) > 0) {
-          var total = parseInt(stock[i]) + parseInt(suma.value);
-          //alert(total);
 
-          sumar.innerHTML = "<p> El stock es: " + total;
-          suma.value = null;
-          stock[i] = total;
+  }
+
+  function mostrarInventario() {
+
+    var a = document.getElementById("contenedor");
+    a.innerHTML = "<table id='tablainventario' style='margin-top:20px;'></table>";
+    tabla = document.getElementById('tablainventario');
+    var fila = tabla.insertRow(-1);
+    fila.className = "filainventario";
+    var columnainicial = fila.insertCell(-1);
+    columnainicial.className = "tablainicial";
+    columnainicial.innerHTML = "Nombre de producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir al stock? ";
+
+
+    for (var i = 0; i < stock.length; i++) {
+      var fila = tabla.insertRow(-1);
+      fila.className = "filainventario"
+      var columna = fila.insertCell(-1);
+      columna.innerHTML = "<img src=" + fotos[i] + " style='margin-top:15px;' class='rounded-rectangle z-depth-0' alt='avatar image' height='100'>";
+      columna = fila.insertCell(-1);
+      columna.innerHTML += "<br><p style:'padding-left:20px; font-family:Montserrat'>" + productos[i] + "</p>";
+      columna = fila.insertCell(-1);
+      columna.id = "stock" + i;
+      document.getElementById('stock' + i).style.paddingLeft = "35px";
+      columna.innerHTML += "<br><p> El stock es: " + stock[i] + "</p>";
+      columna = fila.insertCell(-1);
+      columna.id = "anadirstock" + i;
+      document.getElementById('anadirstock' + i).style.paddingLeft = "35px";
+      columna.innerHTML += "<input type='number' min='1' id='modificarstock" + i + "'></input><button type='button' onclick='actualizarstock(" + i + ");'>Confirmar</button> ";
+
+
+
+    }
+
+
+  }
+  function actualizarstock(i) {
+    var sumar = document.getElementById("stock" + i);
+    var suma = document.getElementById("modificarstock" + i);
+    if (parseInt(stock[i]) + parseInt(suma.value) > 0) {
+      var total = parseInt(stock[i]) + parseInt(suma.value);
+      //alert(total);
+
+      sumar.innerHTML = "<p> El stock es: " + total;
+      suma.value = null;
+      stock[i] = total;
+    }
+    else {
+      sumar.innerHTML = "<p> El stock es: 0";
+      suma.value = null;
+      stock[i] = 0;
+    }
+
+
+  }
+
+  function mostrarRecaudacion() {
+
+    var a = document.getElementById("contenedor");
+    a.innerHTML = "<br>Seleccione el usuario sobre el cual quiere ver información:<br>";
+    for (var i = 1; i < usuarios.length; i++) {
+      a.innerHTML += "<br><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + usuarios[i] + "</a>";
+      for (var j = 0; j < arrayPedidos.length; j++) {
+        var numpedidos = 0;
+        for (var z = 0; z < arrayPedidos.length; z++) {
+          if (arrayPedidos[j][z] != null)
+            numpedidos = numpedidos + 1;
+
         }
-        else {
-          sumar.innerHTML = "<p> El stock es: 0";
-          suma.value = null;
-          stock[i] = 0;
-        }
 
+        console.log(numpedidos);
 
       }
-    
-    function mostrarRecaudacion(){
-       
-        var a=document.getElementById("contenedor");
-        a.innerHTML="<br>Seleccione el usuario sobre el cual quiere ver información:<br>";
-        for(var i=1;i<usuarios.length;i++){
-             a.innerHTML+="<br><a href='#' id='"+usuarios[i]+"' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>"+usuarios[i]+"</a>";
-             for(var j=0;j<arrayPedidos.length;j++){
-                  var numpedidos=0;
-                for(var z=0;z<arrayPedidos.length;z++){
-                    if(arrayPedidos[j][z]!=null)
-                        numpedidos=numpedidos+1;
-                    
-                }
-                
-              console.log(numpedidos);
-                
-            }
-              a.innerHTML+="<br><a  class='numpedidos'>       Numero de pedidos del usuario: "+numpedidos+"<br></a>";
-           
+      a.innerHTML += "<br><a  class='numpedidos'>       Numero de pedidos del usuario: " + numpedidos + "<br></a>";
+
     }
 
-}
-    
-function mostrarcompracliente( login){
-    var a=document.getElementById("contenedor");
-    var comprausuario=0;
+  }
+
+  function mostrarcompracliente(login) {
+    var a = document.getElementById("contenedor");
+    var comprausuario = 0;
     //console.log(arrayPedidos[0][0][0][productos[6]].nombre);
-    a.innerHTML="<br><br> Usuario: "+login;
-    var i=0;
-    for(;i<usuarios.length && usuarios[i]!=login;i++);
-    for(var j=0;arrayPedidos[i][j]!=null;j++){
-         var precioporpedido=0;
-        a.innerHTML+="<br>Pedido numero "+j+":<br>";
-        console.log(arrayPedidos[i][j][0]);
-        for(var z=0;z<productos.length ;z++){
-            if(arrayPedidos[i][j][0][productos[z]]!=null){
-            a.innerHTML+="Producto: "+arrayPedidos[i][j][0][productos[z]].nombre;
-            a.innerHTML+="   Cantidad: "+arrayPedidos[i][j][0][productos[z]].cantidad;
-            a.innerHTML+="   Precio del producto: "+arrayPedidos[i][j][0][productos[z]].precioproducto;
-            a.innerHTML+="   Precio total por producto: "+arrayPedidos[i][j][0][productos[z]].precioporcantidad+"<br>";
-            precioporpedido+=arrayPedidos[i][j][0][productos[z]].precioporcantidad;
-            }
+    a.innerHTML = "<br><br> Usuario: " + login;
+    var i = 0;
+    for (; i < usuarios.length && usuarios[i] != login; i++);
+    for (var j = 0; arrayPedidos[i][j] != null; j++) {
+      var precioporpedido = 0;
+      a.innerHTML += "<br>Pedido numero " + j + ":<br>";
+      console.log(arrayPedidos[i][j][0]);
+      for (var z = 0; z < productos.length; z++) {
+        if (arrayPedidos[i][j][0][productos[z]] != null) {
+          a.innerHTML += "Producto: " + arrayPedidos[i][j][0][productos[z]].nombre;
+          a.innerHTML += "   Cantidad: " + arrayPedidos[i][j][0][productos[z]].cantidad;
+          a.innerHTML += "   Precio del producto: " + arrayPedidos[i][j][0][productos[z]].precioproducto;
+          a.innerHTML += "   Precio total por producto: " + arrayPedidos[i][j][0][productos[z]].precioporcantidad + "<br>";
+          precioporpedido += arrayPedidos[i][j][0][productos[z]].precioporcantidad;
         }
-        a.innerHTML+="Precio total pedido "+j+": "+precioporpedido+"<br>";
-        comprausuario+=precioporpedido;
-    }
-    a.innerHTML+="<br><br> El usuario "+usuarios[i]+" ha aportado a PanAPP: "+comprausuario;
-}
-      // Highlight a la pestaña de navbar en la que nos encontramos
-      var header = document.getElementById("myDIV");
-      var btns = header.getElementsByClassName("nav-item");
-      for (var i = 0; i < btns.length; i++) {
-          btns[i].addEventListener("click", function () {
-          var current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          this.className += " active";
-        });
       }
- 
-
-
-    </script>
-
-
-
-        <SCRIPT>
-
-            var arrayPedidos= new Array(6);
-            for (var i = 0; i < arrayPedidos.length; i++) {
-                arrayPedidos[i] = new Array(2);
-            }
-
-            var pedidoprueba= JSON.parse("[{\"Tarta de tres chocolates\":{\"nombre\":\"Tarta de tres chocolates\",\"cantidad\":\"1\",\"precioproducto\":12,\"precioporcantidad\":12},\"Empanada de pollo\":{\"nombre\":\"Empanada de pollo\",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
-
-            var pedidoprueba2= JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"cantidad\":\"1\",\"precioproducto\":0.9,\"precioporcantidad\":0.9},\"Chapata\":{\"nombre\":\"Chapata\",\"cantidad\":\"1\",\"precioproducto\":1.5,\"precioporcantidad\":1.5}}]");
-            var pedidoprueba3= JSON.parse("[{\"Torta de Aranda\":{\"nombre\":\"Torta de Aranda\",\"cantidad\":\"1\",\"precioproducto\":3.5,\"precioporcantidad\":3.5},\"Baguette\":{\"nombre\":\"Baguette\",\"cantidad\":\"2\",\"precioproducto\":1,\"precioporcantidad\":2}}]");
-            var pedidoprueba4= JSON.parse("[{\"Tarta de queso\":{\"nombre\":\"Tarta de queso\",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Tarta de zanahoria\":{\"nombre\":\"Tarta de zanahoria\",\"cantidad\":\"3\",\"precioproducto\":10,\"precioporcantidad\":30}}]");
-            var pedidoprueba5= JSON.parse("[{\"Empanada vegana\":{\"nombre\":\"Empanada vegana\",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Tarta Red Velvet\":{\"nombre\":\"Tarta Red Velvet\",\"cantidad\":\"1\",\"precioproducto\":12,\"precioporcantidad\":12}}]");
-            var pedidoprueba6= JSON.parse("[{\"Chapata\":{\"nombre\":\"Chapata\",\"cantidad\":\"1\",\"precioproducto\":1.5,\"precioporcantidad\":1.5},\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1},\"Tarta de queso\":{\"nombre\":\"Tarta de queso\",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
-            var pedidoprueba7= JSON.parse("[{\"Tarta de Santiago\":{\"nombre\":\"Tarta de Santiago\",\"cantidad\":\"1\",\"precioproducto\":9.6,\"precioporcantidad\":9.6}}]");
-            var pedidoprueba8= JSON.parse("[{\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1},\"Tarta de Santiago\":{\"nombre\":\"Tarta de Santiago\",\"cantidad\":\"1\",\"precioproducto\":9.6,\"precioporcantidad\":9.6},\"Empanada de atun\":{\"nombre\":\"Empanada de atun\",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
-            var pedidoprueba9= JSON.parse("[{\"Empanada de bacalao\":{\"nombre\":\"Empanada de bacalao\",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Baguette\":{\"nombre\":\"Baguette\",\"cantidad\":\"4\",\"precioproducto\":1,\"precioporcantidad\":4}}]");
-            var pedidoprueba10= JSON.parse("[{\"Tarta Red Velvet\":{\"nombre\":\"Tarta Red Velvet\",\"cantidad\":\"5\",\"precioproducto\":12,\"precioporcantidad\":60}}]");
-            var pedidoprueba11= JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
-            var pedidoprueba12= JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
-
-
-            arrayPedidos[0][0] = pedidoprueba;
-            arrayPedidos[0][1] = pedidoprueba2;
-            arrayPedidos[1][0] = pedidoprueba3;
-            arrayPedidos[1][1] = pedidoprueba4;
-            arrayPedidos[2][0] = pedidoprueba5;
-            arrayPedidos[2][1] = pedidoprueba6;
-            arrayPedidos[3][0] = pedidoprueba7;
-            arrayPedidos[3][1] = pedidoprueba8;
-            arrayPedidos[4][0] = pedidoprueba9;
-            arrayPedidos[4][1] = pedidoprueba10;
-            arrayPedidos[5][0] = pedidoprueba11;
-            arrayPedidos[5][1] = pedidoprueba12;
-
-
-            for(var i=0; i<6;i++){
-                for(var j=0;j<2;j++){
-                    console.log("Array de pedidos:["+i+"]["+j+"]:",arrayPedidos[i][j]);
-                }
-            }
+      a.innerHTML += "Precio total pedido " + j + ": " + precioporpedido + "<br>";
+      comprausuario += precioporpedido;
+    }
+    a.innerHTML += "<br><br> El usuario " + usuarios[i] + " ha aportado a PanAPP: " + comprausuario;
+  }
+  // Highlight a la pestaña de navbar en la que nos encontramos
+  var header = document.getElementById("myDIV");
+  var btns = header.getElementsByClassName("nav-item");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
 
 
 
+</script>
 
 
-        </SCRIPT>
+
+<SCRIPT>
+
+  var arrayPedidos = new Array(10);
+  for (var i = 0; i < arrayPedidos.length; i++) {
+    arrayPedidos[i] = new Array(10);
+  }
+
+  var pedidoprueba = JSON.parse("[{\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Miercoles \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1}}]");
+  var pedidoprueba2 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":0.9,\"precioporcantidad\":0.9},\"Chapata\":{\"nombre\":\"Chapata\",\"dias\":\"Martes Miercoles \",\"cantidad\":\"1\",\"precioproducto\":1.5,\"precioporcantidad\":1.5}}]");
+  var pedidoprueba3 = JSON.parse("[{\"Torta de Aranda\":{\"nombre\":\"Torta de Aranda\",\"dias\":\"Martes Sabado \",\"cantidad\":\"1\",\"precioproducto\":3.5,\"precioporcantidad\":3.5},\"Baguette\":{\"nombre\":\"Baguette\",\"dias\":\"Jueves Domingo \",\"cantidad\":\"2\",\"precioproducto\":1,\"precioporcantidad\":2}}]");
+  var pedidoprueba4 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Sabado \", \"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
+  var pedidoprueba5 = JSON.parse("[{\"Empanada vegana\":{\"nombre\":\"Empanada vegana\", \"dias\":\"Martes Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Tarta Red Velvet\":{\"nombre\":\"Tarta Red Velvet\",\"dias\":\"Miercoles Sabado \",\"cantidad\":\"1\",\"precioproducto\":12,\"precioporcantidad\":12}}]");
+  var pedidoprueba6 = JSON.parse("[{\"Chapata\":{\"nombre\":\"Chapata\",\"dias\":\"Lunes Martes \",\"cantidad\":\"1\",\"precioproducto\":1.5,\"precioporcantidad\":1.5},\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Miercoles Viernes \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1},\"Tarta de queso\":{\"nombre\":\"Tarta de queso\",\"dias\":\"Miercoles Miercoles \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
+  var pedidoprueba7 = JSON.parse("[{\"Tarta de Santiago\":{\"nombre\":\"Tarta de Santiago\",\"dias\":\"Martes Sabado Domingo \",\"cantidad\":\"1\",\"precioproducto\":9.6,\"precioporcantidad\":9.6}}]");
+  var pedidoprueba8 = JSON.parse("[{\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Domingo \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1},\"Tarta de Santiago\":{\"nombre\":\"Tarta de Santiago\",\"dias\":\"Lunes Domingo \",\"cantidad\":\"1\",\"precioproducto\":9.6,\"precioporcantidad\":9.6},\"Empanada de atun\":{\"nombre\":\"Empanada de atun\",\"dias\":\"Viernes Viernes \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
+  var pedidoprueba9 = JSON.parse("[{\"Empanada de bacalao\":{\"nombre\":\"Empanada de bacalao\",\"dias\":\"Lunes Martes Viernes \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Baguette\":{\"nombre\":\"Baguette\",\"dias\":\"Lunes Viernes \",\"cantidad\":\"4\",\"precioproducto\":1,\"precioporcantidad\":4}}]");
+  var pedidoprueba10 = JSON.parse("[{\"Tarta Red Velvet\":{\"nombre\":\"Tarta Red Velvet\",\"dias\":\"Jueves \",\"cantidad\":\"5\",\"precioproducto\":12,\"precioporcantidad\":60}}]");
+  var pedidoprueba11 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Sabado \", \"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
+  var pedidoprueba11 = JSON.parse("[{\"Tarta de queso\":{\"nombre\":\"Tarta de queso\",\"dias\":\"Lunes Sabado \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Tarta de zanahoria\":{\"nombre\":\"Tarta de zanahoria\",\"dias\":\"Martes Jueves \",\"cantidad\":\"3\",\"precioproducto\":10,\"precioporcantidad\":30}}]");
+  var pedidoprueba12 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Martes Domingo \",\"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
+
+  arrayPedidos[1][0] = pedidoprueba3;
+  arrayPedidos[1][1] = pedidoprueba4;
+  arrayPedidos[2][0] = pedidoprueba5;
+  arrayPedidos[2][1] = pedidoprueba6;
+  arrayPedidos[3][0] = pedidoprueba7;
+  arrayPedidos[3][1] = pedidoprueba8;
+  arrayPedidos[4][0] = pedidoprueba9;
+  arrayPedidos[4][1] = pedidoprueba10;
+  arrayPedidos[5][0] = pedidoprueba11;
+  arrayPedidos[5][1] = pedidoprueba12;
+  arrayPedidos[6][0] = pedidoprueba;
+  arrayPedidos[6][1] = pedidoprueba2;
+
+
+  for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 2; j++) {
+      console.log("Array de pedidos:[" + i + "][" + j + "]:", arrayPedidos[i][j]);
+    }
+  }
+
+
+
+
+
+</SCRIPT>
