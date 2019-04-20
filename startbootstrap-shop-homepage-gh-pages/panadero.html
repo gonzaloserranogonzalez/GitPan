@@ -195,9 +195,9 @@
 
 <SCRIPT>
 
-  var arrayPedidos = new Array(10);
+  var arrayPedidos = new Array(6);
   for (var i = 0; i < arrayPedidos.length; i++) {
-    arrayPedidos[i] = new Array(10);
+    arrayPedidos[i] = new Array(2);
   }
 
   var pedidoprueba = JSON.parse("[{\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Miercoles \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1}}]");
@@ -228,7 +228,7 @@
   arrayPedidos[6][1] = pedidoprueba2;
 
 
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 6; i++) {
     for (var j = 0; j < 2; j++) {
       console.log("Array de pedidos:[" + i + "][" + j + "]:", arrayPedidos[i][j]);
     }

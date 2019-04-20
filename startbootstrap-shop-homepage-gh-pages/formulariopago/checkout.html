@@ -240,31 +240,32 @@
         }
         function printbill(){
             var usuarioactual=localStorage.getItem("usuarioactual");
-            var pedidoprueba=localStorage.getItem("carrito");
-            pedidoprueba=adddays(pedidoprueba, dias);
+            var pedidodiario=localStorage.getItem("carrito");
+            if(tipoentrega != "Recogida en tienda" && tipoentrega != "Envío único"){
+            console.log("OK");
+            carrito=JSON.parse(adddays(pedidodiario, dias));
+            }
             //pedidoprueba=JSON.parse(pedidoprueba);
             console.log("Usuario actual",usuarioactual);
-            //alert(pedidoprueba);
-            var arrayPedidos= new Array(4);
-            for (var i = 0; i < 10; i++) {
-            arrayPedidos[i] = new Array(2);
-            }
+            var arrayPedidos = JSON.parse(localStorage.getItem("arrayPedidos"));
             //arrayPedidos[0][0]="Usuario 0 Pedido 1";
             //arrayPedidos[0][1]="Usuario 0 Pedido 2";
             //arrayPedidos[1][0]="Usuario 1 Pedido 1";
             //arrayPedidos[3][1]=pedidoprueba;
             //alert(localStorage.getItem("carrito"));
             for (var j = 0; j < 10; j++) {
-            if(arrayPedidos[usuarioactual][j] === undefined){
+            if(arrayPedidos[usuarioactual][j] === null){
+                //console.log("i:", i, "j:", j);
                 arrayPedidos[usuarioactual][j]=carrito;
+                localStorage.setItem("arrayPedidos", JSON.stringify(arrayPedidos));
                 break;
                 }
             }
             for(var i=0; i<10;i++){
-                for(var j=0;j<10;j++){
+                for(var j=0;j<4;j++){
                 console.log("arrayBidimensional["+i+"]["+j+"]:",arrayPedidos[i][j]);
                 }
-            }
+            } 
             var factura=document.getElementById("factura").innerHTML;
             var nFactura=Math.floor(Math.random() * 10000000)+100000;
             document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Ticket #"+nFactura+"</p>"+factura+"<br><p>"+"Cliente "+ usuarioactual +"<br>"+"Tipo de entrega:"+ tipoentrega +"<br>"+"Tipo de pago: "+ tipopago+ "</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/></div></body></html>";
