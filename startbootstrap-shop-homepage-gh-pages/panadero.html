@@ -71,7 +71,7 @@
     switch (URLactual) {
       case "#inventario": mostrarInventario(); break;
       case "#recaudacion": mostrarRecaudacion(); break;
-      case "#agenda":
+      case "#agenda":mostrarReparto();break;
       case "#clientes":
     }
 
@@ -134,7 +134,7 @@
   function mostrarRecaudacion() {
 
     var a = document.getElementById("contenedor");
-    a.innerHTML = "<br>Seleccione el usuario sobre el cual quiere ver información:<br>";
+    a.innerHTML = "<br><h2>Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
     for (var i = 1; i < usuarios.length; i++) {
       a.innerHTML += "<br><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + usuarios[i] + "</a>";
             var numpedidos = 0;
@@ -185,6 +185,49 @@
     });
   }
 
+    
+    function mostrarReparto(){
+        
+         var a = document.getElementById("contenedor");
+        var diasSemana=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+        var f=new Date();
+        a.innerHTML="<br><h1>Seleccione el dia de la semana en el cual va a repartir:</h1>";
+        a.innerHTML+="<br>Dia actual: "+diasSemana[f.getDay()];
+        a.innerHTML+="<br><select name='OS' id='dias' style='width:30%'><option value='Lunes'>Lunes</option> <option value='Martes'>Martes</option> <option value='Miercoles'>Miercoles</option><option value='Jueves'>Jueves</option> <option value='Viernes'>Viernes</option> <option value='Sabado'>Sabado</option> </select>";
+        a.innerHTML+="<input type='button' value='Comprobar Envíos' onclick='mostrarRepartocondia();'></input>";
+        
+    }
+    
+    
+    function mostrarRepartocondia(){
+        var a = document.getElementById("contenedor");
+        var dia=document.getElementById("dias");
+        var semana=new Array();
+        dia=(dia.options[dia.selectedIndex].value);
+       // alert(typeof(dia));
+        a.innerHTML="<br><h1>Pedidos de PanAPP para el día "+dia+":<br></h1>";
+        for(var i=1;i<usuarios.length;i++){
+           for(var j=0;arrayPedidos[i][j]!=null;j++){
+                       var z=0;
+                for(z ;z<productos.length && arrayPedidos[i][j][0][productos[z]]==null;z++);
+                if(arrayPedidos[i][j][0][productos[z]].dias!=undefined ){
+                    semana=arrayPedidos[i][j][0][productos[z]].dias.split(" ",6);
+                    for(var w=0;w<semana.length;w++){
+                        if(semana[w]==dia){
+                            a.innerHTML+="<br><h3>Pedido del usuario "+usuarios[i]+" :</h4>";
+                            for(var p=0;p<productos.length ;p++){
+                                if(arrayPedidos[i][j][0][productos[p]]!=null)
+                                    a.innerHTML+="<br>Producto: "+ arrayPedidos[i][j][0][productos[p]].nombre;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+         
+        
+    }
 
 
 </script>
