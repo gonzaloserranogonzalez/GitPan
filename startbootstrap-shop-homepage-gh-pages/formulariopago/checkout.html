@@ -248,6 +248,9 @@
             console.log("Nueva salida:", output)
             return output;
         }
+        function cerrarsesion(){
+            window.location = "../login.html";
+        }
         function printbill(){
             var usuarioactual=localStorage.getItem("usuarioactual");
             var pedidodiario=localStorage.getItem("carrito");
@@ -278,8 +281,7 @@
             } 
             var factura=document.getElementById("factura").innerHTML;
             var nFactura=Math.floor(Math.random() * 10000000)+100000;
-            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Tú pedido se ha realizado con éxito<br>Ticket #"+nFactura+"</p>"+factura+"<br><p>"+"Cliente: "+ bdusuarios[usuarioactual]+"<br>"+"Tipo de pedido: "+ tipopedido +"<br>"+"Tipo de entrega: "+ tipoentrega +"<br>"+"Tipo de pago: "+ tipopago+ "</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/></div></body></html>";
-            document.body.innerHTML+="<br><a href='../login.html'>hola</a>"
+            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Tú pedido se ha realizado con éxito<br>Ticket #"+nFactura+"</p>"+factura+"<br><p>"+"Cliente: "+ bdusuarios[usuarioactual]+"<br>"+"Tipo de pedido: "+ tipopedido +"<br>"+"Tipo de entrega:"+ tipoentrega +"<br>"+"Tipo de pago: "+ tipopago+ "</p><br><input type='button' onclick='window.print();' value='Imprimir factura'/><input type='button' onclick='cerrarsesion();' value='Cerrar sesión'/></div></body></html>";
             //window.print();
         }
     </script>
