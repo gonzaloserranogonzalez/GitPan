@@ -19,7 +19,7 @@
                                     <a class="nav-link" href="#">Productos del dia</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#">Encargos</a>
+                                    <a class="nav-link" href="encargos_grid.html">Encargos</a>
                                   </li>
                                   <li class="nav-item">
                                     <a class="nav-link" href="pedidosusuario.html">Mis pedidos</a>
@@ -81,6 +81,7 @@ function obtenerNombre(i){
         var a=localStorage.getItem("pedidos");
         pedidoactual[a]=carrito;
         localStorage.setItem("pedidoactual",pedidoactual);
+        localStorage.setItem("tipopedido", "Productos del dia");
       //alert(enviar);
 
     }

@@ -149,7 +149,7 @@
 
                 </div>
             </div>
-            <div class="col" onclick="return compradirecta()">
+            <div class="col" onclick="return encargo()">
                 <div class="centered">
 
 
@@ -172,6 +172,10 @@
         function compradirecta() {
             var parameters = location.search.substring(1);
             window.location.href = "shopping_grid.html?" + parameters;
+        }
+        function encargo() {
+            var parameters = location.search.substring(1);
+            window.location.href = "encargos_grid.html";
         }
     </SCRIPT>
 
