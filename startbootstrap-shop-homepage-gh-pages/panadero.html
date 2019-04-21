@@ -25,13 +25,16 @@
           <a class="nav-link" href="#recaudacion" onclick="mostrarRecaudacion();">Recaudacion</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#agenda">Agenda reparto</a>
+          <a class="nav-link" href="#agenda" onclick="mostrarReparto();">Agenda reparto</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#clientes">Clientes</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto nav-flex-icons">
+        <!-- Para boton de cerrar sesion -->
+        <a href="eleccion.html" class="navbar-brand pull-right"><small>Acceder a versión de cliente</small></a>
+        <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
         <li class="nav-item avatar">
           <a class="nav-link p-0" href="#">
             <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
@@ -55,23 +58,23 @@
 
 </html>
 <script type="text/javascript">
-  var stock, productos, fotos, tabla, usuarios,arraypedidos;
+  var stock, productos, fotos, tabla, usuarios, arraypedidos;
   stock = JSON.parse(localStorage.getItem("stock"));
   //alert(stock);
   productos = JSON.parse(localStorage.getItem("productos"));
   fotos = JSON.parse(localStorage.getItem("imagenes"));
   usuarios = JSON.parse(localStorage.getItem("usuarios"));
-    
-   
+
+
   window.onload = function () {
-      arrayPedidos=JSON.parse(localStorage.getItem("arrayPedidos"));
- console.log(arrayPedidos);
+    arrayPedidos = JSON.parse(localStorage.getItem("arrayPedidos"));
+    console.log(arrayPedidos);
     // alert(usuarios);
     var URLactual = location.hash;
     switch (URLactual) {
       case "#inventario": mostrarInventario(); break;
       case "#recaudacion": mostrarRecaudacion(); break;
-      case "#agenda":mostrarReparto();break;
+      case "#agenda": mostrarReparto(); break;
       case "#clientes":
     }
 
@@ -134,45 +137,57 @@
   function mostrarRecaudacion() {
 
     var a = document.getElementById("contenedor");
-    a.innerHTML = "<br><h2>Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
+    var stringinyectar="";
+    
+    stringinyectar += "<ul class='list-group list-group-flush'>";
+    stringinyectar += "<br><h2>Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
     for (var i = 1; i < usuarios.length; i++) {
-      a.innerHTML += "<br><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + usuarios[i] + "</a>";
-            var numpedidos = 0;
-      for (var j = 0; arrayPedidos[i][j]!=null; j++) {
+      stringinyectar += "<li class='list-group-item'><div><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + usuarios[i] + "</a></div>";
+      var numpedidos = 0;
+      for (var j = 0; arrayPedidos[i][j] != null; j++) {
 
-            numpedidos = numpedidos + 1;
+        numpedidos = numpedidos + 1;
 
       }
-      a.innerHTML += "<br><a  class='numpedidos'>       Numero de pedidos del usuario: " + numpedidos + "<br></a>";
+      stringinyectar += "<div><a  class='numpedidos'>       Número de pedidos del usuario: " + numpedidos + "<br></a></div>";
 
     }
-
+    stringinyectar += "</ul>";
+    a.innerHTML = stringinyectar;
   }
 
   function mostrarcompracliente(login) {
+    var stringinyectar="";
     var a = document.getElementById("contenedor");
+    stringinyectar+="<br><br><div class='list-group'><a href='#' class='list-group-item list-group-item-action list-group-item-primary'><h5 class='mb-1'>Usuario: " + login +"</h5></a>";
     var comprausuario = 0;
     //console.log(arrayPedidos[0][0][0][productos[6]].nombre);
-    a.innerHTML = "<br><br> Usuario: " + login;
+    //stringinyectar.innerHTML += "<br><br> Usuario: " + login;
     var i = 0;
     for (; i < usuarios.length && usuarios[i] != login; i++);
     for (var j = 0; arrayPedidos[i][j] != null; j++) {
       var precioporpedido = 0;
-      a.innerHTML += "<br>Pedido numero " + j + ":<br>";
+      j++;
+      stringinyectar += "<a href='#' class='list-group-item list-group-item-action'><p class='mb-1'><strong>Pedido " + j + ":</strong><br>";
+      j--;
       console.log(arrayPedidos[i][j][0]);
       for (var z = 0; z < productos.length; z++) {
         if (arrayPedidos[i][j][0][productos[z]] != null) {
-          a.innerHTML += "Producto: " + arrayPedidos[i][j][0][productos[z]].nombre;
-          a.innerHTML += "   Cantidad: " + arrayPedidos[i][j][0][productos[z]].cantidad;
-          a.innerHTML += "   Precio del producto: " + arrayPedidos[i][j][0][productos[z]].precioproducto;
-          a.innerHTML += "   Precio total por producto: " + arrayPedidos[i][j][0][productos[z]].precioporcantidad + "<br>";
+          stringinyectar += "<i>Producto: " + arrayPedidos[i][j][0][productos[z]].nombre+"</i>";
+          stringinyectar += "<br>Cantidad: " + arrayPedidos[i][j][0][productos[z]].cantidad+" unidades";
+          stringinyectar += "<br>Precio del producto: " + arrayPedidos[i][j][0][productos[z]].precioproducto+"€";
+          stringinyectar += "<br>Precio total por producto: " + arrayPedidos[i][j][0][productos[z]].precioporcantidad + "€<br><br>";
           precioporpedido += arrayPedidos[i][j][0][productos[z]].precioporcantidad;
         }
       }
-      a.innerHTML += "Precio total pedido " + j + ": " + precioporpedido + "<br>";
+      j++;
+      stringinyectar += "<em><strong>Precio total del pedido " + j + ": " + precioporpedido + "€</strong></em><br></p></a>";
+      j--;
       comprausuario += precioporpedido;
     }
-    a.innerHTML += "<br><br> El usuario " + usuarios[i] + " ha aportado a PanAPP: " + comprausuario;
+    stringinyectar += "<a href='#' class='list-group-item list-group-item-action list-group-item-success'><strong>El usuario " + usuarios[i] + " ha aportado a PanAPP: " + comprausuario+"€</strong></a></a></div>";
+    //console.log(stringinyectar);
+    a.innerHTML = stringinyectar;
   }
   // Highlight a la pestaña de navbar en la que nos encontramos
   var header = document.getElementById("myDIV");
@@ -185,51 +200,51 @@
     });
   }
 
-    
-    function mostrarReparto(){
-        
-         var a = document.getElementById("contenedor");
-        var diasSemana=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
-        var f=new Date();
-        a.innerHTML="<br><h1>Seleccione el dia de la semana en el cual va a repartir:</h1>";
-        a.innerHTML+="<br>Dia actual: "+diasSemana[f.getDay()];
-        a.innerHTML+="<br><select name='OS' id='dias' style='width:30%'><option value='Lunes'>Lunes</option> <option value='Martes'>Martes</option> <option value='Miercoles'>Miercoles</option><option value='Jueves'>Jueves</option> <option value='Viernes'>Viernes</option> <option value='Sabado'>Sabado</option> </select>";
-        a.innerHTML+="<input type='button' value='Comprobar Envíos' onclick='mostrarRepartocondia();'></input>";
-        
-    }
-    
-    
-    function mostrarRepartocondia(){
-        var a = document.getElementById("contenedor");
-        var dia=document.getElementById("dias");
-        var semana=new Array();
-        dia=(dia.options[dia.selectedIndex].value);
-       // alert(typeof(dia));
-        a.innerHTML="<br><h1>Pedidos de PanAPP para el día "+dia+":<br></h1>";
-        for(var i=1;i<usuarios.length;i++){
-           for(var j=0;j < arrayPedidos[i][j]!=null;j++){
-                       var z=0;
-                for(z ;z<productos.length && arrayPedidos[i][j][0][productos[z]]==null;z++);
-                if(arrayPedidos[i][j][0][productos[z]].dia!=undefined ){
-                    semana=arrayPedidos[i][j][0][productos[z]].dia.split(" ",6);
-                    for(var w=0;w<semana.length;w++){
-                        if(semana[w]==dia){
-                            a.innerHTML+="<br><h3>Pedido del usuario "+usuarios[i]+" :</h4>";
-                            for(var p=0;p<productos.length ;p++){
-                                if(arrayPedidos[i][j][0][productos[p]]!=null){
-                                    a.innerHTML+="<br>Producto: "+ arrayPedidos[i][j][0][productos[p]].nombre;
-                                    a.innerHTML+=". Cantidad de "+productos[p]+": "+arrayPedidos[i][j][0][productos[p]].cantidad;
-                                }
-                            }
-                        }
-                    }
+
+  function mostrarReparto() {
+
+    var a = document.getElementById("contenedor");
+    var diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+    var f = new Date();
+    a.innerHTML = "<br><h1>Seleccione el dia de la semana en el cual va a repartir:</h1>";
+    a.innerHTML += "<br>Dia actual: " + diasSemana[f.getDay()];
+    a.innerHTML += "<br><select name='OS' id='dias' style='width:30%'><option value='Lunes'>Lunes</option> <option value='Martes'>Martes</option> <option value='Miercoles'>Miercoles</option><option value='Jueves'>Jueves</option> <option value='Viernes'>Viernes</option> <option value='Sabado'>Sabado</option> </select>";
+    a.innerHTML += "<input type='button' value='Comprobar Envíos' onclick='mostrarRepartocondia();'></input>";
+
+  }
+
+
+  function mostrarRepartocondia() {
+    var a = document.getElementById("contenedor");
+    var dia = document.getElementById("dias");
+    var semana = new Array();
+    dia = (dia.options[dia.selectedIndex].value);
+    // alert(typeof(dia));
+    a.innerHTML = "<br><h1>Pedidos de PanAPP para el día " + dia + ":<br></h1>";
+    for (var i = 1; i < usuarios.length; i++) {
+      for (var j = 0; arrayPedidos[i][j] != null; j++) {
+        var z = 0;
+        for (z; z < productos.length && arrayPedidos[i][j][0][productos[z]] == null; z++);
+        if (arrayPedidos[i][j][0][productos[z]].dias != undefined) {
+          semana = arrayPedidos[i][j][0][productos[z]].dias.split(" ", 6);
+          for (var w = 0; w < semana.length; w++) {
+            if (semana[w] == dia) {
+              a.innerHTML += "<br><h3>Pedido del usuario " + usuarios[i] + " :</h4>";
+              for (var p = 0; p < productos.length; p++) {
+                if (arrayPedidos[i][j][0][productos[p]] != null) {
+                  a.innerHTML += "<br>Producto: " + arrayPedidos[i][j][0][productos[p]].nombre;
+                  a.innerHTML += ". Cantidad de " + productos[p] + ": " + arrayPedidos[i][j][0][productos[p]].cantidad;
                 }
+              }
             }
-            
+          }
         }
-         
-        
+      }
+
     }
+
+
+  }
 
 
 </script>
@@ -243,7 +258,7 @@
     arrayPedidos[i] = new Array(2);
   }
 
- 
+
 
   for (var i = 0; i < 6; i++) {
     for (var j = 0; j < 2; j++) {
