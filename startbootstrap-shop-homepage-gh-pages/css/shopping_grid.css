@@ -22,11 +22,13 @@ h4{
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
 	pointer-events: none;
+	.bott
 }
 .modalDialog:target {
 	opacity:1;
 	pointer-events: auto;
 }
+
 .modalDialog > div {
 	width: 400px;
 	position: relative;
@@ -37,9 +39,9 @@ h4{
 	background: -moz-linear-gradient(#fff, #999);
 	background: -webkit-linear-gradient(#fff, #999);
 	background: -o-linear-gradient(#fff, #999);
-  -webkit-transition: opacity 400ms ease-in;
--moz-transition: opacity 400ms ease-in;
-transition: opacity 400ms ease-in;
+  	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
 }
 .close {
 	background: #606061;
@@ -82,7 +84,8 @@ transition: opacity 400ms ease-in;
   font-size: 16px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
-    width:49%;
+	width:49%;
+
 }
 .button:hover {
   background-color: #4CAF50; /* Green */
