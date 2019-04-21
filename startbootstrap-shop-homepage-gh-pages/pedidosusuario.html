@@ -49,13 +49,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <body>
-        <div class="list-group" id=lista></div>
+    <body background="BackGroundOverAll.jpg">
+            <div class="container" id="contenedor">
+                    <table id='tablainventario' style="margin-top:20px"><div class="list-group" id=lista></div></table>
+                  </div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
         var usuarioactual = localStorage.getItem("usuarioactual");
-        var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda", "Baguette", "Tarta de Santiago", "Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
+        var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda", "Baguette", "Tarta de Santiago", "Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao", "Muffin con virutas de chocolate","Muffin de fresa", "Muffin de Chocolate","Croissant", "Croissant de chocolato", "Palmera choco", "Bocaditos de nata", "Bocaditos de trufa", "Cookie de chocolate", "Donut casero","Turrón de chocolate y almendras","Turrón de chocolate y naranja","Turrón duro","Turrón de Yema", "Turrón de Yogur y Pistacho"];
         var arrayPedidos = JSON.parse(localStorage.getItem("arrayPedidos"));
 
         for (var j = 0; j < 3; j++) {
@@ -64,8 +66,9 @@
         var contador=0;
         var cantidad=0;
         var costediario=0;
-        var stringDiario="Lo recibes en tu dirección cada: ";
-        document.getElementById('lista').innerHTML +="<h1 class='text-center'>Actualmente tienes estos pedidos encargados</h1>"
+        var stringDiario="Lo recibes en tu dirección";
+        var diasrepetir=": Una única vez";
+        document.getElementById('lista').innerHTML +="<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h3 class='text-center'>Actualmente tienes los siguientes pedidos encargos</h3>"
         for (var i = 0; i < arrayPedidos.length; i++) {
             for (var j = 0; j < productos.length; j++) {
                 if (arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined) {
@@ -74,16 +77,18 @@
                     costediario=arrayPedidos[usuarioactual][i][0][productos[j]].precioporcantidad;
                     dias=arrayPedidos[usuarioactual][i][0][productos[j]].dias;
                     if(dias === undefined){
-                        stringDiario="";
+                        stringDiario += diasrepetir;
                     }
                     else{
-                        stringDiario+=dias;
+                        stringDiario=stringDiario + " cada: " +dias;
+                        diasrepetir=dias;
                     }
                     console.log(arrayPedidos[usuarioactual][i][0][productos[j]]);
                     document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1'>Pedido diario "+contador+"</h5></div><p class='mb-1'>" + productos[j] + "</p><p class='mb-1'> Cantidad: " + cantidad + " unidades</p><p class='mb-1'> Coste diario: " + costediario+ "€</p><p class='mb-1'>" + stringDiario + "</p></a>";
-                    stringDiario="Lo recibes en tu dirección cada: ";
+                    stringDiario="Lo recibes en tu dirección";
                 }
             }
+            diasrepetir=": Una única vez";
         }
             //console.log(arrayPedidos[usuarioactual][0][0]["Baguette"]);
             //console.log(arrayPedidos[usuarioactual][0][0]["Empanada de bacalao"]);

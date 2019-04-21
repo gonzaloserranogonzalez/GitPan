@@ -165,7 +165,7 @@
     <script src="dist/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/main.min.js"></script>
     <script>
-        var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda", "Baguette", "Tarta de Santiago", "Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
+        var productos = JSON.parse(localStorage.getItem("productos"));
         var costecarrito = localStorage.getItem("costecarrito");
         var numproductos = localStorage.getItem("numproductos");
         document.getElementById("numproductos").innerHTML = numproductos;

@@ -52,8 +52,8 @@
     var pedidoactual=new Array();
   
     var stock= [10,10,10,10,10,10,10,10,10,10];
-    localStorage.setItem("productos",productos);
-    localStorage.setItem("stock",stock);
+    localStorage.setItem("productos",JSON.stringify(productos));
+    localStorage.setItem("precios", JSON.stringify(precios));
     var preciofactura=0;
     var conoferta=[7];
     for(var i=0;i<precios.length;i++)
@@ -130,7 +130,7 @@ function anadircarrito(nombre,cantidad){
          p=document.getElementById('Facturafinal');
         if(preciofactura<0)
             preciofactura=0;
-         p.innerHTML="El precio total es: "+preciofactura;
+         p.innerHTML="El precio total es: "+preciofactura.toFixed(2) +"€";
     }
 
 
@@ -173,8 +173,8 @@ function eliminarcarrito(puntero){
             IMGS[i].innerHTML=IMGS[i].innerHTML+sinrebaja;
         var nombre="<h3 class=\"title\"  data-puntero=\""+i+"\"><a href=\"#openModal\" id=\"Producto"+(aux)+"\" onclick=\" obtenerNombre(this);\">"+productos[i]+"</a></h3>";
         PRODUCTOS[i].innerHTML=nombre;
-        var rebaja="<div class=\"price\">€"+conoferta[i]+"<span>"+precios[i]+"€</span></div>";
-        sinrebaja="<div class='price'>€"+precios[i]+"</div>";
+        var rebaja="<div class=\"price\">"+conoferta[i]+"€<span>"+precios[i]+"€</span></div>";
+        sinrebaja="<div class='price'>"+precios[i]+"€</div>";
         if(ofertas[i]!=0)
             PRODUCTOS[i].innerHTML=PRODUCTOS[i].innerHTML+rebaja;
         else
