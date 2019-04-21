@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/eleccionpanadero.html" line="136" />
+    <bookmark url="file://$PROJECT_DIR$/eleccionpanadero.html" line="138" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc7b3571-a6dc-4b28-beba-a7f1125a70b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/shopping_grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/shopping_grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/encargos_grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/encargos_grid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panadero.html" beforeDir="false" afterPath="$PROJECT_DIR$/panadero.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping_grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopping_grid.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,10 +23,26 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/login.html">
+        <entry file="file://$PROJECT_DIR$/shopping_grid.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="289">
+              <caret line="200" column="147" selection-start-line="200" selection-start-column="147" selection-end-line="200" selection-end-column="147" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#a#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/shopping_grid.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -45,6 +65,8 @@
       <find>carroc</find>
       <find>carrito</find>
       <find>finalizar</find>
+      <find>arraypedidos</find>
+      <find>dias</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -62,17 +84,19 @@
         <option value="$PROJECT_DIR$/eleccion.html" />
         <option value="$PROJECT_DIR$/eleccionpanadero.html" />
         <option value="$PROJECT_DIR$/destino.html" />
-        <option value="$PROJECT_DIR$/shopping_grid.html" />
-        <option value="$PROJECT_DIR$/panadero.html" />
         <option value="$PROJECT_DIR$/login.html" />
+        <option value="$PROJECT_DIR$/encargos_grid.html" />
+        <option value="$PROJECT_DIR$/panadero.html" />
+        <option value="$PROJECT_DIR$/css/shopping_grid.css" />
+        <option value="$PROJECT_DIR$/shopping_grid.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
-    <option name="width" value="2762" />
-    <option name="height" value="1850" />
+    <option name="width" value="2763" />
+    <option name="height" value="1851" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -90,11 +114,6 @@
             <path>
               <item name="startbootstrap-shop-homepage-gh-pages" type="b2602c69:ProjectViewProjectNode" />
               <item name="startbootstrap-shop-homepage-gh-pages" type="462c0819:PsiDirectoryNode" />
-              <item name="formulariopago" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="startbootstrap-shop-homepage-gh-pages" type="b2602c69:ProjectViewProjectNode" />
-              <item name="startbootstrap-shop-homepage-gh-pages" type="462c0819:PsiDirectoryNode" />
               <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -107,18 +126,18 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../formulariopago" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\guill\Documents\Universidad\CDI\GitPan" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jouxp\Desktop\Carpetas\Programacion\CDI\Repositorio Git\GitPan\startbootstrap-shop-homepage-gh-pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\guill\Documents\Universidad\CDI\GitPan" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -153,17 +172,19 @@
       <workItem from="1555402464032" duration="118000" />
       <workItem from="1555402605820" duration="6440000" />
       <workItem from="1555667377952" duration="8576000" />
+      <workItem from="1555832792317" duration="2768000" />
+      <workItem from="1555835584177" duration="1209000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41329000" />
+    <option name="totallyTimeSpent" value="45306000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1381" height="925" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23494424" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2344992" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -256,25 +277,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/panadero.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
-          <caret line="138" column="16" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
+        <state relative-caret-position="3604">
+          <caret line="212" column="58" selection-start-line="212" selection-start-column="58" selection-end-line="212" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopping_grid.html">
+    <entry file="file://$PROJECT_DIR$/encargos_grid.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="405" column="28" selection-start-line="405" selection-start-column="19" selection-end-line="405" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="37" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/shopping_grid.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping_grid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="200" column="147" selection-start-line="200" selection-start-column="147" selection-end-line="200" selection-end-column="147" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#a#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
