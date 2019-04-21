@@ -28,7 +28,7 @@
           <a class="nav-link" href="#agenda" onclick="mostrarReparto();">Agenda reparto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#clientes">Clientes</a>
+          <a class="nav-link" href="#clientes" onclick="mostrarClientes()">Clientes</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto nav-flex-icons">
@@ -75,7 +75,7 @@
       case "#inventario": mostrarInventario(); break;
       case "#recaudacion": mostrarRecaudacion(); break;
       case "#agenda": mostrarReparto(); break;
-      case "#clientes":
+      case "#clientes": mostrarClientes(); break;
     }
 
   }
@@ -242,6 +242,13 @@
       }
 
     }
+
+
+  }
+
+  function mostrarClientes() {
+    var a = document.getElementById("contenedor");
+    a.innerHTML = "<table id='tablaClientes' style='margin-top:20px;'></table>";
 
 
   }
