@@ -44,14 +44,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     var contadorCarrito=0;
-    var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda","Baguette","Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao"];
-    var imgGrandes = ["Rustica1.png","Picos2.png", "Chapata3.jpg","Torta4.jpg","Baguette5.png","Santiago6.jpg", "TresChocolates7.png", "RedVelvet8.png", "CarrotCake9.jpg", "Queso10.jpg", "Atun11.jpg", "Pollo12.jpg", "JamonQueso13.jpg", "Vegana14.jpg", "Bacalao15.jpg"];
-    var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos ","Ingredientes: harina, levadura y sal. Apto para celiacos "];
-	var precios = [1, 0.9,1.5,5,1,12,12,12,10,8,8,8,8,8,8];
-    var ofertas = [0, 0,0,30,0, 20,0,0,0,0,0,0,0,0,0];
+    var productos = ["Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao","Turrón de chocolate y almendras","Turrón de chocolate y naranja","Turrón duro","Turrón de Yema", "Turró    n de Yogur y Pistacho"];
+    var imgGrandes = ["Santiago6.jpg", "TresChocolates7.png", "RedVelvet8.png", "CarrotCake9.jpg", "Queso10.jpg", "Atun11.jpg", "Pollo12.jpg", "JamonQueso13.jpg", "Vegana14.jpg", "Bacalao15.jpg","TurronChocoAlmendra.jpg","TurronCocoNaranja.jpg", "TurronDuro.jpg", "TurronYema.jpg", "TurronYogurPistacho.jpg"];
+    var descripcion = ["Ingredientes: Almendra molida, huevo, azucar, ralladura de limón, mantequila","Ingredientes: Chocolate negro, chocolate con leche, chocolate blaco, galleta, azucar", "Ingredientes: Harina, leche, cacao en polvo, huevo, azúcar, mantequilla, colorante", "Ingredientes: Zanahoria, harina, levadura, bicarbonato, canela en polvo, azúcar moreno, mantequilla","Ingredientes: Queso Philadelphia, nata, azúcar, gelatina, mantequilla, galleta","Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, atún, huevo","Ingredientes: Cebolla, ajo, pimiento verde, aceite de oliva, sal, pollo, huevo", "Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, jamón, queso y huevo","Ingredientes: Hojaldre, soja, zanahoria, cebolla, calabacín y tomate.","Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, bacalao, huevo","Ingredientes: Chocolate, azucar, arroz inflado, almendras","Ingredientes: Chocolate, azucar, arroz inflado, naranja", "Ingredientes: miel, azúcar, almendras, huevo","Ingredientes:  Almendra, azúcar, yema de huevo, canela, ralladura de limón", "Ingredientes:  Almendra, azúcar, huevo, canela, ralladura de limón, yogur natural y pistacho"];
+	var precios = [12,12,12,10,8,8,8,8,8,8,4.50,4.50,4.50,4.50,4.50];
+    var ofertas = [20,0,0,0,0,0,30,0,0,0,0,0,10,10,0];
     var pedidoactual=new Array();
   
-    var stock= [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10];
+    var stock= [10,10,10,10,10,10,10,10,10,10];
     localStorage.setItem("productos",productos);
     localStorage.setItem("stock",stock);
     var preciofactura=0;
@@ -198,7 +198,7 @@ function eliminarcarrito(puntero){
             <p id="precio1" style="font-family: Montserrat"></p>
             </div>
         Cantidad: <input type="number" value="1" min="1" name="cantidades" id="cantidades">
-        <a href="#close" onclick="document.getElementById('cantidades').value = 1;"><ul style="padding-inline-start:0px;"><button type="button" class="buttonAddtocart" onclick="
+        <a href="#close" onclick="document.getElementById('cantidades').value = 1;"><ul style="padding-inline-start:0px; padding-top: 10px"><button type="button" class="buttonAddtocart" onclick="
             var comprar=document.getElementById('headermodal').innerHTML;var cantidad=document.getElementById('cantidades');
             anadircarrito(comprar,cantidad.value);if(contadorCarrito>0)document.getElementById('Finalizarcompra').style.display='block';">Añadir al Carrito <img src="MetaforaCarrito.png" width="20" height="20" ></button>
             </a>
