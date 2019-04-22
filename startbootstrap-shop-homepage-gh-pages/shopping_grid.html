@@ -93,6 +93,7 @@ function obtenerNombre(i){
 function anadircarrito(nombre,cantidad){
         var j=0;
         var p;
+        document.getElementById('preciototal').style.display='block';
         for(j;j<productos.length && productos[j]!=nombre;j++);
         var precio=conoferta[j];
          var sinespacios=nombre.replace(/ /g,"-");
@@ -138,52 +139,24 @@ function anadircarrito(nombre,cantidad){
 
     }
     function eliminarcarrito(puntero){
-        var a = puntero.parentElement;console.log("a",a);
-        var producto=document.getElementById(a.id).firstChild.dataset.indice;console.log("producto",producto);
-        producto=producto.replace(/-/g," ");console.log("producto",producto);
-        var h6 =puntero.parentElement;console.log("h6",h6);
-        var div= h6.parentElement;console.log("div",div);
-        var li = div.parentElement;console.log("li",li);
-        console.log(h6);
-        console.log(div);
-        console.log(li);
-        //li.parentNode.removeChild(li);
-    }
-
-/*function eliminarcarrito(puntero){
-    var a = puntero.parentElement;
-    var b;
-    var tr;
-    contadorCarrito--;
-    var producto=document.getElementById(a.id).firstChild.dataset.indice;
-    producto=producto.replace(/-/g," ");
-    b=document.getElementById("producto"+producto);
-    tr=b.parentElement;
-    tr.removeChild(b);
-    //alert(carrito[producto].nombre);
-    preciofactura=parseInt(preciofactura-carrito[producto].precioporcantidad);
-    var p=document.getElementById('Facturafinal');
-    p.innerHTML="El precio total es: "+preciofactura;
-    carrito[producto]=undefined;
-
-        if(contadorCarrito<0)
-            document.getElementById('Finalizarcompra').style.display='none';
-        document.getElementById('Facturafinal');p.innerHTML="El precio total es: "+preciofactura;
-    } 
-        }
-    function eliminarcarrito(puntero){
+        var a = puntero.parentElement;console.log("a",a.id);
+        var h6 =puntero.parentElement;console.log("h6",h6.id);
+        var div= h6.parentElement;console.log("div",div.id);
+        var divid= div.id;console.log("divid",divid);
+        var producto=divid.replace("producto","");
+        console.log("producto",producto);
+        var li = div.parentElement;console.log("li",li.id);
+        preciofactura=parseInt(preciofactura-carrito[producto].precioporcantidad);
+        p=document.getElementById('preciototal');
+        p.innerHTML="<li class='list-group-item d-flex justify-content-between lh-condensed'>El precio total es: "+preciofactura.toFixed(2) +"€</li>";
+        carrito[producto]=undefined;
         contadorCarrito--;
-        var a =puntero.parentElement;
-        var h6= a.parentElement;
-        var div = h6.parentElement;
-        //var b= h6.childNode[0];
-        var producto=div.firstChild;
-        //console.log(producto.id);
-        //producto=producto.id.replace(/-/g," ");
-        //console.log(producto);
-        //preciofactura=parseInt(preciofactura-carrito[producto.id].precioporcantidad);
-        producto.parentNode.removeChild(div);
-    }*/
+        if(contadorCarrito<1){
+            document.getElementById('Finalizarcompra').style.display='none';
+            document.getElementById('preciototal').style.display='none';
+        }
+        li.parentNode.removeChild(li);
+    }
 
  </script>
 
@@ -431,7 +404,7 @@ function anadircarrito(nombre,cantidad){
 
 
 <div id="divTotal" style="background: rgba(255,193,7,0.95)" >
-    <table id="tablaTotal" name="factura" style="width:80%; "><ul class="list-group mb-3" id="carritoderecha"><li class='list-group-item d-flex justify-content-between lh-condensed'><div><p align="center"><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></p></li></ul><ul class="list-group mb-3" id="preciototal"></ul></table>
+    <table id="tablaTotal" name="factura" style="width:80%; "><ul class="list-group mb-3" id="carritoderecha"><li class='list-group-item d-flex justify-content-between lh-condensed'><div style='width: 75%; margin: 0 auto;'><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></li></ul><ul class="list-group mb-3" id="preciototal"></ul></table>
     <p id="Facturafinal"></p>
             <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="formulariopago\checkout.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
 </div>
