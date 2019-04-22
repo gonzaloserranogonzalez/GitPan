@@ -61,14 +61,15 @@
 </html>
 </body>
 <script type="text/javascript">
-  var stock, productos, fotos, tabla, usuarios, arraypedidos;
+  var stock, productos, fotos, tabla, usuarios, arraypedidos,precios,ofertas,antiguos;
   stock = JSON.parse(localStorage.getItem("stock"));
   //alert(stock);
   productos = JSON.parse(localStorage.getItem("productos"));
   fotos = JSON.parse(localStorage.getItem("imagenes"));
   usuarios = JSON.parse(localStorage.getItem("usuarios"));
-
-
+  precios=JSON.parse(localStorage.getItem("precios"));
+  antiguos=JSON.parse(localStorage.getItem("preciosantiguos"));
+  ofertas=JSON.parse(localStorage.getItem("ofertas"));
   window.onload = function () {
     arrayPedidos = JSON.parse(localStorage.getItem("arrayPedidos"));
     console.log(arrayPedidos);
@@ -92,26 +93,54 @@
     fila.className = "filainventario";
     var columnainicial = fila.insertCell(-1);
     columnainicial.className = "tablainicial";
-    columnainicial.innerHTML = "Nombre de producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir al stock? ";
-
+    columnainicial.innerHTML = "Nombre de producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPrecio&nbsp&nbsp&nbsp&nbsp&nbspInserte el nuevo precio:<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp al stock? ";
 
     for (var i = 0; i < stock.length; i++) {
       var fila = tabla.insertRow(-1);
       fila.className = "filainventario"
       var columna = fila.insertCell(-1);
-      columna.innerHTML = "<img src=" + fotos[i] + " style='margin-top:15px;' class='rounded-rectangle z-depth-0' alt='avatar image' height='100'>";
+      columna.innerHTML = "<br><br><img src=" + fotos[i] + " style='margin-top:15px;' class='rounded-rectangle z-depth-0' alt='avatar image' height='100'>";
       columna = fila.insertCell(-1);
       columna.innerHTML += "<br><p style:'padding-left:20px; font-family:Montserrat'>" + productos[i] + "</p>";
       columna = fila.insertCell(-1);
       columna.id = "stock" + i;
       document.getElementById('stock' + i).style.paddingLeft = "0px";
-      columna.innerHTML += "<br><p> El stock es: " + stock[i] + "</p>";
+      columna.innerHTML += "<br><p> " + stock[i] + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>";
       columna = fila.insertCell(-1);
       columna.id = "anadirstock" + i;
-      document.getElementById('anadirstock' + i).style.paddingLeft = "35px";
-      columna.innerHTML += "<input type='number' min='1' id='modificarstock" + i + "'></input><button type='button' onclick='actualizarstock(" + i + ");'>Confirmar</button> ";
+      document.getElementById('anadirstock' + i).style.paddingLeft = "35px";  
+      columna.innerHTML += "<br><input type='number' min='1' id='modificarstock" + i + "'></input><button type='button' onclick='actualizarstock(" + i + ");'>Confirmar</button> ";
+      columna=fila.insertCell(-1);
+         columna.id = "modificarprecio" + i;
+      columna.innerHTML+="<p>"+precios[i];
+      columna = fila.insertCell(-1);
+      
+        document.getElementById('modificarprecio' + i).style.paddingLeft = "35px";  
+          columna.innerHTML += "<br><input type='number' min='1' id='modificarpreciovalor" + i + "'></input><button type='button' onclick='actualizarprecio(" + i + ");'>Confirmar</button> ";
+        
+        
     }
   }
+    function actualizarprecio(i){
+    var sumar = document.getElementById("modificarpreciovalor" + i);
+    var suma = document.getElementById("modificarprecio" + i);
+        suma.innerHTML="<p>"+sumar.value;
+        if(ofertas[i]!=0){
+          precios[i]=parseInt(sumar.value);
+            sumar.value=null;
+            localStorage.setItem("precios",JSON.stringify(precios));
+        }
+        else{
+            antiguos[i]=parseInt(sumar.value);
+            localStorage.setItem("preciosantiguos",JSON.stringify(antiguos));
+            
+        }
+            
+        
+        
+    }
+    
+    
   function actualizarstock(i) {
     var sumar = document.getElementById("stock" + i);
     var suma = document.getElementById("modificarstock" + i);
@@ -119,14 +148,16 @@
       var total = parseInt(stock[i]) + parseInt(suma.value);
       //alert(total);
 
-      sumar.innerHTML = "<p> El stock es: " + total;
+      sumar.innerHTML = "<p> " + total;
       suma.value = null;
       stock[i] = total;
+      localStorage.setItem("stock",JSON.stringify(stock)); 
     }
     else {
       sumar.innerHTML = "<p> El stock es: 0";
       suma.value = null;
       stock[i] = 0;
+        localStorage.setItem("stock",JSON.stringify(stock));
     }
 
 
