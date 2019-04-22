@@ -155,8 +155,10 @@ function eliminarcarrito(puntero){
     p.innerHTML="El precio total es: "+preciofactura;
     carrito[producto]=undefined;
 
-        if(contadorCarrito<0)
+        if(contadorCarrito<=0){
             document.getElementById('Finalizarcompra').style.display='none';
+            document.getElementById('divTotal').style.display='none'
+        }
         document.getElementById('Facturafinal');p.innerHTML="El precio total es: "+preciofactura;
     }
 
