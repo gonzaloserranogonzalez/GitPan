@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+<body background="fondopanadero.jpg" marginheight="0px" marginwidth="0px">
 <div id="myDIV">
   <section id="arriba">
     <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
@@ -58,6 +59,7 @@
 <link rel="stylesheet" href="panadero.css" />
 
 </html>
+</body>
 <script type="text/javascript">
   var stock, productos, fotos, tabla, usuarios, arraypedidos;
   stock = JSON.parse(localStorage.getItem("stock"));
@@ -102,18 +104,13 @@
       columna.innerHTML += "<br><p style:'padding-left:20px; font-family:Montserrat'>" + productos[i] + "</p>";
       columna = fila.insertCell(-1);
       columna.id = "stock" + i;
-      document.getElementById('stock' + i).style.paddingLeft = "35px";
+      document.getElementById('stock' + i).style.paddingLeft = "0px";
       columna.innerHTML += "<br><p> El stock es: " + stock[i] + "</p>";
       columna = fila.insertCell(-1);
       columna.id = "anadirstock" + i;
       document.getElementById('anadirstock' + i).style.paddingLeft = "35px";
       columna.innerHTML += "<input type='number' min='1' id='modificarstock" + i + "'></input><button type='button' onclick='actualizarstock(" + i + ");'>Confirmar</button> ";
-
-
-
     }
-
-
   }
   function actualizarstock(i) {
     var sumar = document.getElementById("stock" + i);
@@ -141,7 +138,7 @@
     var stringinyectar="";
     
     stringinyectar += "<ul class='list-group list-group-flush'>";
-    stringinyectar += "<br><h2>Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
+    stringinyectar += "<br><h2>  Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
     for (var i = 1; i < usuarios.length; i++) {
       stringinyectar += "<li class='list-group-item'><div><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + usuarios[i] + "</a></div>";
       var numpedidos = 0;
