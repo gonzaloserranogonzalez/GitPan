@@ -57,7 +57,7 @@
    var stock=JSON.parse(localStorage.getItem("stock"));
     console.log(conoferta);
     var preciofactura=0;
-   
+    var carrito=new Object();
 
 function obtenerNombre(i){
       var contador=0;
@@ -89,6 +89,8 @@ function obtenerNombre(i){
 
 function anadircarrito(nombre,cantidad){
         var j=0;
+         var b=document.getElementById("divTotal");
+        b.style.display='block';
         var p;
         for(j;j<productos.length && productos[j]!=nombre;j++);
         var precio=conoferta[j];
@@ -159,7 +161,8 @@ function eliminarcarrito(puntero){
 <script type="text/javascript">
     var aux;
     window.onload=function(){
-
+   var b=document.getElementById("divTotal");
+        b.style.display='none';
     var IMGS=document.getElementsByClassName("product-image");
     var PRODUCTOS=document.getElementsByClassName("product-content");
        
