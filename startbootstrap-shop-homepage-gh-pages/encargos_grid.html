@@ -8,7 +8,7 @@
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
                   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-                  <script src="scroll-down.js"></script>
+                  
                 </head>
 <body background="BackGroundOverAll.jpg">
 <section id 	= "arriba">
@@ -43,22 +43,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-    var contadorCarrito=0;
-    var productos = ["Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao","Turrón de chocolate y almendras","Turrón de chocolate y naranja","Turrón duro","Turrón de Yema", "Turrón de Yogur y Pistacho"];
-    var imgGrandes = ["Santiago6.jpg", "TresChocolates7.png", "RedVelvet8.png", "CarrotCake9.jpg", "Queso10.jpg", "Atun11.jpg", "Pollo12.jpg", "JamonQueso13.jpg", "Vegana14.jpg", "Bacalao15.jpg","TurronChocoAlmendra.jpg","TurronCocoNaranja.jpg", "TurronDuro.jpg", "TurronYema.jpg", "TurronYogurPistacho.jpg"];
-    var descripcion = ["Ingredientes: Almendra molida, huevo, azucar, ralladura de limón, mantequila","Ingredientes: Chocolate negro, chocolate con leche, chocolate blaco, galleta, azucar", "Ingredientes: Harina, leche, cacao en polvo, huevo, azúcar, mantequilla, colorante", "Ingredientes: Zanahoria, harina, levadura, bicarbonato, canela en polvo, azúcar moreno, mantequilla","Ingredientes: Queso Philadelphia, nata, azúcar, gelatina, mantequilla, galleta","Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, atún, huevo","Ingredientes: Cebolla, ajo, pimiento verde, aceite de oliva, sal, pollo, huevo", "Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, jamón, queso y huevo","Ingredientes: Hojaldre, soja, zanahoria, cebolla, calabacín y tomate.","Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, bacalao, huevo","Ingredientes: Chocolate, azucar, arroz inflado, almendras","Ingredientes: Chocolate, azucar, arroz inflado, naranja", "Ingredientes: miel, azúcar, almendras, huevo","Ingredientes:  Almendra, azúcar, yema de huevo, canela, ralladura de limón", "Ingredientes:  Almendra, azúcar, huevo, canela, ralladura de limón, yogur natural y pistacho"];
-	var precios = [12,12,12,10,8,8,8,8,8,8,4.50,4.50,4.50,4.50,4.50];
-    var ofertas = [20,0,0,0,0,0,30,0,0,0,0,0,10,10,0];
-    var pedidoactual=new Array();
   
-    var stock= [10,10,10,10,10,10,10,10,10,10];
-    localStorage.setItem("productos",JSON.stringify(productos));
-    localStorage.setItem("precios", JSON.stringify(precios));
-    var preciofactura=0;
-    var conoferta=[7];
-    for(var i=0;i<precios.length;i++)
-        conoferta[i]=precios[i]-precios[i]*ofertas[i]/100;
-    var carrito=new Object();
 
 function obtenerNombre(i){
       var contador=0;
@@ -70,7 +55,7 @@ function obtenerNombre(i){
         variable=document.getElementById('parrafo2').innerHTML=descripcion[auxiliar];
         oferta="El precio es "+conoferta[auxiliar]+"€";
         document.getElementById('precio1').innerHTML=oferta;
-        document.getElementById('precio1').innerHTML+="<br>El stock es: "+stock[auxiliar];
+       
     }
 
   function enviardatos(){
@@ -159,27 +144,53 @@ function obtenerNombre(i){
  </script>
 
 <script type="text/javascript">
-    var aux;
-    window.onload=function(){
+   var aux;
+    var productos=new Array();
+    var mitadArray=JSON.parse(localStorage.getItem("productos"));
+    for(var i=15;i<30;i++)
+        productos[i]=mitadArray[i];
 
+
+
+    var imgGrandes = JSON.parse(localStorage.getItem("imagenes"));
+    var descripcion = JSON.parse(localStorage.getItem("descripcion"));
+    var pedidoactual=new Array();
+    var conoferta=JSON.parse(localStorage.getItem("precios"));
+    var precios=JSON.parse(localStorage.getItem("preciosantiguos"));
+     var ofertas=JSON.parse(localStorage.getItem("ofertas"));
+   var stock=JSON.parse(localStorage.getItem("stock"));
+    var preciofactura=0;
+    var carrito=new Object();
     var IMGS=document.getElementsByClassName("product-image");
     var PRODUCTOS=document.getElementsByClassName("product-content");
-       
-    for(i in productos){
-        aux=parseInt(i);
+    //var productos=JSON.parse(localStorage.getItem("productos"));
+       console.log(PRODUCTOS);
+        var i=15;
+        console.log(IMGS);
+        console.log(productos);
+     var contadorCarrito=0;
+    window.onload=function(){
+         
+    
+    for(j in PRODUCTOS){
+        console.log(productos[i]);
+        //alert(productos[i]);
+        //alert(imgGrandes[i]);
         var imagenfinal= "<img class=\"pic-1\" src=\""+imgGrandes[i]+"\" >";
         var sinrebaja="<span class=\"product-new-label\">Oferta</span> <span class=\"product-discount-label\">"+ofertas[i]+"%</span>";
-        IMGS[i].innerHTML=imagenfinal;
+        IMGS[j].innerHTML=imagenfinal;
         if(ofertas[i]!=0)
-            IMGS[i].innerHTML=IMGS[i].innerHTML+sinrebaja;
+            IMGS[j].innerHTML+=sinrebaja;
         var nombre="<h3 class=\"title\"  data-puntero=\""+i+"\"><a href=\"#openModal\" id=\"Producto"+(aux)+"\" onclick=\" obtenerNombre(this);\">"+productos[i]+"</a></h3>";
-        PRODUCTOS[i].innerHTML=nombre;
+        PRODUCTOS[j].innerHTML=nombre;
         var rebaja="<div class=\"price\">"+conoferta[i]+"€<span>"+precios[i]+"€</span></div>";
         sinrebaja="<div class='price'>"+precios[i]+"€</div>";
         if(ofertas[i]!=0)
-            PRODUCTOS[i].innerHTML=PRODUCTOS[i].innerHTML+rebaja;
+            PRODUCTOS[j].innerHTML+=rebaja;
         else
-            PRODUCTOS[i].innerHTML=PRODUCTOS[i].innerHTML+sinrebaja;
+            PRODUCTOS[j].innerHTML+=sinrebaja;
+        
+        i++;
     }
 
     }
@@ -208,53 +219,41 @@ function obtenerNombre(i){
    
 </div>
 
-<h3>Encargos</h3>
+<h3>Productos del dia</h3>
 <div class="container">
     <div class="container2">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-        <div class="product-grid" id="Producto0" onclick="imagenModal(this)">
-            <div class="product-image" id='Imagen0'>
-                <span class="product-new-label">Oferta</span>
-                <span class="product-discount-label">20%</span>
-            </div>
-            <div class="product-content" id='Contenido0'>
-                <div class="price">$16.00
-                    <span>$20.00</span>
-                </div>
-                <a class="add-to-cart" href="">+ Add To Cart</a>
-            </div>
-        </div>
-        <div class="product-grid" id="Producto1" onclick="imagenModal(this)">
-                <div class="product-image" id='Imagen1'>
+        <div class="product-grid" id="Producto15" onclick="imagenModal(this)">
+                <div class="product-image" id='Imagen15'>
                     <span class="product-new-label">Oferta</span>
                     <span class="product-discount-label">20%</span>
                 </div>
-                <div class="product-content" id='Contenido1'>
+                <div class="product-content" id='Contenido15'>
                     <div class="price">$16.00
                         <span>$20.00</span>
                     </div>
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
         </div>
-            <div class="product-grid" id="Producto2"  onclick="imagenModal(this)">
-                    <div class="product-image" id='Imagen2'>
+            <div class="product-grid" id="Producto16"  onclick="imagenModal(this)">
+                    <div class="product-image" id='Imagen16'>
                         <span class="product-new-label">Oferta</span>
                         <span class="product-discount-label">20%</span>
                     </div>
-                    <div class="product-content" id='Contenido2'>
+                    <div class="product-content" id='Contenido16'>
                         <div class="price">$16.00
                             <span>$20.00</span>
                         </div>
                         <a class="add-to-cart" href="">+ Add To Cart</a>
                     </div>
             </div>
-                <div class="product-grid" id="Producto3" onclick="imagenModal(this)">
-                        <div class="product-image" id='Imagen3'>
+                <div class="product-grid" id="Producto17" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen17'>
                             <span class="product-new-label">Oferta</span>
                             <span class="product-discount-label">20%</span>
                         </div>
-                        <div class="product-content" id='Contenido3'>
+                        <div class="product-content" id='Contenido17'>
                             <div class="price">$16.00
                                 <span>$20.00</span>
                             </div>
@@ -263,146 +262,170 @@ function obtenerNombre(i){
                 </div>
                     </section>
                     <section id 	= "section3">
-                    <div class="product-grid" id="Producto4" onclick="imagenModal(this)">
-                            <div class="product-image" id='Imagen4'>
+                    
+
+ 
+        <div class="product-grid" id="Producto18" onclick="imagenModal(this)">
+                            <div class="product-image" id='Imagen18'>
                                 <span class="product-new-label">Oferta</span>
                                 <span class="product-discount-label">20%</span>
                             </div>
-                            <div class="product-content" id='Contenido4'>
+                            <div class="product-content" id='Contenido18'>
                                 <div class="price">$16.00
                                     <span>$20.00</span>
                                 </div>
                                 <a class="add-to-cart" href="">+ Add To Cart</a>
                             </div>
                     </div>
-    </div>
-    <div class="col-xs-12 col-md-4">
-        <div class="product-grid" id="Producto5" onclick="imagenModal(this)">
-            <div class="product-image" id="Imagen5">
+        <div class="product-grid" id="Producto19" onclick="imagenModal(this)">
+            <div class="product-image" id="Imagen19">
                 <span class="product-new-label">Oferta</span>
                 <span class="product-discount-label">50%</span>
             </div>
-            <div class="product-content" id='Contenido5'>
+            <div class="product-content" id='Contenido19'>
                 <div class="price">$5.00
                     <span>$10.00</span>
                 </div>
                 <a class="add-to-cart" href="">+ Add To Cart</a>
             </div>
         </div>
-        <div class="product-grid" id="Producto6" onclick="imagenModal(this)">
-                <div class="product-image" id='Imagen6'>
+                </section>
+        </div>
+      <div class="col-xs-12 col-md-4">  
+        <div class="product-grid" id="Producto20" onclick="imagenModal(this)">
+                <div class="product-image" id='Imagen20'>
                     <span class="product-new-label">Oferta</span>
                     <span class="product-discount-label">20%</span>
                 </div>
-                <div class="product-content" id='Contenido6'>
+                <div class="product-content" id='Contenido20'>
                     <div class="price">$16.00
                         <span>$20.00</span>
                     </div>
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
             </div>
-            <div class="product-grid" id="Producto7" onclick="imagenModal(this)">
-                    <div class="product-image" id='Imagen7'>
+     
+            <div class="product-grid" id="Producto21" onclick="imagenModal(this)">
+                    <div class="product-image" id='Imagen21'>
                         <span class="product-new-label">Oferta</span>
                         <span class="product-discount-label">20%</span>
                     </div>
-                    <div class="product-content" id='Contenido7'>
+                    <div class="product-content" id='Contenido21'>
                         <div class="price">$16.00
                             <span>$20.00</span>
                         </div>
                         <a class="add-to-cart" href="">+ Add To Cart</a>
                     </div>
                 </div>
-                <div class="product-grid" id="Producto8" onclick="imagenModal(this)">
-                        <div class="product-image" id='Imagen8'>
+                <div class="product-grid" id="Producto22" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen22'>
                             <span class="product-new-label">Oferta</span>
                             <span class="product-discount-label">20%</span>
                         </div>
-                        <div class="product-content" id='Contenido8'>
+                        <div class="product-content" id='Contenido22'>
                             <div class="price">$16.00
                                 
                             </div>
                        
                         </div>
                     </div>
-                    <div class="product-grid" id="Producto9" onclick="imagenModal(this)">
-                            <div class="product-image" id='Imagen9'>
+    
+                    <div class="product-grid" id="Producto23" onclick="imagenModal(this)">
+                            <div class="product-image" id='Imagen23'>
                                 <span class="product-new-label">Oferta</span>
                                 <span class="product-discount-label">20%</span>
                             </div>
-                            <div class="product-content" id='Contenido9'>
+                            <div class="product-content" id='Contenido23'>
                                 <div class="price">$16.00
                                     <span>$20.00</span>
                                 </div>
                                 <a class="add-to-cart" href="">+ Add To Cart</a>
                             </div>
                         </div>
-    </div>
-    <div class="col-xs-12 col-md-4">
-        <div class="product-grid" id="Producto10" onclick="imagenModal(this)">
-            <div class="product-image" id='Imagen10'>
+  
+   
+        <div class="product-grid" id="Producto24" onclick="imagenModal(this)">
+            <div class="product-image" id='Imagen24'>
                 <span class="product-new-label">Oferta</span>
                 <span class="product-discount-label">20%</span>
             </div>
-            <div class="product-content" id='Contenido10'>
+            <div class="product-content" id='Contenido24'>
                 <div class="price">$16.00
                     <span>$20.00</span>
                 </div>
                 <a class="add-to-cart" href="">+ Add To Cart</a>
             </div>
         </div>
-        <div class="product-grid" id="Producto11" onclick="imagenModal(this)">
-                <div class="product-image" id='Imagen11'>
+        </div>
+        
+        <div class="col-xs-12 col-md-4">
+        <div class="product-grid" id="Producto25" onclick="imagenModal(this)">
+                <div class="product-image" id='Imagen25'>
                     <span class="product-new-label">Oferta</span>
                     <span class="product-discount-label">20%</span>
                 </div>
-                <div class="product-content" id='Contenido11'>
+                <div class="product-content" id='Contenido25'>
                     <div class="price">$16.00
                         <span>$20.00</span>
                     </div>
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
             </div>
-            <div class="product-grid" id="Producto12" onclick="imagenModal(this)">
-                    <div class="product-image" id='Imagen12'>
+            <div class="product-grid" id="Producto26" onclick="imagenModal(this)">
+                    <div class="product-image" id='Imagen26'>
                         <span class="product-new-label">Oferta</span>
                         <span class="product-discount-label">20%</span>
                     </div>
-                    <div class="product-content" id='Contenido12'>
+                    <div class="product-content" id='Contenido26'>
                         <div class="price">$16.00
                             <span>$20.00</span>
                         </div>
                         <a class="add-to-cart" href="">+ Add To Cart</a>
                     </div>
                 </div>
-                <div class="product-grid" id="Producto13" onclick="imagenModal(this)">
-                        <div class="product-image" id='Imagen13'>
+               
+
+        <div class="product-grid" id="Producto27" onclick="imagenModal(this)">
+                    <div class="product-image" id='Imagen27'>
+                        <span class="product-new-label">Oferta</span>
+                        <span class="product-discount-label">20%</span>
+                    </div>
+                    <div class="product-content" id='Contenido27'>
+                        <div class="price">$16.00
+                            <span>$20.00</span>
+                        </div>
+                        <a class="add-to-cart" href="">+ Add To Cart</a>
+                    </div>
+                </div>
+                <div class="product-grid" id="Producto28" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen28'>
                             <span class="product-new-label">Oferta</span>
                             <span class="product-discount-label">20%</span>
                         </div>
-                        <div class="product-content" id='Contenido13'>
+                        <div class="product-content" id='Contenido28'>
                             <div class="price">$16.00
                                 <span>$20.00</span>
                             </div>
                             <a class="add-to-cart" href="">+ Add To Cart</a>
                         </div>
                     </div>
-                    <div class="product-grid" id="Producto14" onclick="imagenModal(this)">
-                            <div class="product-image" id='Imagen14'>
+                    <div class="product-grid" id="Producto29" onclick="imagenModal(this)">
+                            <div class="product-image" id='Imagen29'>
                             </div>
-                            <div class="product-content" id='Contenido14'>
+                            <div class="product-content" id='Contenido29'>
                                 <div class="price">
                                 </div>
                             </div>
                         </div>
-                    </div>
+     
+</div>
     </div>
 </div>
 
 
 
 <div id="divTotal" style="background: rgba(255,193,7,0.95)" >
-        <table id="tablaTotal" name="factura" style="width:80%; "><ul class="list-group mb-3" id="carritoderecha"><li class='list-group-item d-flex justify-content-between lh-condensed'><div style='width: 75%; margin: 0 auto;'><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></li></ul><ul class="list-group mb-3" id="preciototal"></ul></table>
+    <table id="tablaTotal" name="factura" style="width:80%; "><ul class="list-group mb-3" id="carritoderecha"><li class='list-group-item d-flex justify-content-between lh-condensed'><div style='width: 75%; margin: 0 auto;'><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></li></ul><ul class="list-group mb-3" id="preciototal"></ul></table>
     <p id="Facturafinal"></p>
             <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="formulariopago\checkout.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
 </div>
@@ -411,8 +434,8 @@ function obtenerNombre(i){
         </body>
 </html>
 <script>
-function imagenModal(item){
-    obtenerNombre(item);
-    window.location.href = "#openModal";
-}
-</script>
+    function imagenModal(item){
+        obtenerNombre(item);
+        window.location.href = "#openModal";
+    }
+    </script>
