@@ -138,12 +138,12 @@ function anadircarrito(nombre,cantidad){
 
     }
     function eliminarcarrito(puntero){
-        var a = puntero.parentElement;
-        var producto=document.getElementById(a.id).firstChild.dataset.indice;
-        producto=producto.replace(/-/g," ");
-        var h6 =puntero.parentElement;
-        var div= h6.parentElement;
-        var li = div.parentElement;
+        var a = puntero.parentElement;console.log("a",a);
+        var producto=document.getElementById(a.id).firstChild.dataset.indice;console.log("producto",producto);
+        producto=producto.replace(/-/g," ");console.log("producto",producto);
+        var h6 =puntero.parentElement;console.log("h6",h6);
+        var div= h6.parentElement;console.log("div",div);
+        var li = div.parentElement;console.log("li",li);
         console.log(h6);
         console.log(div);
         console.log(li);
