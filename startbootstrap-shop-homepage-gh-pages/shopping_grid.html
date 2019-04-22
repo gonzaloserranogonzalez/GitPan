@@ -93,7 +93,11 @@ function anadircarrito(nombre,cantidad){
         b.style.display='block';
         var p;
         for(j;j<productos.length && productos[j]!=nombre;j++);
+    if(ofertas[j]!=0){
         var precio=conoferta[j];
+    }
+    else
+        var precio=precios[j];
          var sinespacios=nombre.replace(/ /g,"-");
        // alert(sinespacios);
         var table=document.getElementById("tablaTotal");
