@@ -6,3 +6,4 @@ Lo que queda>
 -Pagina de gestion para el panadero(Inventario, Recaudacion, Agenda Reparto, Clientes) Santos
 -CSS de Inventario y recaudación del Panadero.
 -Control stock y control de precios
+-Cambiar headings de shopping y encargos grid.
