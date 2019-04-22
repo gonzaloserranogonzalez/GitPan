@@ -93,7 +93,7 @@
     fila.className = "filainventario";
     var columnainicial = fila.insertCell(-1);
     columnainicial.className = "tablainicial";
-    columnainicial.innerHTML = "Producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock&<nbsp></nbsp>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir&nbsp&nbsp&nbspPrecio&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspInserte el nuevo precio:<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp al stock? ";
+    columnainicial.innerHTML = "Producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock<nbsp></nbsp>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir&nbsp&nbsp&nbspPrecio&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspInserte el nuevo precio:<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp al stock? ";
 
     for (var i = 0; i < stock.length; i++) {
       var fila = tabla.insertRow(-1);
@@ -171,7 +171,7 @@
     stringinyectar += "<ul class='list-group list-group-flush'>";
     stringinyectar += "<br><h2>  Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
     for (var i = 1; i < usuarios.length; i++) {
-      stringinyectar += "<li class='list-group-item'><div><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + usuarios[i] + "</a></div>";
+      stringinyectar += "<li  id='" + usuarios[i] + "' class='list-group-item' href='#' onclick='mostrarcompracliente(this.id);return false;'><div><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + usuarios[i] + "</a></div>";
       var numpedidos = 0;
       for (var j = 0; arrayPedidos[i][j] != null; j++) {
 
