@@ -74,61 +74,93 @@
 
                     <SCRIPT language=JavaScript>
                         function go() {
-                            var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda", "Baguette", "Muffin con virutas de chocolate", "Muffin de fresa", "Muffin de Chocolate", "Croissant", "Croissant de chocolato", "Palmera choco", "Bocaditos de nata", "Bocaditos de trufa", "Cookie de chocolate", "Donut casero","Tarta de Santiago","Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao","Turrón de chocolate y almendras","Turrón de chocolate y naranja","Turrón duro","Turrón de Yema", "Turrón de Yogur y Pistacho"];
-                            var stock = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10];
-                            var imgGrandes = ["Rustica1.png", "Picos2.png", "Chapata3.jpg", "Torta4.jpg", "Baguette5.png", "Muffin.png", "MuffinFresa.jpg", "MuffinChoco.jpg", "croissant.jpg", "croissantChoco.jpg", "PalmeraChoco.jpg", "BocaditoNata.jpg", "BpcaditoDeNata.jpg", "cookieChoco.jpg", "donut.jpeg","Santiago6.jpg", "TresChocolates7.png", "RedVelvet8.png", "CarrotCake9.jpg", "Queso10.jpg", "Atun11.jpg", "Pollo12.jpg", "JamonQueso13.jpg", "Vegana14.jpg", "Bacalao15.jpg","TurronChocoAlmendra.jpg","TurronCocoNaranja.jpg", "TurronDuro.jpg", "TurronYema.jpg", "TurronYogurPistacho.jpg"];
-                            var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, chocolate", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, fresa, nata", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, chocolate", "Ingredientes: Levadura, harina, mantequilla, sal y azúcar", "Ingredientes: Levadura, harina, mantequilla, chocolate, sal y azúcar", "Ingredientes: Hojaldre, harina, mantequilla, chocolate, sal y azúcar", "Ingredientes: Mantequilla, nata, sal, harina, huevo, nata", "Ingredientes: Mantequilla, nata, sal, harina, huevo, nata", "Ingredientes: Harina, azucar, mantequilla, huevo, chocolate", "Ingredientes: Harina, sal, azúcar, huevo","Ingredientes: Almendra molida, huevo, azucar, ralladura de limón, mantequila","Ingredientes: Chocolate negro, chocolate con leche, chocolate blaco, galleta, azucar", "Ingredientes: Harina, leche, cacao en polvo, huevo, azúcar, mantequilla, colorante", "Ingredientes: Zanahoria, harina, levadura, bicarbonato, canela en polvo, azúcar moreno, mantequilla","Ingredientes: Queso Philadelphia, nata, azúcar, gelatina, mantequilla, galleta","Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, atún, huevo","Ingredientes: Cebolla, ajo, pimiento verde, aceite de oliva, sal, pollo, huevo", "Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, jamón, queso y huevo","Ingredientes: Hojaldre, soja, zanahoria, cebolla, calabacín y tomate.","Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, bacalao, huevo","Ingredientes: Chocolate, azucar, arroz inflado, almendras","Ingredientes: Chocolate, azucar, arroz inflado, naranja", "Ingredientes: miel, azúcar, almendras, huevo","Ingredientes:  Almendra, azúcar, yema de huevo, canela, ralladura de limón", "Ingredientes:  Almendra, azúcar, huevo, canela, ralladura de limón, yogur natural y pistacho"];
+                            var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda", "Baguette", "Muffin con virutas de chocolate", "Muffin de fresa", "Muffin de Chocolate", "Croissant", "Croissant de chocolato", "Palmera choco", "Bocaditos de nata", "Bocaditos de trufa", "Cookie de chocolate", "Donut casero", "Tarta de Santiago", "Tarta de tres chocolates", "Tarta Red Velvet", "Tarta de zanahoria", "Tarta de queso", "Empanada de atun", "Empanada de pollo", "Empanada de jamon y queso", "Empanada vegana", "Empanada de bacalao", "Turrón de chocolate y almendras", "Turrón de chocolate y naranja", "Turrón duro", "Turrón de Yema", "Turrón de Yogur y Pistacho"];
+                            var stock = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10];
+                            var imgGrandes = ["Rustica1.png", "Picos2.png", "Chapata3.jpg", "Torta4.jpg", "Baguette5.png", "Muffin.png", "MuffinFresa.jpg", "MuffinChoco.jpg", "croissant.jpg", "croissantChoco.jpg", "PalmeraChoco.jpg", "BocaditoNata.jpg", "BpcaditoDeNata.jpg", "cookieChoco.jpg", "donut.jpeg", "Santiago6.jpg", "TresChocolates7.png", "RedVelvet8.png", "CarrotCake9.jpg", "Queso10.jpg", "Atun11.jpg", "Pollo12.jpg", "JamonQueso13.jpg", "Vegana14.jpg", "Bacalao15.jpg", "TurronChocoAlmendra.jpg", "TurronCocoNaranja.jpg", "TurronDuro.jpg", "TurronYema.jpg", "TurronYogurPistacho.jpg"];
+                            var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, chocolate", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, fresa, nata", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, chocolate", "Ingredientes: Levadura, harina, mantequilla, sal y azúcar", "Ingredientes: Levadura, harina, mantequilla, chocolate, sal y azúcar", "Ingredientes: Hojaldre, harina, mantequilla, chocolate, sal y azúcar", "Ingredientes: Mantequilla, nata, sal, harina, huevo, nata", "Ingredientes: Mantequilla, nata, sal, harina, huevo, nata", "Ingredientes: Harina, azucar, mantequilla, huevo, chocolate", "Ingredientes: Harina, sal, azúcar, huevo", "Ingredientes: Almendra molida, huevo, azucar, ralladura de limón, mantequila", "Ingredientes: Chocolate negro, chocolate con leche, chocolate blaco, galleta, azucar", "Ingredientes: Harina, leche, cacao en polvo, huevo, azúcar, mantequilla, colorante", "Ingredientes: Zanahoria, harina, levadura, bicarbonato, canela en polvo, azúcar moreno, mantequilla", "Ingredientes: Queso Philadelphia, nata, azúcar, gelatina, mantequilla, galleta", "Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, atún, huevo", "Ingredientes: Cebolla, ajo, pimiento verde, aceite de oliva, sal, pollo, huevo", "Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, jamón, queso y huevo", "Ingredientes: Hojaldre, soja, zanahoria, cebolla, calabacín y tomate.", "Ingredientes: Cebolla, ajo, pimiento rojo, aceite de oliva, tomate, sal, bacalao, huevo", "Ingredientes: Chocolate, azucar, arroz inflado, almendras", "Ingredientes: Chocolate, azucar, arroz inflado, naranja", "Ingredientes: miel, azúcar, almendras, huevo", "Ingredientes:  Almendra, azúcar, yema de huevo, canela, ralladura de limón", "Ingredientes:  Almendra, azúcar, huevo, canela, ralladura de limón, yogur natural y pistacho"];
                             var bdusuarios = ["panadero", "yoel", "santos", "guille", "gonzalo", "eva", "manuel", "luisa", "alexa"];
                             var bdpassword = ["passpan", "passyoel", "passsantos", "passguille", "passgonzalo", "passeva", "passmanuel", "passluisa", "passalexa"];
-                           /* var precios = [1, 0.9,1.5,5,1,12,12,12,10,8,8,8,8,8,8,2.5,3,3,1.75,2,1.50,1,
-                           1,2,1, 4.50,4.50,4.50,4.50,4.50];*/
-                            	var precios = [1, 0.9,1.50,5,1,2.5,3,3,1.75,2,1.50,1,1,2,1,12,12,12,10,8,8,8,8,8,8,4.50,4.50,4.50,4.50,4.50];
-                                var ofertas = [0, 0,0,0,30, 20,0,15,0,0,0,0,0,10,0,20,0,0,0,0,0,30,0,0,0,0,0,10,10,0];
+                            /* var precios = [1, 0.9,1.5,5,1,12,12,12,10,8,8,8,8,8,8,2.5,3,3,1.75,2,1.50,1,
+                            1,2,1, 4.50,4.50,4.50,4.50,4.50];*/
+                            var precios = [1, 0.9, 1.50, 5, 1, 2.5, 3, 3, 1.75, 2, 1.50, 1, 1, 2, 1, 12, 12, 12, 10, 8, 8, 8, 8, 8, 8, 4.50, 4.50, 4.50, 4.50, 4.50];
+                            var ofertas = [0, 0, 0, 0, 30, 20, 0, 15, 0, 0, 0, 0, 0, 10, 0, 20, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 10, 10, 0];
                             var elpedido = 0;
-                             var conoferta=[7];
-                            for(var i=0;i<precios.length;i++)
-                                conoferta[i]=precios[i]-precios[i]*ofertas[i]/100;
+                            var conoferta = [7];
+                            for (var i = 0; i < precios.length; i++)
+                                conoferta[i] = precios[i] - precios[i] * ofertas[i] / 100;
                             localStorage.setItem("pedidos", elpedido);
                             localStorage.setItem("descripcion", JSON.stringify(descripcion));
                             localStorage.setItem("productos", JSON.stringify(productos));
                             localStorage.setItem("stock", JSON.stringify(stock));
                             localStorage.setItem("imagenes", JSON.stringify(imgGrandes));
                             localStorage.setItem("usuarios", JSON.stringify(bdusuarios));
-                            localStorage.setItem("precios",JSON.stringify(conoferta));
-                             localStorage.setItem("preciosantiguos",JSON.stringify(precios));
-                            localStorage.setItem("ofertas",JSON.stringify(ofertas));
+                            localStorage.setItem("precios", JSON.stringify(conoferta));
+                            localStorage.setItem("preciosantiguos", JSON.stringify(precios));
+                            localStorage.setItem("ofertas", JSON.stringify(ofertas));
                             var arrayPedidos = new Array(10);
                             for (var i = 0; i < arrayPedidos.length; i++) {
                                 arrayPedidos[i] = new Array(10);
                             }
-                            if(localStorage.getItem("arrayPedidos") === null){
-                            var pedidoprueba = JSON.parse("[{\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Miercoles \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1}}]");
-                            var pedidoprueba2 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":0.9,\"precioporcantidad\":0.9},\"Chapata\":{\"nombre\":\"Chapata\",\"dias\":\"Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":1.5,\"precioporcantidad\":1.5}}]");
-                            var pedidoprueba3 = JSON.parse("[{\"Torta de Aranda\":{\"nombre\":\"Torta de Aranda\",\"dias\":\"Martes Sabado \",\"cantidad\":\"1\",\"precioproducto\":3.5,\"precioporcantidad\":3.5},\"Baguette\":{\"nombre\":\"Baguette\",\"dias\":\"Martes Sabado \",\"cantidad\":\"2\",\"precioproducto\":1,\"precioporcantidad\":2}}]");
-                            var pedidoprueba4 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Sabado \", \"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
-                            var pedidoprueba5 = JSON.parse("[{\"Empanada vegana\":{\"nombre\":\"Empanada vegana\", \"dias\":\"Martes Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Tarta Red Velvet\":{\"nombre\":\"Tarta Red Velvet\",\"dias\":\"Martes Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":12,\"precioporcantidad\":12}}]");
-                            var pedidoprueba6 = JSON.parse("[{\"Chapata\":{\"nombre\":\"Chapata\",\"dias\":\"Lunes Martes \",\"cantidad\":\"1\",\"precioproducto\":1.5,\"precioporcantidad\":1.5},\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Martes \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1},\"Tarta de queso\":{\"nombre\":\"Tarta de queso\",\"dias\":\"Lunes Martes \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
-                            var pedidoprueba7 = JSON.parse("[{\"Tarta de Santiago\":{\"nombre\":\"Tarta de Santiago\",\"dias\":\"Martes Sabado Domingo \",\"cantidad\":\"1\",\"precioproducto\":9.6,\"precioporcantidad\":9.6}}]");
-                            var pedidoprueba8 = JSON.parse("[{\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Domingo \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1},\"Tarta de Santiago\":{\"nombre\":\"Tarta de Santiago\",\"dias\":\"Lunes Domingo \",\"cantidad\":\"1\",\"precioproducto\":9.6,\"precioporcantidad\":9.6},\"Empanada de atun\":{\"nombre\":\"Empanada de atun\",\"dias\":\"Lunes Domingo \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
-                            var pedidoprueba9 = JSON.parse("[{\"Empanada de bacalao\":{\"nombre\":\"Empanada de bacalao\",\"dias\":\"Lunes Martes Viernes \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Baguette\":{\"nombre\":\"Baguette\",\"dias\":\"Lunes Martes Viernes \",\"cantidad\":\"4\",\"precioproducto\":1,\"precioporcantidad\":4}}]");
-                            var pedidoprueba10 = JSON.parse("[{\"Tarta Red Velvet\":{\"nombre\":\"Tarta Red Velvet\",\"dias\":\"Jueves \",\"cantidad\":\"5\",\"precioproducto\":12,\"precioporcantidad\":60}}]");
-                            var pedidoprueba11 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Sabado \", \"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
-                            var pedidoprueba11 = JSON.parse("[{\"Tarta de queso\":{\"nombre\":\"Tarta de queso\",\"dias\":\"Lunes Sabado \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Tarta de zanahoria\":{\"nombre\":\"Tarta de zanahoria\",\"dias\":\"Lunes Sabado \",\"cantidad\":\"3\",\"precioproducto\":10,\"precioporcantidad\":30}}]");
-                            var pedidoprueba12 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Martes Domingo \",\"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
-          
-                            arrayPedidos[1][0] = pedidoprueba3;
-                            arrayPedidos[1][1] = pedidoprueba4;
-                            arrayPedidos[2][0] = pedidoprueba5;
-                            arrayPedidos[2][1] = pedidoprueba6;
-                            arrayPedidos[3][0] = pedidoprueba7;
-                            arrayPedidos[3][1] = pedidoprueba8;
-                            arrayPedidos[4][0] = pedidoprueba9;
-                            arrayPedidos[4][1] = pedidoprueba10;
-                            arrayPedidos[5][0] = pedidoprueba11;
-                            arrayPedidos[5][1] = pedidoprueba12;
-                            arrayPedidos[6][0] = pedidoprueba;
-                            arrayPedidos[6][1] = pedidoprueba2;
-                            localStorage.setItem("arrayPedidos", JSON.stringify(arrayPedidos));
+                            if (localStorage.getItem("arrayClientes") === null) {
+                                var arrayClientes = new Array(bdusuarios.length);
+
+                                var cliente1 = JSON.parse("[{\"1\":{\"nombre\":\"Yoel\",\"apellido1\":\"Castillo\",\"apellido2\":\"Montero\",\"direccion\":\"Calle San Romualdo 13\",\"ciudad\":\"Madrid\",\"telefono\":\"678362576\",\"dni\":\"89374657B\",\"codPostal\":\"28003\"}}]");
+                                arrayClientes[1] = cliente1;
+
+                                var cliente2 = JSON.parse("[{\"2\":{\"nombre\":\"Javier\",\"apellido1\":\"Santos\",\"apellido2\":\"Sanchez\",\"direccion\":\"Calle La Fontanilla, 93\",\"ciudad\":\" Hinojosa del Duque\",\"telefono\":\" 764 383 358\",\"dni\":\"40934083B\",\"codPostal\":\" 14270\"}}]");
+                                arrayClientes[2] = cliente2;
+
+                                var cliente3 = JSON.parse("[{\"3\":{\"nombre\":\"Guillermo\",\"apellido1\":\"Sanchez\",\"apellido2\":\"Gutierrez-Cabello\",\"direccion\":\"Calle Canarias, 40\",\"ciudad\":\" Azuqueca de Henares\",\"telefono\":\" 772 543 826\",\"dni\":\"00124486B\",\"codPostal\":\" 19200\"}}]");
+                                arrayClientes[3] = cliente3;
+
+                                var cliente4 = JSON.parse("[{\"4\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37310\"}}]");
+                                arrayClientes[4] = cliente4;
+
+                                var cliente5 = JSON.parse("[{\"5\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37175\"}}]");
+                                arrayClientes[5] = cliente5;
+
+                                var cliente6 = JSON.parse("[{\"6\":{\"nombre\":\"Eva\",\"apellido1\":\"Gil\",\"apellido2\":\"Garcia\",\"direccion\":\"Calle Cuevas de Ambrosio, 78\",\"ciudad\":\" León\",\"telefono\":\" 749 417 793\",\"dni\":\"00445464Z\",\"codPostal\":\" 24000\"}}]");
+                                arrayClientes[6] = cliente6;
+
+                                var cliente7 = JSON.parse("[{\"7\":{\"nombre\":\"Manuel\",\"apellido1\":\" Aponte\",\"apellido2\":\" Tejada\",\"direccion\":\"Calle Rosa de los Vientos, 33\",\"ciudad\":\" Vejer de la Frontera\",\"telefono\":\" 749 417 793\",\"dni\":\"38583953F\",\"codPostal\":\" 11150\"}}]");
+                                arrayClientes[7] = cliente7;
+
+                                var cliente8 = JSON.parse("[{\"8\":{\"nombre\":\"Luisa\",\"apellido1\":\" Elizondo\",\"apellido2\":\" Olivera\",\"direccion\":\" Avda. Andalucía, 86\",\"ciudad\":\" Ribafrecha\",\"telefono\":\" 758 070 587\",\"dni\":\"43584312C\",\"codPostal\":\" 26130\"}}]");
+                                arrayClientes[8] = cliente8;
+
+                                var cliente9 = JSON.parse("[{\"9\":{\"nombre\":\"Alexa\",\"apellido1\":\" Coronado\",\"apellido2\":\" Lara\",\"direccion\":\" Cañada del Rosal, 63\",\"ciudad\":\" Ayamonte\",\"telefono\":\"682 467 236\",\"dni\":\"12738941H\",\"codPostal\":\" 21400\"}}]");
+                                arrayClientes[9] = cliente9;
+                                localStorage.setItem("arrayClientes", JSON.stringify(arrayPedidos));
+                            }
+
+                            if (localStorage.getItem("arrayPedidos") === null) {
+                                var pedidoprueba = JSON.parse("[{\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Miercoles \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1}}]");
+                                var pedidoprueba2 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":0.9,\"precioporcantidad\":0.9},\"Chapata\":{\"nombre\":\"Chapata\",\"dias\":\"Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":1.5,\"precioporcantidad\":1.5}}]");
+                                var pedidoprueba3 = JSON.parse("[{\"Torta de Aranda\":{\"nombre\":\"Torta de Aranda\",\"dias\":\"Martes Sabado \",\"cantidad\":\"1\",\"precioproducto\":3.5,\"precioporcantidad\":3.5},\"Baguette\":{\"nombre\":\"Baguette\",\"dias\":\"Martes Sabado \",\"cantidad\":\"2\",\"precioproducto\":1,\"precioporcantidad\":2}}]");
+                                var pedidoprueba4 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Sabado \", \"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
+                                var pedidoprueba5 = JSON.parse("[{\"Empanada vegana\":{\"nombre\":\"Empanada vegana\", \"dias\":\"Martes Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Tarta Red Velvet\":{\"nombre\":\"Tarta Red Velvet\",\"dias\":\"Martes Miercoles Domingo \",\"cantidad\":\"1\",\"precioproducto\":12,\"precioporcantidad\":12}}]");
+                                var pedidoprueba6 = JSON.parse("[{\"Chapata\":{\"nombre\":\"Chapata\",\"dias\":\"Lunes Martes \",\"cantidad\":\"1\",\"precioproducto\":1.5,\"precioporcantidad\":1.5},\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Martes \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1},\"Tarta de queso\":{\"nombre\":\"Tarta de queso\",\"dias\":\"Lunes Martes \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
+                                var pedidoprueba7 = JSON.parse("[{\"Tarta de Santiago\":{\"nombre\":\"Tarta de Santiago\",\"dias\":\"Martes Sabado Domingo \",\"cantidad\":\"1\",\"precioproducto\":9.6,\"precioporcantidad\":9.6}}]");
+                                var pedidoprueba8 = JSON.parse("[{\"Barra Rustica\":{\"nombre\":\"Barra Rustica\",\"dias\":\"Lunes Domingo \",\"cantidad\":\"1\",\"precioproducto\":1,\"precioporcantidad\":1},\"Tarta de Santiago\":{\"nombre\":\"Tarta de Santiago\",\"dias\":\"Lunes Domingo \",\"cantidad\":\"1\",\"precioproducto\":9.6,\"precioporcantidad\":9.6},\"Empanada de atun\":{\"nombre\":\"Empanada de atun\",\"dias\":\"Lunes Domingo \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8}}]");
+                                var pedidoprueba9 = JSON.parse("[{\"Empanada de bacalao\":{\"nombre\":\"Empanada de bacalao\",\"dias\":\"Lunes Martes Viernes \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Baguette\":{\"nombre\":\"Baguette\",\"dias\":\"Lunes Martes Viernes \",\"cantidad\":\"4\",\"precioproducto\":1,\"precioporcantidad\":4}}]");
+                                var pedidoprueba10 = JSON.parse("[{\"Tarta Red Velvet\":{\"nombre\":\"Tarta Red Velvet\",\"dias\":\"Jueves \",\"cantidad\":\"5\",\"precioproducto\":12,\"precioporcantidad\":60}}]");
+                                var pedidoprueba11 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Sabado \", \"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
+                                var pedidoprueba11 = JSON.parse("[{\"Tarta de queso\":{\"nombre\":\"Tarta de queso\",\"dias\":\"Lunes Sabado \",\"cantidad\":\"1\",\"precioproducto\":8,\"precioporcantidad\":8},\"Tarta de zanahoria\":{\"nombre\":\"Tarta de zanahoria\",\"dias\":\"Lunes Sabado \",\"cantidad\":\"3\",\"precioproducto\":10,\"precioporcantidad\":30}}]");
+                                var pedidoprueba12 = JSON.parse("[{\"Barra de picos\":{\"nombre\":\"Barra de picos\",\"dias\":\"Martes Domingo \",\"cantidad\":\"10\",\"precioproducto\":0.9,\"precioporcantidad\":9}}]");
+
+                                arrayPedidos[1][0] = pedidoprueba3;
+                                arrayPedidos[1][1] = pedidoprueba4;
+                                arrayPedidos[2][0] = pedidoprueba5;
+                                arrayPedidos[2][1] = pedidoprueba6;
+                                arrayPedidos[3][0] = pedidoprueba7;
+                                arrayPedidos[3][1] = pedidoprueba8;
+                                arrayPedidos[4][0] = pedidoprueba9;
+                                arrayPedidos[4][1] = pedidoprueba10;
+                                arrayPedidos[5][0] = pedidoprueba11;
+                                arrayPedidos[5][1] = pedidoprueba12;
+                                arrayPedidos[6][0] = pedidoprueba;
+                                arrayPedidos[6][1] = pedidoprueba2;
+                                localStorage.setItem("arrayPedidos", JSON.stringify(arrayPedidos));
                             }
                             //	if (document.form.password.value=='CONTRASEÑA' && document.form.username.value=='USUARIO'){
                             // document.form.submit();

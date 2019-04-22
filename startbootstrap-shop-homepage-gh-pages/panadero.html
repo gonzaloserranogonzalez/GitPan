@@ -6,70 +6,73 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
-<div id="myDIV">
-  <section id="arriba">
-    <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
-      <a class="navbar-brand" href="eleccionpanadero.html">PanAPP - Administración</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-        aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#inventario" onclick="mostrarInventario();">Inventario</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#recaudacion" onclick="mostrarRecaudacion();">Recaudacion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#agenda" onclick="mostrarReparto();">Agenda reparto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#clientes" onclick="mostrarClientes();">Clientes</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto nav-flex-icons">
-        <!-- Para boton de cerrar sesion -->
-        
-        <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
-        <li class="nav-item avatar">
-          <a class="nav-link p-0" href="#">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-              alt="avatar image" height="35">
-          </a>
-        </li>
-      </ul>
-    </nav>
-</div>
-</section>
-<a class='flotante' href="#arriba" style="width:50px; padding-bottom:65px;"> <img
-    style="display: scroll; position: fixed; bottom: 40px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
-    src="upscrollarrow.png"></img></a>
-<img
-  style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
-  src="downscrollarrow.png"></img></a>
-<div class="container" id="contenedor">
-  <table id='tablainventario'></table>
-</div>
-<link rel="stylesheet" href="panadero.css" />
+  <div id="myDIV">
+    <section id="arriba">
+      <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+        <a class="navbar-brand" href="eleccionpanadero.html">PanAPP - Administración</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+          aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#inventario" onclick="mostrarInventario();">Inventario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#recaudacion" onclick="mostrarRecaudacion();">Recaudacion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#agenda" onclick="mostrarReparto();">Agenda reparto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#clientes" onclick="mostrarClientes();">Clientes</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          <!-- Para boton de cerrar sesion -->
+
+          <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
+          <li class="nav-item avatar">
+            <a class="nav-link p-0" href="#">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                alt="avatar image" height="35">
+            </a>
+          </li>
+        </ul>
+      </nav>
+  </div>
+  </section>
+  <a class='flotante' href="#arriba" style="width:50px; padding-bottom:65px;"> <img
+      style="display: scroll; position: fixed; bottom: 40px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
+      src="upscrollarrow.png"></img></a>
+  <img
+    style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
+    src="downscrollarrow.png"></img></a>
+  <div class="container" id="contenedor">
+    <table id='tablainventario'></table>
+  </div>
+  <link rel="stylesheet" href="panadero.css" />
 
 </html>
 </body>
 <script type="text/javascript">
-  var stock, productos, fotos, tabla, usuarios, arraypedidos,precios,ofertas,antiguos;
+  var stock, productos, fotos, tabla, usuarios, arraypedidos, precios, ofertas, antiguos;
   stock = JSON.parse(localStorage.getItem("stock"));
   //alert(stock);
   productos = JSON.parse(localStorage.getItem("productos"));
   fotos = JSON.parse(localStorage.getItem("imagenes"));
   usuarios = JSON.parse(localStorage.getItem("usuarios"));
-  precios=JSON.parse(localStorage.getItem("precios"));
-  antiguos=JSON.parse(localStorage.getItem("preciosantiguos"));
-  ofertas=JSON.parse(localStorage.getItem("ofertas"));
+  precios = JSON.parse(localStorage.getItem("precios"));
+  antiguos = JSON.parse(localStorage.getItem("preciosantiguos"));
+  ofertas = JSON.parse(localStorage.getItem("ofertas"));
   window.onload = function () {
     arrayPedidos = JSON.parse(localStorage.getItem("arrayPedidos"));
     console.log(arrayPedidos);
@@ -108,39 +111,39 @@
       columna.innerHTML += "<br><p> " + stock[i] + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>";
       columna = fila.insertCell(-1);
       columna.id = "anadirstock" + i;
-      document.getElementById('anadirstock' + i).style.paddingLeft = "35px";  
+      document.getElementById('anadirstock' + i).style.paddingLeft = "35px";
       columna.innerHTML += "<br><input type='number' min='1' id='modificarstock" + i + "'></input><button type='button' onclick='actualizarstock(" + i + ");'>Confirmar</button> ";
-      columna=fila.insertCell(-1);
-         columna.id = "modificarprecio" + i;
-      columna.innerHTML+="<p>"+precios[i];
       columna = fila.insertCell(-1);
-      
-        document.getElementById('modificarprecio' + i).style.paddingLeft = "35px";  
-          columna.innerHTML += "<br><input type='number' min='1' id='modificarpreciovalor" + i + "'></input><button type='button' onclick='actualizarprecio(" + i + ");'>Confirmar</button> ";
-        
-        
+      columna.id = "modificarprecio" + i;
+      columna.innerHTML += "<p>" + precios[i];
+      columna = fila.insertCell(-1);
+
+      document.getElementById('modificarprecio' + i).style.paddingLeft = "35px";
+      columna.innerHTML += "<br><input type='number' min='1' id='modificarpreciovalor" + i + "'></input><button type='button' onclick='actualizarprecio(" + i + ");'>Confirmar</button> ";
+
+
     }
   }
-    function actualizarprecio(i){
+  function actualizarprecio(i) {
     var sumar = document.getElementById("modificarpreciovalor" + i);
     var suma = document.getElementById("modificarprecio" + i);
-        suma.innerHTML="<p>"+sumar.value;
-        if(ofertas[i]!=0){
-          precios[i]=parseInt(sumar.value);
-            sumar.value=null;
-            localStorage.setItem("precios",JSON.stringify(precios));
-        }
-        else{
-            antiguos[i]=parseInt(sumar.value);
-            localStorage.setItem("preciosantiguos",JSON.stringify(antiguos));
-            
-        }
-            
-        
-        
+    suma.innerHTML = "<p>" + sumar.value;
+    if (ofertas[i] != 0) {
+      precios[i] = parseInt(sumar.value);
+      sumar.value = null;
+      localStorage.setItem("precios", JSON.stringify(precios));
     }
-    
-    
+    else {
+      antiguos[i] = parseInt(sumar.value);
+      localStorage.setItem("preciosantiguos", JSON.stringify(antiguos));
+
+    }
+
+
+
+  }
+
+
   function actualizarstock(i) {
     var sumar = document.getElementById("stock" + i);
     var suma = document.getElementById("modificarstock" + i);
@@ -151,13 +154,13 @@
       sumar.innerHTML = "<p> " + total;
       suma.value = null;
       stock[i] = total;
-      localStorage.setItem("stock",JSON.stringify(stock)); 
+      localStorage.setItem("stock", JSON.stringify(stock));
     }
     else {
       sumar.innerHTML = "<p> El stock es: 0";
       suma.value = null;
       stock[i] = 0;
-        localStorage.setItem("stock",JSON.stringify(stock));
+      localStorage.setItem("stock", JSON.stringify(stock));
     }
 
 
@@ -166,8 +169,8 @@
   function mostrarRecaudacion() {
 
     var a = document.getElementById("contenedor");
-    var stringinyectar="";
-    
+    var stringinyectar = "";
+
     stringinyectar += "<ul class='list-group list-group-flush'>";
     stringinyectar += "<br><h2>  Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
     for (var i = 1; i < usuarios.length; i++) {
@@ -186,9 +189,9 @@
   }
 
   function mostrarcompracliente(login) {
-    var stringinyectar="";
+    var stringinyectar = "";
     var a = document.getElementById("contenedor");
-    stringinyectar+="<br><br><div class='list-group'><a href='#' class='list-group-item list-group-item-action list-group-item-primary'><h5 class='mb-1'>Usuario: " + login +"</h5></a>";
+    stringinyectar += "<br><br><div class='list-group'><a href='#' class='list-group-item list-group-item-action list-group-item-primary'><h5 class='mb-1'>Usuario: " + login + "</h5></a>";
     var comprausuario = 0;
     //console.log(arrayPedidos[0][0][0][productos[6]].nombre);
     //stringinyectar.innerHTML += "<br><br> Usuario: " + login;
@@ -202,9 +205,9 @@
       console.log(arrayPedidos[i][j][0]);
       for (var z = 0; z < productos.length; z++) {
         if (arrayPedidos[i][j][0][productos[z]] != null) {
-          stringinyectar += "<i>Producto: " + arrayPedidos[i][j][0][productos[z]].nombre+"</i>";
-          stringinyectar += "<br>Cantidad: " + arrayPedidos[i][j][0][productos[z]].cantidad+" unidades";
-          stringinyectar += "<br>Precio del producto: " + arrayPedidos[i][j][0][productos[z]].precioproducto+"€";
+          stringinyectar += "<i>Producto: " + arrayPedidos[i][j][0][productos[z]].nombre + "</i>";
+          stringinyectar += "<br>Cantidad: " + arrayPedidos[i][j][0][productos[z]].cantidad + " unidades";
+          stringinyectar += "<br>Precio del producto: " + arrayPedidos[i][j][0][productos[z]].precioproducto + "€";
           stringinyectar += "<br>Precio total por producto: " + arrayPedidos[i][j][0][productos[z]].precioporcantidad + "€<br><br>";
           precioporpedido += arrayPedidos[i][j][0][productos[z]].precioporcantidad;
         }
@@ -214,7 +217,7 @@
       j--;
       comprausuario += precioporpedido;
     }
-    stringinyectar += "<a href='#' class='list-group-item list-group-item-action list-group-item-success'><strong>El usuario " + usuarios[i] + " ha aportado a PanAPP: " + comprausuario+"€</strong></a></a></div>";
+    stringinyectar += "<a href='#' class='list-group-item list-group-item-action list-group-item-success'><strong>El usuario " + usuarios[i] + " ha aportado a PanAPP: " + comprausuario + "€</strong></a></a></div>";
     //console.log(stringinyectar);
     a.innerHTML = stringinyectar;
   }
@@ -262,7 +265,7 @@
               for (var p = 0; p < productos.length; p++) {
                 if (arrayPedidos[i][j][0][productos[p]] != null) {
                   a.innerHTML += "<br>Producto: " + arrayPedidos[i][j][0][productos[p]].nombre;
-                  a.innerHTML += ". Cantidad: "+ arrayPedidos[i][j][0][productos[p]].cantidad;
+                  a.innerHTML += ". Cantidad: " + arrayPedidos[i][j][0][productos[p]].cantidad;
                 }
               }
             }
@@ -274,175 +277,145 @@
 
 
   }
-function buscarusuario(){
-   
-    
-   var arrayClientes = new Array(usuarios.length);
-
-   var cliente1 = JSON.parse("[{\"1\":{\"nombre\":\"Yoel\",\"apellido1\":\"Castillo\",\"apellido2\":\"Montero\",\"direccion\":\"Calle San Romualdo 13\",\"ciudad\":\"Madrid\",\"telefono\":\"678362576\",\"dni\":\"89374657B\",\"codPostal\":\"28003\"}}]");
-   arrayClientes[1] = cliente1;
-
-   var cliente2 = JSON.parse("[{\"2\":{\"nombre\":\"Javier\",\"apellido1\":\"Santos\",\"apellido2\":\"Sanchez\",\"direccion\":\"Calle La Fontanilla, 93\",\"ciudad\":\" Hinojosa del Duque\",\"telefono\":\" 764 383 358\",\"dni\":\"40934083B\",\"codPostal\":\" 14270\"}}]");
-   arrayClientes[2] = cliente2;
-
-   var cliente3 = JSON.parse("[{\"3\":{\"nombre\":\"Guillermo\",\"apellido1\":\"Sanchez\",\"apellido2\":\"Gutierrez-Cabello\",\"direccion\":\"Calle Canarias, 40\",\"ciudad\":\" Azuqueca de Henares\",\"telefono\":\" 772 543 826\",\"dni\":\"00124486B\",\"codPostal\":\" 19200\"}}]");
-   arrayClientes[3] = cliente3;
-
-   var cliente4 = JSON.parse("[{\"4\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37310\"}}]");
-   arrayClientes[4] = cliente4;
-
-   var cliente5 = JSON.parse("[{\"5\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37175\"}}]");
-   arrayClientes[5] = cliente5;
-
-   var cliente6 = JSON.parse("[{\"6\":{\"nombre\":\"Eva\",\"apellido1\":\"Gil\",\"apellido2\":\"Garcia\",\"direccion\":\"Calle Cuevas de Ambrosio, 78\",\"ciudad\":\" León\",\"telefono\":\" 749 417 793\",\"dni\":\"00445464Z\",\"codPostal\":\" 24000\"}}]");
-   arrayClientes[6] = cliente6;
-
-   var cliente7 = JSON.parse("[{\"7\":{\"nombre\":\"Manuel\",\"apellido1\":\" Aponte\",\"apellido2\":\" Tejada\",\"direccion\":\"Calle Rosa de los Vientos, 33\",\"ciudad\":\" Vejer de la Frontera\",\"telefono\":\" 749 417 793\",\"dni\":\"38583953F\",\"codPostal\":\" 11150\"}}]");
-   arrayClientes[7] = cliente7;
-
-   var cliente8 = JSON.parse("[{\"8\":{\"nombre\":\"Luisa\",\"apellido1\":\" Elizondo\",\"apellido2\":\" Olivera\",\"direccion\":\" Avda. Andalucía, 86\",\"ciudad\":\" Ribafrecha\",\"telefono\":\" 758 070 587\",\"dni\":\"43584312C\",\"codPostal\":\" 26130\"}}]");
-   arrayClientes[8] = cliente8;
-
-   var cliente9 = JSON.parse("[{\"9\":{\"nombre\":\"Alexa\",\"apellido1\":\" Coronado\",\"apellido2\":\" Lara\",\"direccion\":\" Cañada del Rosal, 63\",\"ciudad\":\" Ayamonte\",\"telefono\":\"682 467 236\",\"dni\":\"12738941H\",\"codPostal\":\" 21400\"}}]");
-   arrayClientes[9] = cliente9;
-     var a=document.getElementById("buscador");
-    var i=1;
-    var buscar=a.value;
+  function buscarusuario() {
+    var arrayClientes = localStorage.getItem("arrayClientes");
+    var a = document.getElementById("buscador");
+    var i = 1;
+    var buscar = a.value;
     console.log(arrayClientes);
-    if(buscar==""){
-        alert("Introduzca un valor antes de buscar");
-    
-    
+    if (buscar == "") {
+      alert("Introduzca un valor antes de buscar");
+
+
     }
-    else{
-       
-        for(;i<arrayClientes.length && arrayClientes[i][0][i].nombre!=buscar;i++);
-        
-       var a = document.getElementById("contenedor");
-    //a.innerHTML = "<table id='tablaClientes' style='margin-top:20px;'></table>";
-    a.innerHTML="";
-    a.innerHTML = "<br><h2>Bienvenido al área de clientes.</h2>";
-    a.innerHTML += "<br><p>A continuación se muestran los datos de todos los clientes:</p>";
-    a.innerHTML+="<br>Buscador de usuarios: <input id='buscador' type='text'></input><button type='button' onclick='buscarusuario(document.getElementById('buscador').value);' >Buscar</button><br><br>";
-    a.innerHTML+="<br><b>Cliente:</b> " +arrayClientes[i][0][i].nombre +" " +arrayClientes[i][0][i].apellido1 +" " +arrayClientes[i][0][i].apellido2;
-      a.innerHTML+= "<br><b>Direccion:</b> "+arrayClientes[i][0][i].direccion;
-      a.innerHTML+= "<br><b>Ciudad:</b> "+arrayClientes[i][0][i].ciudad;
-      a.innerHTML+= "<br><b>Código postal:</b> "+arrayClientes[i][0][i].codPostal;
-      a.innerHTML+= "<br><b>Número de teléfono:</b> "+arrayClientes[i][0][i].telefono;
-      a.innerHTML+= "<br><b>ID usuario:</b> "+arrayClientes[i][0][i].dni;
-        
-        
-        
-        a.innerHTML+="<a href='#clientes' onclick='mostrarClientes();' style='float:right;'>volver</a>";
+    else {
+
+      for (; i < arrayClientes.length && arrayClientes[i][0][i].nombre != buscar; i++);
+
+      var a = document.getElementById("contenedor");
+      //a.innerHTML = "<table id='tablaClientes' style='margin-top:20px;'></table>";
+      a.innerHTML = "";
+      a.innerHTML = "<br><h2>Bienvenido al área de clientes.</h2>";
+      a.innerHTML += "<br><p>A continuación se muestran los datos de todos los clientes:</p>";
+      a.innerHTML += "<br>Buscador de usuarios: <input id='buscador' type='text'></input><button type='button' onclick='buscarusuario(document.getElementById('buscador').value);' >Buscar  <i class='em em-mag'></i></button><br><br>";
+      a.innerHTML += "<br><b>Cliente:</b> " + arrayClientes[i][0][i].nombre + " " + arrayClientes[i][0][i].apellido1 + " " + arrayClientes[i][0][i].apellido2;
+      a.innerHTML += "<br><b>Direccion:</b> " + arrayClientes[i][0][i].direccion;
+      a.innerHTML += "<br><b>Ciudad:</b> " + arrayClientes[i][0][i].ciudad;
+      a.innerHTML += "<br><b>Código postal:</b> " + arrayClientes[i][0][i].codPostal;
+      a.innerHTML += "<br><b>Número de teléfono:</b> " + arrayClientes[i][0][i].telefono;
+      a.innerHTML += "<br><b>ID usuario:</b> " + arrayClientes[i][0][i].dni;
+
+
+
+      a.innerHTML += "<a href='#clientes' onclick='mostrarClientes();' style='float:right;'>volver</a>";
     }
-    
-    
-}
+
+
+  }
   function mostrarClientes() {
     var a = document.getElementById("contenedor");
     //a.innerHTML = "<table id='tablaClientes' style='margin-top:20px;'></table>";
 
     a.innerHTML = "<br><h2>Bienvenido al área de clientes.</h2>";
     a.innerHTML += "<br><p>A continuación se muestran los datos de todos los clientes:</p>"
-    a.innerHTML+="<br>Buscador de usuarios: <input id='buscador' style='width:30%' type='search' placeholder='Introduce el usuario a buscar'></input><button type='button' onclick='buscarusuario();' >Buscar</button><br><br>";
-/*
-    var i = 1;
-    var j = 0;
-    var y=1;
-
-    for(y =1; y<usuarios.length; y++){
-      for (i; arrayPedidos[i][j]; i++) {
-        for (j; arrayPedidos[i][j]; j++) {
-          for (var p = 0; p < productos.length; p++) {
-            if (arrayPedidos[i][j][0][productos[p]] != null) {
-              a.innerHTML += "<br>Usuario: " + usuarios[y];
-              a.innerHTML += "<br>Producto: " + arrayPedidos[i][j][0][productos[p]].nombre;
-              a.innerHTML += ". Cantidad de " + productos[p] + ": " + arrayPedidos[i][j][0][productos[p]].cantidad;
+    a.innerHTML += "<br>Buscador de usuarios: <input id='buscador' style='width:30%' type='search' placeholder='Introduce el usuario a buscar'></input><button type='button' onclick='buscarusuario();' >Buscar  <i class='em em-mag'></i></button><br><br>";
+    /*
+        var i = 1;
+        var j = 0;
+        var y=1;
+    
+        for(y =1; y<usuarios.length; y++){
+          for (i; arrayPedidos[i][j]; i++) {
+            for (j; arrayPedidos[i][j]; j++) {
+              for (var p = 0; p < productos.length; p++) {
+                if (arrayPedidos[i][j][0][productos[p]] != null) {
+                  a.innerHTML += "<br>Usuario: " + usuarios[y];
+                  a.innerHTML += "<br>Producto: " + arrayPedidos[i][j][0][productos[p]].nombre;
+                  a.innerHTML += ". Cantidad de " + productos[p] + ": " + arrayPedidos[i][j][0][productos[p]].cantidad;
+                }
+              }
             }
           }
         }
-      }
-    }
-*/
+    */
 
-/*
-var i=0;
-var j=0;
-
-
-
-   for(i=1; i<usuarios.length; i++)
-   {
-     a.innerHTML+= "<br>Cliente: " +usuarios[i];
-     for(j=0; arrayPedidos[i][j]; j++)
-     {
-       for (var p = 0; p < productos.length; p++)
+    /*
+    var i=0;
+    var j=0;
+    
+    
+    
+       for(i=1; i<usuarios.length; i++)
        {
-         if (arrayPedidos[i][j][0][productos[p]] != null)
+         a.innerHTML+= "<br>Cliente: " +usuarios[i];
+         for(j=0; arrayPedidos[i][j]; j++)
          {
-           a.innerHTML += "<br>Producto: " + arrayPedidos[i][j][0][productos[p]].nombre;
+           for (var p = 0; p < productos.length; p++)
+           {
+             if (arrayPedidos[i][j][0][productos[p]] != null)
+             {
+               a.innerHTML += "<br>Producto: " + arrayPedidos[i][j][0][productos[p]].nombre;
+             }
+           }
          }
+         a.innerHTML+= "<br> ";
        }
-     }
-     a.innerHTML+= "<br> ";
-   }
-
-   */
+    
+       */
 
 
-//arrayClientes = usuarios.slice();
+    //arrayClientes = usuarios.slice();
 
-/*
-for(var i=0; i< arrayClientes.length; i++)
-{
-  arrayClientes[i] = new Array(1);
-}*/
-
-
-   var arrayClientes = new Array(usuarios.length);
-
-   var cliente1 = JSON.parse("[{\"1\":{\"nombre\":\"Yoel\",\"apellido1\":\"Castillo\",\"apellido2\":\"Montero\",\"direccion\":\"Calle San Romualdo 13\",\"ciudad\":\"Madrid\",\"telefono\":\"678362576\",\"dni\":\"89374657B\",\"codPostal\":\"28003\"}}]");
-   arrayClientes[1] = cliente1;
-
-   var cliente2 = JSON.parse("[{\"2\":{\"nombre\":\"Javier\",\"apellido1\":\"Santos\",\"apellido2\":\"Sanchez\",\"direccion\":\"Calle La Fontanilla, 93\",\"ciudad\":\" Hinojosa del Duque\",\"telefono\":\" 764 383 358\",\"dni\":\"40934083B\",\"codPostal\":\" 14270\"}}]");
-   arrayClientes[2] = cliente2;
-
-   var cliente3 = JSON.parse("[{\"3\":{\"nombre\":\"Guillermo\",\"apellido1\":\"Sanchez\",\"apellido2\":\"Gutierrez-Cabello\",\"direccion\":\"Calle Canarias, 40\",\"ciudad\":\" Azuqueca de Henares\",\"telefono\":\" 772 543 826\",\"dni\":\"00124486B\",\"codPostal\":\" 19200\"}}]");
-   arrayClientes[3] = cliente3;
-
-   var cliente4 = JSON.parse("[{\"4\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37310\"}}]");
-   arrayClientes[4] = cliente4;
-
-   var cliente5 = JSON.parse("[{\"5\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37175\"}}]");
-   arrayClientes[5] = cliente5;
-
-   var cliente6 = JSON.parse("[{\"6\":{\"nombre\":\"Eva\",\"apellido1\":\"Gil\",\"apellido2\":\"Garcia\",\"direccion\":\"Calle Cuevas de Ambrosio, 78\",\"ciudad\":\" León\",\"telefono\":\" 749 417 793\",\"dni\":\"00445464Z\",\"codPostal\":\" 24000\"}}]");
-   arrayClientes[6] = cliente6;
-
-   var cliente7 = JSON.parse("[{\"7\":{\"nombre\":\"Manuel\",\"apellido1\":\" Aponte\",\"apellido2\":\" Tejada\",\"direccion\":\"Calle Rosa de los Vientos, 33\",\"ciudad\":\" Vejer de la Frontera\",\"telefono\":\" 749 417 793\",\"dni\":\"38583953F\",\"codPostal\":\" 11150\"}}]");
-   arrayClientes[7] = cliente7;
-
-   var cliente8 = JSON.parse("[{\"8\":{\"nombre\":\"Luisa\",\"apellido1\":\" Elizondo\",\"apellido2\":\" Olivera\",\"direccion\":\" Avda. Andalucía, 86\",\"ciudad\":\" Ribafrecha\",\"telefono\":\" 758 070 587\",\"dni\":\"43584312C\",\"codPostal\":\" 26130\"}}]");
-   arrayClientes[8] = cliente8;
-
-   var cliente9 = JSON.parse("[{\"9\":{\"nombre\":\"Alexa\",\"apellido1\":\" Coronado\",\"apellido2\":\" Lara\",\"direccion\":\" Cañada del Rosal, 63\",\"ciudad\":\" Ayamonte\",\"telefono\":\"682 467 236\",\"dni\":\"12738941H\",\"codPostal\":\" 21400\"}}]");
-   arrayClientes[9] = cliente9;
-
-   console.log(arrayClientes);
-
-
-    for(i=1; i<arrayClientes.length; i++)
+    /*
+    for(var i=0; i< arrayClientes.length; i++)
     {
-      a.innerHTML+= "<br><b>Cliente:</b> " +arrayClientes[i][0][i].nombre +" " +arrayClientes[i][0][i].apellido1 +" " +arrayClientes[i][0][i].apellido2;
-      a.innerHTML+= "<br><b>Direccion:</b> "+arrayClientes[i][0][i].direccion;
-      a.innerHTML+= "<br><b>Ciudad:</b> "+arrayClientes[i][0][i].ciudad;
-      a.innerHTML+= "<br><b>Código postal:</b> "+arrayClientes[i][0][i].codPostal;
-      a.innerHTML+= "<br><b>Número de teléfono:</b> "+arrayClientes[i][0][i].telefono;
-      a.innerHTML+= "<br><b>ID usuario:</b> "+arrayClientes[i][0][i].dni;
-     // localStorage.setItem("usuarioactual", i)
+      arrayClientes[i] = new Array(1);
+    }*/
 
-      a.innerHTML+="<br><button class='botonclientes' value='"+i+"' onclick='return hacerEncargo(value)'> Realizar encargo</button>";
-      a.innerHTML+= "<br>";
+
+    var arrayClientes = new Array(usuarios.length);
+
+    var cliente1 = JSON.parse("[{\"1\":{\"nombre\":\"Yoel\",\"apellido1\":\"Castillo\",\"apellido2\":\"Montero\",\"direccion\":\"Calle San Romualdo 13\",\"ciudad\":\"Madrid\",\"telefono\":\"678362576\",\"dni\":\"89374657B\",\"codPostal\":\"28003\"}}]");
+    arrayClientes[1] = cliente1;
+
+    var cliente2 = JSON.parse("[{\"2\":{\"nombre\":\"Javier\",\"apellido1\":\"Santos\",\"apellido2\":\"Sanchez\",\"direccion\":\"Calle La Fontanilla, 93\",\"ciudad\":\" Hinojosa del Duque\",\"telefono\":\" 764 383 358\",\"dni\":\"40934083B\",\"codPostal\":\" 14270\"}}]");
+    arrayClientes[2] = cliente2;
+
+    var cliente3 = JSON.parse("[{\"3\":{\"nombre\":\"Guillermo\",\"apellido1\":\"Sanchez\",\"apellido2\":\"Gutierrez-Cabello\",\"direccion\":\"Calle Canarias, 40\",\"ciudad\":\" Azuqueca de Henares\",\"telefono\":\" 772 543 826\",\"dni\":\"00124486B\",\"codPostal\":\" 19200\"}}]");
+    arrayClientes[3] = cliente3;
+
+    var cliente4 = JSON.parse("[{\"4\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37310\"}}]");
+    arrayClientes[4] = cliente4;
+
+    var cliente5 = JSON.parse("[{\"5\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37175\"}}]");
+    arrayClientes[5] = cliente5;
+
+    var cliente6 = JSON.parse("[{\"6\":{\"nombre\":\"Eva\",\"apellido1\":\"Gil\",\"apellido2\":\"Garcia\",\"direccion\":\"Calle Cuevas de Ambrosio, 78\",\"ciudad\":\" León\",\"telefono\":\" 749 417 793\",\"dni\":\"00445464Z\",\"codPostal\":\" 24000\"}}]");
+    arrayClientes[6] = cliente6;
+
+    var cliente7 = JSON.parse("[{\"7\":{\"nombre\":\"Manuel\",\"apellido1\":\" Aponte\",\"apellido2\":\" Tejada\",\"direccion\":\"Calle Rosa de los Vientos, 33\",\"ciudad\":\" Vejer de la Frontera\",\"telefono\":\" 749 417 793\",\"dni\":\"38583953F\",\"codPostal\":\" 11150\"}}]");
+    arrayClientes[7] = cliente7;
+
+    var cliente8 = JSON.parse("[{\"8\":{\"nombre\":\"Luisa\",\"apellido1\":\" Elizondo\",\"apellido2\":\" Olivera\",\"direccion\":\" Avda. Andalucía, 86\",\"ciudad\":\" Ribafrecha\",\"telefono\":\" 758 070 587\",\"dni\":\"43584312C\",\"codPostal\":\" 26130\"}}]");
+    arrayClientes[8] = cliente8;
+
+    var cliente9 = JSON.parse("[{\"9\":{\"nombre\":\"Alexa\",\"apellido1\":\" Coronado\",\"apellido2\":\" Lara\",\"direccion\":\" Cañada del Rosal, 63\",\"ciudad\":\" Ayamonte\",\"telefono\":\"682 467 236\",\"dni\":\"12738941H\",\"codPostal\":\" 21400\"}}]");
+    arrayClientes[9] = cliente9;
+
+    console.log(arrayClientes);
+
+
+    for (i = 1; i < arrayClientes.length; i++) {
+      a.innerHTML += "<br><b>Cliente:</b> " + arrayClientes[i][0][i].nombre + " " + arrayClientes[i][0][i].apellido1 + " " + arrayClientes[i][0][i].apellido2;
+      a.innerHTML += "<br><b>Direccion:</b> " + arrayClientes[i][0][i].direccion;
+      a.innerHTML += "<br><b>Ciudad:</b> " + arrayClientes[i][0][i].ciudad;
+      a.innerHTML += "<br><b>Código postal:</b> " + arrayClientes[i][0][i].codPostal;
+      a.innerHTML += "<br><b>Número de teléfono:</b> " + arrayClientes[i][0][i].telefono;
+      a.innerHTML += "<br><b>ID usuario:</b> " + arrayClientes[i][0][i].dni;
+      // localStorage.setItem("usuarioactual", i)
+
+      a.innerHTML += "<br><button class='botonclientes' value='" + i + "' onclick='return hacerEncargo(value)'> Realizar encargo</button>";
+      a.innerHTML += "<br>";
     }
 
 
