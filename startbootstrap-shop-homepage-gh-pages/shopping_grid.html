@@ -92,6 +92,7 @@ function anadircarrito(nombre,cantidad){
          var b=document.getElementById("divTotal");
         b.style.display='block';
         var p;
+        document.getElementById('preciototal').style.display='block';
         for(j;j<productos.length && productos[j]!=nombre;j++);
     if(ofertas[j]!=0){
         var precio=conoferta[j];
@@ -100,16 +101,15 @@ function anadircarrito(nombre,cantidad){
         var precio=precios[j];
          var sinespacios=nombre.replace(/ /g,"-");
        // alert(sinespacios);
-        var table=document.getElementById("tablaTotal");
+        var table=document.getElementById("carritoderecha");
         if(carrito[nombre]==undefined){
             carrito[nombre]={"nombre": productos[j], "cantidad": cantidad, "precioproducto":precio, "precioporcantidad":precio*cantidad};
-            var fila=table.insertRow(0);
-            fila.id="carrito"+contadorCarrito;
-            var columna = fila.insertCell(0);
-            columna.id="producto"+nombre;
-            columna.className="carrodecompra";
-            columna.innerHTML+="<b  data-indice=\""+sinespacios+"\">Producto: "+productos[j]+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€";
-            columna.innerHTML+="<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'>Eliminar<i class='em em-x'></i></a>";
+            //var fila=table.insertRow(0);
+            //fila.id="carrito"+contadorCarrito;
+            //var columna = fila.insertCell(0);
+            var columna="producto"+nombre;
+            //columna.className="carrodecompra";
+            table.innerHTML+=" <li class='list-group-item d-flex justify-content-between lh-condensed'><div id='"+columna+"'><h6 class='my-0'> <b  data-indice=\""+sinespacios+"\">Producto: "+productos[j]+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad: "+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€"+"<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'><br>Eliminar<i class='em em-x'></i></a></li>";
             contadorCarrito++;
             preciofactura=preciofactura + cantidad*precio;
             stock[j]-=cantidad;
@@ -120,46 +120,45 @@ function anadircarrito(nombre,cantidad){
             var dif=parseInt(carrito[nombre].cantidad)-parseInt(cantidad);
             carrito[nombre].precioporcantidad=parseInt(precio*carrito[productos[j]].cantidad);
             var column=document.getElementById("producto"+nombre);
+            var columna="producto"+nombre;
             //alert(column);
             if(contadorCarrito>0)
             var eliminar="carrito"+(contadorCarrito-1);
             else
             var eliminar="carrito"+(contadorCarrito);
            // alert(eliminar);
-            column.innerHTML="<b data-indice=\""+sinespacios+"\">Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad:"+carrito[nombre].cantidad+" unidades.<br>Precio total: "+carrito[nombre].precioporcantidad+"€<br><a href='#close' style='position: relative;right: -90%;' onclick='eliminarcarrito(this);'>Eliminar</a>";
+            column.innerHTML="<h6 class='my-0'><b data-indice=\""+sinespacios+"\">Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad: "+carrito[nombre].cantidad+" unidades.<br>Precio total: "+carrito[nombre].precioporcantidad+"€<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'><br>Eliminar<i class='em em-x'></i></a></li>";
             preciofactura=preciofactura+cantidad*precio;
             stock[j]-=cantidad;
 
         }
 
-         p=document.getElementById('Facturafinal');
+         p=document.getElementById('preciototal');
+
         if(preciofactura<0)
             preciofactura=0;
-         p.innerHTML="El precio total es: "+preciofactura.toFixed(2) +"€";
+         
+         p.innerHTML="<li class='list-group-item d-flex justify-content-between lh-condensed'>El precio total es: "+preciofactura.toFixed(2) +"€</li>";
+
     }
-
-
-function eliminarcarrito(puntero){
-    var a = puntero.parentElement;
-    var b;
-    var tr;
-    contadorCarrito--;
-    var producto=document.getElementById(a.id).firstChild.dataset.indice;
-    producto=producto.replace(/-/g," ");
-    b=document.getElementById("producto"+producto);
-    tr=b.parentElement;
-    tr.removeChild(b);
-    //alert(carrito[producto].nombre);
-    preciofactura=parseInt(preciofactura-carrito[producto].precioporcantidad);
-    var p=document.getElementById('Facturafinal');
-    p.innerHTML="El precio total es: "+preciofactura;
-    carrito[producto]=undefined;
-
-        if(contadorCarrito<=0){
+    function eliminarcarrito(puntero){
+        var a = puntero.parentElement;console.log("a",a.id);
+        var h6 =puntero.parentElement;console.log("h6",h6.id);
+        var div= h6.parentElement;console.log("div",div.id);
+        var divid= div.id;console.log("divid",divid);
+        var producto=divid.replace("producto","");
+        console.log("producto",producto);
+        var li = div.parentElement;console.log("li",li.id);
+        preciofactura=parseInt(preciofactura-carrito[producto].precioporcantidad);
+        p=document.getElementById('preciototal');
+        p.innerHTML="<li class='list-group-item d-flex justify-content-between lh-condensed'>El precio total es: "+preciofactura.toFixed(2) +"€</li>";
+        carrito[producto]=undefined;
+        contadorCarrito--;
+        if(contadorCarrito<1){
             document.getElementById('Finalizarcompra').style.display='none';
-            document.getElementById('divTotal').style.display='none'
+            document.getElementById('preciototal').style.display='none';
         }
-        document.getElementById('Facturafinal');p.innerHTML="El precio total es: "+preciofactura;
+        li.parentNode.removeChild(li);
     }
 
  </script>
@@ -409,8 +408,7 @@ function eliminarcarrito(puntero){
 
 
 <div id="divTotal" style="background: rgba(255,193,7,0.95)" >
-    <p align="center"><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></p>
-    <table id="tablaTotal" name="factura" style="width:80%; "></table>
+    <table id="tablaTotal" name="factura" style="width:80%; "><ul class="list-group mb-3" id="carritoderecha"><li class='list-group-item d-flex justify-content-between lh-condensed'><div style='width: 75%; margin: 0 auto;'><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></li></ul><ul class="list-group mb-3" id="preciototal"></ul></table>
     <p id="Facturafinal"></p>
             <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="formulariopago\checkout.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
 </div>
