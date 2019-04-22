@@ -1,5 +1,6 @@
 <html>
         <img lang="en" onload = "cogedatos">
+        <title>Encargos - PanAPP</title>
                 <head>
                   <meta charset="utf-8">
                   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,6 +78,11 @@ function obtenerNombre(i){
         var j=0;
         var p;
         document.getElementById('preciototal').style.display='block';
+        if(contadorCarrito < 1){
+                    var div =document.getElementById('carritovacio');
+                    div.style.display = 'none';
+
+                }
         for(j;j<productos.length && productos[j]!=nombre;j++);
         var precio=conoferta[j];
          var sinespacios=nombre.replace(/ /g,"-");
@@ -137,6 +143,7 @@ function obtenerNombre(i){
         if(contadorCarrito<1){
             document.getElementById('Finalizarcompra').style.display='none';
             document.getElementById('preciototal').style.display='none';
+            document.getElementById('carritovacio').style.display = 'block';
         }
         li.parentNode.removeChild(li);
     }
@@ -427,15 +434,19 @@ function obtenerNombre(i){
 <div id="divTotal" style="background: rgba(255,193,7,0.95)" >
     <table id="tablaTotal" name="factura" style="width:80%; "><ul class="list-group mb-3" id="carritoderecha"><li class='list-group-item d-flex justify-content-between lh-condensed'><div style='width: 75%; margin: 0 auto;'><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></li></ul><ul class="list-group mb-3" id="preciototal"></ul></table>
     <p id="Facturafinal"></p>
-            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="formulariopago\checkout.html" onclick="enviardatos()">Finalizar Compra<i class="em em-white_check_mark"></i></a>
+            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="formulariopago\checkout.html" onclick="enviardatos()"><b>Finalizar Compra </b><i class="em em-white_check_mark"></i></a>
 </div>
 </div>
 
         </body>
 </html>
 <script>
-    function imagenModal(item){
-        obtenerNombre(item);
-        window.location.href = "#openModal";
-    }
-    </script>
+
+function imagenModal(item){
+    obtenerNombre(item);
+    window.location.href = "#openModal";
+}
+var table = document.getElementById("carritoderecha");
+    table.innerHTML += " <div id='carritovacio'><li class='list-group-item d-flex justify-content-between lh-condensed'> <br><br><br>Tu carrito se encuentra vacío actualmente.<br><br><br><br></li></div>";
+</script>
+
