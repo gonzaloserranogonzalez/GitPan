@@ -76,6 +76,7 @@
         for (var i = 0; i < arrayPedidos.length && arrayPedidos[usuarioactual][i]!=undefined; i++) {
             document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1' id='diadereparto"+i+"'>Pedido diario "+contador+"</h5></div></a>";
            var cont=0;
+            contador++;
             for (var j=0; j < productos.length; j++) {
                 if(arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined && (arrayPedidos[usuarioactual][i][0][productos[j]].dias!=undefined && cont==0)){
                    var kml="diadereparto"+i;
@@ -91,7 +92,7 @@
                        cont++;
                     }
                 if (arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined) {
-                    contador++;
+
                     cantidad=arrayPedidos[usuarioactual][i][0][productos[j]].cantidad;
                     costediario=arrayPedidos[usuarioactual][i][0][productos[j]].precioporcantidad;
                     dias=arrayPedidos[usuarioactual][i][0][productos[j]].dias;
