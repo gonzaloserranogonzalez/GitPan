@@ -3,6 +3,7 @@
 <img lang="en">
 
 <head>
+    <title>Pedidos - PanAPP</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -85,9 +86,10 @@
                     }
                     console.log(arrayPedidos[usuarioactual][i][0][productos[j]]);
                     document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1'>Pedido diario "+contador+"</h5></div><p class='mb-1'>" + productos[j] + "</p><p class='mb-1'> Cantidad: " + cantidad + " unidades</p><p class='mb-1'> Coste diario: " + costediario+ "€</p><p class='mb-1'>" + stringDiario + "</p></a>";
-                    stringDiario="Lo recibes en tu dirección";
+                    stringDiario="Lo recibes en tu dirección: ";
                 }
             }
+            stringDiario="Lo recibes en tu dirección";
             diasrepetir=": Una única vez";
         }
             //console.log(arrayPedidos[usuarioactual][0][0]["Baguette"]);
