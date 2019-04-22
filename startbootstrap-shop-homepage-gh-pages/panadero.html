@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body background="fondopanadero.jpg" marginheight="0px" marginwidth="0px">
+<body>
 <div id="myDIV">
   <section id="arriba">
     <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
@@ -54,7 +54,7 @@
   style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
   src="downscrollarrow.png"></img></a>
 <div class="container" id="contenedor">
-  <table id='tablainventario' style="margin-top:20px"></table>
+  <table id='tablainventario'></table>
 </div>
 <link rel="stylesheet" href="panadero.css" />
 
@@ -93,7 +93,7 @@
     fila.className = "filainventario";
     var columnainicial = fila.insertCell(-1);
     columnainicial.className = "tablainicial";
-    columnainicial.innerHTML = "Nombre de producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPrecio&nbsp&nbsp&nbsp&nbsp&nbspInserte el nuevo precio:<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp al stock? ";
+    columnainicial.innerHTML = "Producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock&<nbsp></nbsp>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir&nbsp&nbsp&nbspPrecio&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspInserte el nuevo precio:<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp al stock? ";
 
     for (var i = 0; i < stock.length; i++) {
       var fila = tabla.insertRow(-1);
@@ -101,7 +101,7 @@
       var columna = fila.insertCell(-1);
       columna.innerHTML = "<br><br><img src=" + fotos[i] + " style='margin-top:15px;' class='rounded-rectangle z-depth-0' alt='avatar image' height='100'>";
       columna = fila.insertCell(-1);
-      columna.innerHTML += "<br><p style:'padding-left:20px; font-family:Montserrat'>" + productos[i] + "</p>";
+      columna.innerHTML += "<br><p style:'padding-left:10px; font-family:Montserrat'>" + productos[i] + "</p>";
       columna = fila.insertCell(-1);
       columna.id = "stock" + i;
       document.getElementById('stock' + i).style.paddingLeft = "0px";
@@ -235,7 +235,7 @@
     var a = document.getElementById("contenedor");
     var diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
     var f = new Date();
-    a.innerHTML = "<br><h1>Seleccione el dia de la semana en el cual va a repartir:</h1>";
+    a.innerHTML = "<br><h1>Seleccione el día de reparto:</h1>";
     a.innerHTML += "<br>Dia actual: " + diasSemana[f.getDay()];
     a.innerHTML += "<br><select name='OS' id='dias' style='width:30%'><option value='Lunes'>Lunes</option> <option value='Martes'>Martes</option> <option value='Miercoles'>Miercoles</option><option value='Jueves'>Jueves</option> <option value='Viernes'>Viernes</option> <option value='Sabado'>Sabado</option> </select>";
     a.innerHTML += "<input type='button' value='Comprobar Envíos' onclick='mostrarRepartocondia();'></input>";
@@ -262,7 +262,7 @@
               for (var p = 0; p < productos.length; p++) {
                 if (arrayPedidos[i][j][0][productos[p]] != null) {
                   a.innerHTML += "<br>Producto: " + arrayPedidos[i][j][0][productos[p]].nombre;
-                  a.innerHTML += ". Cantidad de " + productos[p] + ": " + arrayPedidos[i][j][0][productos[p]].cantidad;
+                  a.innerHTML += ". Cantidad: "+ arrayPedidos[i][j][0][productos[p]].cantidad;
                 }
               }
             }
