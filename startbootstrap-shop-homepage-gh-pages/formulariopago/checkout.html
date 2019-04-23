@@ -171,6 +171,7 @@
         document.getElementById("numproductos").innerHTML = numproductos;
         var carrito = JSON.parse(localStorage.getItem("carrito"));
         var bdusuarios=JSON.parse(localStorage.getItem("usuarios"));
+        var arrayClientes=JSON.parse(localStorage.getItem("arrayClientes"));
         var tipopago="Tarjeta de credito";
         var tipoentrega="Recogida en tienda";
         var dias=",\"dias\":";
@@ -286,7 +287,7 @@
             } 
             var factura=document.getElementById("factura").innerHTML;
             var nFactura=Math.floor(Math.random() * 10000000)+100000;
-            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Tú pedido se ha realizado con éxito<br>Ticket #"+nFactura+"</p>"+factura+"<br><p>"+"Cliente: "+ bdusuarios[usuarioactual]+"<br>"+"Tipo de pedido: "+ tipopedido +"<br>"+"Tipo de entrega:"+ tipoentrega +"<br>"+"Tipo de pago: "+ tipopago+ "</p><br><div id='botones'><input type='button' onclick='imprimir();' value='Imprimir factura'/><input type='button' onclick='cerrarsesion();' value='Cerrar sesión'/></div></div></body></html>";
+            document.body.innerHTML= "<html><body><br><div class='col-md-4 order-md-2 mb-4'><p style='font-size:160%;'>Tú pedido se ha realizado con éxito<br><p style='font-size:100%;'>Hemos enviado a tu correo: <i>"+arrayClientes[usuarioactual][0][usuarioactual].email+"</i> todos los detalles del envío.</p><p style='font-size:160%;'>Ticket #"+nFactura+"</p>"+factura+"<br><p>"+"<b>Cliente: </b>"+ bdusuarios[usuarioactual]+"<br>"+"<b>Tipo de pedido: </b>"+ tipopedido +"<br>"+"<b>Tipo de entrega: </b>"+ tipoentrega +"<br>"+"<b>Tipo de pago: </b>"+ tipopago+ "</p><br><div id='botones'><input type='button' onclick='imprimir();' value='Imprimir factura'/>&nbsp&nbsp<input type='button' onclick='cerrarsesion();' value='Cerrar sesión'/></div></div></body></html>";
             //window.print();
         }
     </script>
