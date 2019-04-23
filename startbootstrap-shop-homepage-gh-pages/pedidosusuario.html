@@ -26,15 +26,19 @@
                     <a class="nav-link" href="encargos_grid.html">Encargos</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Mis pedidos</a>
+                    <a class="nav-link" href="#">Mis reservas</a>
+                </li>
+                 <li class="nav-item active">
+                    <a class="nav-link" href="#">Mis datos</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons"><!-- Para boton de cerrar sesion -->
                     
                     <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
                     <li class="nav-item avatar">
-                         <a class="nav-link p-0" href="areapersonal.html" id = "avatar">
-                            
+                        <a class="nav-link p-0" href="#">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                                alt="avatar image" height="35">
                         </a>
                     </li>
             </ul>
@@ -61,55 +65,119 @@
         var productos=JSON.parse(localStorage.getItem("productos"));
         var arrayPedidos = JSON.parse(localStorage.getItem("arrayPedidos"));
 
-        for (var j = 0; j < 3; j++) {
-            console.log("Array de pedidos:[" + usuarioactual + "][" + j + "]:", arrayPedidos[usuarioactual][j]);
-        }
+        
         var contador=0;
         var cantidad=0;
         var costediario=0;
+      
         window.onload=function(){
-        
+       
         var stringDiario="Lo recibes en tu dirección";
         var diasrepetir=": Una única vez";
-        document.getElementById('lista').innerHTML +="<br><a class='list-group-item list-group-item-info flex-column align-items-start'<div class='d-flex w-100 justify-content-between'><h3 class='text-center'>Actualmente tienes los siguientes pedidos encargos</h3>";
+            var flag=false;
+        document.getElementById('lista').innerHTML +="<br><a class='list-group-item list-group-item-info flex-column align-items-start'<div class='d-flex w-100 justify-content-between'><h3 class='text-center'>Actualmente tienes los siguientes pedidos encargos:</h3>";
         for (var i = 0; i < arrayPedidos.length && arrayPedidos[usuarioactual][i]!=undefined; i++) {
-            document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1' id='diadereparto"+i+"'>Pedido diario "+contador+"</h5></div></a>";
-           var cont=0;
-            contador++;
-            for (var j=0; j < productos.length; j++) {
-                if(arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined && (arrayPedidos[usuarioactual][i][0][productos[j]].dias!=undefined && cont==0)){
-                   var kml="diadereparto"+i;
-                   document.getElementById(kml).innerHTML +="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+stringDiario+":"+arrayPedidos[usuarioactual][i][0][productos[j]].dias;
-                    cont++;
+            var cont=0;
+            flag=false;
+                for (var j=0; j < productos.length; j++) { 
                    
-                   
-                   }
-                else
-                    if(cont==0 &&arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined && arrayPedidos[usuarioactual][i][0][productos[j]].dias==undefined  ){
-                        var kml="diadereparto"+i;
-                   document.getElementById(kml).innerHTML +="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPedido Unico",
-                       cont++;
+                    if(arrayPedidos[usuarioactual][i][0][productos[j]]!=undefined)
+                        if(arrayPedidos[usuarioactual][i][0][productos[j]].dias!=undefined && cont==0){
+                            flag=true;
+                            contador++;
+                        document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1' id='diadereparto"+i+"'>Pedido diario "+contador+"</h5></div></a>";
+                          var kml="diadereparto"+i;
+                        document.getElementById(kml).innerHTML +="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+stringDiario+":"+arrayPedidos[usuarioactual][i][0][productos[j]].dias;
+                        cont++;
+                        document.getElementById(kml).innerHTML += "<br><br><div style='width:100%;' class='input-group mb-3'  ><button class='btn btn-secondary' type='button' style='position:relative;' id='pedidousuario"+i+"' href='#clientes' onclick='editarPedido("+i+");' >Editar pedido</button></a></div>";
+                        }
+                    
+                    
                     }
-                if (arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined) {
-
+            
+            
+            for(var j=0;j<productos.length && flag==true;j++){
+                if(flag==true && arrayPedidos[usuarioactual][i][0][productos[j]]!=undefined){
                     cantidad=arrayPedidos[usuarioactual][i][0][productos[j]].cantidad;
                     costediario=arrayPedidos[usuarioactual][i][0][productos[j]].precioporcantidad;
-                    dias=arrayPedidos[usuarioactual][i][0][productos[j]].dias;
                     console.log(arrayPedidos[usuarioactual][i][0][productos[j]]);
                     document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><p class='mb-1'>" + productos[j] + "<br> Cantidad: " + cantidad + " unidades<br> Coste diario: " + costediario+ "€<br></p></div></a>";
-                
-                  
                 }
+
+            }
+                  
+                
                 //alert(document.getElementById('lista').innerHTML);
             }
         }
+    
+    
+        
+        
+        function editarPedido(i){
+             console.log(arrayPedidos);
+             console.log(i);
+           
+            var stringDiario="Lo recibes en tu dirección";
+            var x,y;
+            var diasrepetir=": Una única vez";
+           var a= document.getElementById('lista').innerHTML ="<br><a class='list-group-item list-group-item-info flex-column align-items-start'<div class='d-flex w-100 justify-content-between'><h3 class='text-center'>Usted esta editando el pedido "+(i+1)+"</h3>";
+var cont=0;
+            for (var j=0; j <productos.length; j++) {
+                if(arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined){
+                     console.log(arrayPedidos[usuarioactual][i][0][productos[j]]);
+                      
+                          var kml="diadereparto"+i;
+                    if(cont==0){
+                        document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1' id='diadereparto"+i+"'>Pedido diario "+(i+1)+"</h5></div></a>";
+                   document.getElementById(kml).innerHTML +="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+stringDiario+":"+arrayPedidos[usuarioactual][i][0][productos[j]].dias;
+                        cont++;
+                    }
+                    cantidad=arrayPedidos[usuarioactual][i][0][productos[j]].cantidad;
+                    costediario=arrayPedidos[usuarioactual][i][0][productos[j]].precioporcantidad;
+                 
+                    console.log(arrayPedidos[usuarioactual][i][0][productos[j]]);
+                    document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex1 w-100 justify-content-between'><p class='mb-1'>" + productos[j] + "<br> Cantidad: " + cantidad + " unidades<br> Coste diario: " + costediario+ "�<br></p><a  class='list-group-item list-group-item-info flex-column align-items-start' style='position:relative;' href='#' onclick='eliminarproducto("+j+","+i+");'>Eliminar Producto</a></div></a>";
+                    }
+                 
+                
+                  
+                    
+                   
+                   }
+             
+
+                
+        
+                
+                  
+                
+                //alert(document.getElementById('lista').innerHTML);
+            
+                
+                   
+                     document.getElementById('lista').innerHTML += "<br><br><div class='input-group mb-3' ><button class='btn btn-secondary' type='button' style='width:100%;' onclick='anadirproducto("+i+");window.location=\"encargos_grid.html\";' >Añadir un producto al pedido</button></a></div>";
+            
         }
+        
+        function eliminarproducto(nombre,i){
+            //console.log(arrayPedidos[usuarioactual][i]);
+                arrayPedidos[usuarioactual][i][0][productos[nombre]]=undefined;
+               //console.log(arrayPedidos[usuarioactual][i]);
+                localStorage.setItem("arrayPedidos", JSON.stringify(arrayPedidos));
+                editarPedido(i);
+        
+        }
+        
+        function anadirproducto(i){
+            console.log(i);
+            localStorage.setItem("editandocarro",JSON.stringify(arrayPedidos[usuarioactual][i][0]));
+            arrayPedidos[usuarioactual][i]=null;
+            localStorage.setItem("arrayPedidos",JSON.stringify(arrayPedidos));
+            
+
+       }
         
             //console.log(arrayPedidos[usuarioactual][0][0]["Baguette"]);
             //console.log(arrayPedidos[usuarioactual][0][0]["Empanada de bacalao"]);
-
-    var imgusuarios=JSON.parse(localStorage.getItem("imagenesusuarios"));
-    var usuarioactual=JSON.parse(localStorage.getItem("usuarioactual"));
-
-    document.getElementById('avatar').innerHTML +="<img src='"+imgusuarios[usuarioactual]+"' class='rounded-circle z-depth-0' alt='avatar image' height='35'>";
     </script>
