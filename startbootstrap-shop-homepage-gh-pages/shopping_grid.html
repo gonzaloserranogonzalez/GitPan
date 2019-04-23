@@ -56,8 +56,7 @@
             var contadorCarrito = 0;
             var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda", "Baguette", "Muffin con virutas de chocolate", "Muffin de fresa", "Muffin de Chocolate", "Croissant", "Croissant de chocolato", "Palmera choco", "Bocaditos de nata", "Bocaditos de trufa", "Cookie de chocolate", "Donut casero"];
             var imgGrandes = ["Rustica1.png", "Picos2.png", "Chapata3.png", "Torta4.png", "Baguette5.png", "Muffin.png", "MuffinFresa.png", "MuffinChoco.png", "croissant.png", "croissantChoco.png", "PalmeraChoco.png", "BocaditoNata.png", "BpcaditoDeNata.png", "cookieChoco.png", "donut.png"];
-            var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: harina, levadura y sal. Apto para celiacos ", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, chocolate", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, fresa, nata", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, chocolate", "Ingredientes: Levadura, harina, mantequilla, sal y azúcar", "Ingredientes: Levadura, harina, mantequilla, chocolate, sal y azúcar", "Ingredientes: Hojaldre, harina, mantequilla, chocolate, sal y azúcar", "Ingredientes: Mantequilla, nata, sal, harina, huevo, nata", "Ingredientes: Mantequilla, nata, sal, harina, huevo, nata", "Ingredientes: Harina, azucar, mantequilla, huevo, chocolate", "Ingredientes: Harina, sal, azúcar, huevo"];
-
+            var descripcion = JSON.parse(localStorage.getItem(descripcion));
             var pedidoactual = new Array();
            
             var conoferta = JSON.parse(localStorage.getItem("precios"));
@@ -289,7 +288,7 @@
 
     </div>
 
-    <h3>Productos del dia</h3>
+    <h3 class="tit">Productos del dia</h3>
     <div class="container">
         <div class="container2">
             <div class="row">
