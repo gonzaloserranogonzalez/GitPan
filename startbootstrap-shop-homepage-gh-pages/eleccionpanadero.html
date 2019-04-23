@@ -128,9 +128,8 @@
                     
             <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
             <li class="nav-item avatar">
-                <a class="nav-link p-0" href="#">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                        alt="avatar image" height="35">
+                <a class="nav-link p-0" href="#" id = "avatar">
+                    
                 </a>
             </li>
     </ul>
@@ -198,6 +197,13 @@
         </div>
     </div>
     </div>
+
+    <Script>
+    var imgusuarios=JSON.parse(localStorage.getItem("imagenesusuarios"));
+    var usuarioactual=JSON.parse(localStorage.getItem("usuarioactual"));
+
+    document.getElementById('avatar').innerHTML +="<img src='"+imgusuarios[usuarioactual]+"' class='rounded-circle z-depth-0' alt='avatar image' height='35'>";
+    </Script>
 
 </body>
 

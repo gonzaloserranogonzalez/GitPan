@@ -128,9 +128,8 @@
                     
             <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
             <li class="nav-item avatar">
-                <a class="nav-link p-0" href="#">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                        alt="avatar image" height="35">
+                <a class="nav-link p-0" href="areapersonal.html" id = "avatar">
+                    
                 </a>
             </li>
     </ul>
@@ -171,6 +170,8 @@
 
 
     <SCRIPT language=JavaScript>
+    var imgusuarios=JSON.parse(localStorage.getItem("imagenesusuarios"));
+    var usuarioactual=JSON.parse(localStorage.getItem("usuarioactual"));
         function compradirecta() {
             var parameters = location.search.substring(1);
             window.location.href = "shopping_grid.html?" + parameters;
@@ -179,6 +180,9 @@
             var parameters = location.search.substring(1);
             window.location.href = "encargos_grid.html";
         }
+        console.log(imgusuarios[usuarioactual]);
+            document.getElementById('avatar').innerHTML +="<img src='"+imgusuarios[usuarioactual]+"' class='rounded-circle z-depth-0' alt='avatar image' height='35'>";
+    
     </SCRIPT>
 
 </body>

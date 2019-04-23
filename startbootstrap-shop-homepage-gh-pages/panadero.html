@@ -41,9 +41,8 @@
 
           <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
           <li class="nav-item avatar">
-            <a class="nav-link p-0" href="#">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                alt="avatar image" height="35">
+            <a class="nav-link p-0" href="#" id = "avatar">
+              
             </a>
           </li>
         </ul>
@@ -95,10 +94,24 @@
     var fila = tabla.insertRow(-1);
     fila.className = "filainventario";
     var columnainicial = fila.insertCell(-1);
-    columnainicial.className = "tablainicial";
-    columnainicial.innerHTML = "Producto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStock<nbsp></nbsp>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp¿Cuantos productos quiere añadir&nbsp&nbsp&nbspPrecio&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspInserte el nuevo precio:<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp al stock? ";
+    var columnainicial = fila.insertCell(-1);
+    columnainicial.innerHTML = "Producto";
+    
+    columnainicial = fila.insertCell(-1);
+    columnainicial.innerHTML ="Stock ";
+   
+    columnainicial = fila.insertCell(-1);
+    columnainicial.style = "padding-left: 45px";
+    columnainicial.innerHTML ="Cuantos productos desea añadir al stock ";
+    
+    columnainicial = fila.insertCell(-1);
+   
+    columnainicial.innerHTML ="Precio ";
+   
+    columnainicial = fila.insertCell(-1);
+    columnainicial.innerHTML ="Inserte un nuevo precio ";
 
-    for (var i = 0; i < stock.length; i++) {
+    for (var i = 0; i < 15; i++) {
       var fila = tabla.insertRow(-1);
       fila.className = "filainventario"
       var columna = fila.insertCell(-1);
@@ -383,6 +396,11 @@
     return false;
 
   }
+
+  var imgusuarios=JSON.parse(localStorage.getItem("imagenesusuarios"));
+    var usuarioactual=JSON.parse(localStorage.getItem("usuarioactual"));
+
+    document.getElementById('avatar').innerHTML +="<img src='"+imgusuarios[usuarioactual]+"' class='rounded-circle z-depth-0' alt='avatar image' height='35'>";
 
 </script>
 
