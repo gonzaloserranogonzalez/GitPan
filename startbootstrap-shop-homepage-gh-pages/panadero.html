@@ -174,7 +174,7 @@
     stringinyectar += "<ul class='list-group list-group-flush'>";
     stringinyectar += "<br><h2>  Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
     for (var i = 1; i < usuarios.length; i++) {
-      stringinyectar += "<li  id='" + usuarios[i] + "' class='list-group-item' href='#' onclick='mostrarcompracliente(this.id);return false;'><div><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + usuarios[i] + "</a></div>";
+      stringinyectar += "<li  id='" + usuarios[i] + "' class='list-group-item' href='#' onclick='mostrarcompracliente(this.id);return false;'><div><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + MaysPrimera(usuarios[i]) + "</a></div>";
       var numpedidos = 0;
       for (var j = 0; arrayPedidos[i][j] != null; j++) {
 
@@ -186,6 +186,10 @@
     }
     stringinyectar += "</ul>";
     a.innerHTML = stringinyectar;
+  }
+
+  function MaysPrimera(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   function mostrarcompracliente(login) {
