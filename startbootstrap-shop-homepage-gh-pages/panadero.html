@@ -302,8 +302,9 @@
       //a.innerHTML = "<table id='tablaClientes' style='margin-top:20px;'></table>";
       a.innerHTML = "";
       a.innerHTML = "<br><h2>Bienvenido al área de clientes.</h2>";
-      a.innerHTML += "<br><p>A continuación se muestran los datos de todos los clientes:</p>"
-      a.innerHTML += "<div class='input-group mb-3' style='float:left; width:50%'><input id='buscador' class='form-control' style='width:30%' type='search' placeholder='Introduce el usuario a buscar'></input><div class='input-group-append'><button class='btn btn-outline-secondary' onclick='buscarusuario();' ><i class='em em-mag'></i></div></button></div><br><br>";
+      a.innerHTML += "<br><br><div class='input-group mb-3' style='float:left; width:50%'><input id='buscador' class='form-control' style='width:30%' type='search' placeholder='Introduce el usuario a buscar'></input><div class='input-group-append'><button class='btn btn-outline-secondary' onclick='buscarusuario();' ><i class='em em-mag'></i></div></button></div><br><br>";
+      a.innerHTML += "<br><p>A continuación se muestran los datos de los clientes que coinciden con el parámetro de búsqueda indicado:</p>"
+      if(i < arrayClientes.length){
       a.innerHTML += "<br><b>Cliente:</b> " + arrayClientes[i][0][i].nombre + " " + arrayClientes[i][0][i].apellido1 + " " + arrayClientes[i][0][i].apellido2;
       a.innerHTML += "<br><b>Direccion:</b> " + arrayClientes[i][0][i].direccion;
       a.innerHTML += "<br><b>Ciudad:</b> " + arrayClientes[i][0][i].ciudad;
@@ -311,7 +312,7 @@
       a.innerHTML += "<br><b>Número de teléfono:</b> " + arrayClientes[i][0][i].telefono;
       a.innerHTML += "<br><b>DNI:</b> " + arrayClientes[i][0][i].dni;
       a.innerHTML += "<br><b>Email:</b> " + arrayClientes[i][0][i].email;
-
+      }
       a.innerHTML += "<br><br><div class='input-group mb-3' ><button class='btn btn-secondary' type='button'  href='#clientes' onclick='mostrarClientes();' >Volver al listado completo de clientes</button></a></div>";
     }
 
@@ -322,8 +323,8 @@
     //a.innerHTML = "<table id='tablaClientes' style='margin-top:20px;'></table>";
 
     a.innerHTML = "<br><h2>Bienvenido al área de clientes.</h2>";
-    a.innerHTML += "<br><p>A continuación se muestran los datos de todos los clientes:</p>"
-    a.innerHTML += "<div class='input-group mb-3' style='float:left; width:50%'><input id='buscador' class='form-control' style='width:30%' type='search' placeholder='Introduce el usuario a buscar'></input><div class='input-group-append'><button class='btn btn-outline-secondary' onclick='buscarusuario();' ><i class='em em-mag'></i></div></button></div><br><br>";
+    a.innerHTML += "<br><br><div class='input-group mb-3' style='float:left; width:50%'><input id='buscador' class='form-control' style='width:30%' type='search' placeholder='Introduce el usuario a buscar'></input><div class='input-group-append'><button class='btn btn-outline-secondary' onclick='buscarusuario();' ><i class='em em-mag'></i></div></button></div><br><br>";
+    a.innerHTML += "<br><p>A continuación se muestran los datos de todos los clientes:</p>";
     /*
         var i = 1;
         var j = 0;
