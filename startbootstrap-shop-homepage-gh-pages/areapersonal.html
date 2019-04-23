@@ -42,9 +42,73 @@
                     </li>
                 </ul>
             </nav>
+            <div class="container" id="contenedor">
+                <table id='tablainventario'></table>
+              </div>
+
 </body>
 <script>
+var a = document.getElementById("contenedor");
 var usuarioactual=JSON.parse(localStorage.getItem("usuarioactual"));
 var arrayPedidos=JSON.parse(localStorage.getItem("arrayPedidos"));
 var arrayClientes=JSON.parse(localStorage.getItem("arrayClientes"));
+var productos=JSON.parse(localStorage.getItem("productos"));
+console.log(arrayClientes);
+console.log(usuarioactual);
+var stringInyectar = "<br><br><ul class='list-group list-group-flush'>"
+
+  stringInyectar += "<li class='list-group-item'><h4>Bienvenid@"+ arrayClientes[usuarioactual][0][usuarioactual].nombre+"!<br>Estos son los datos que tenemos sobre ti:</h4>";
+  stringInyectar += "<b>Cliente:</b> " + arrayClientes[usuarioactual][0][usuarioactual].nombre + " " + arrayClientes[usuarioactual][0][usuarioactual].apellido1 + " " + arrayClientes[usuarioactual][0][usuarioactual].apellido2;
+  stringInyectar += "<br><b>Direccion:</b> " + arrayClientes[usuarioactual][0][usuarioactual].direccion;
+  stringInyectar += "<br><b>Ciudad:</b> " + arrayClientes[usuarioactual][0][usuarioactual].ciudad;
+  stringInyectar += "<br><b>Código postal:</b> " + arrayClientes[usuarioactual][0][usuarioactual].codPostal;
+  stringInyectar += "<br><b>Número de teléfono:</b> " + arrayClientes[usuarioactual][0][usuarioactual].telefono;
+  stringInyectar += "<br><b>DNI:</b> " + arrayClientes[usuarioactual][0][usuarioactual].dni;
+  stringInyectar += "<br><b>Email:</b> " + arrayClientes[usuarioactual][0][usuarioactual].email;
+  // localStorage.setItem("usuarioactual", i)
+  stringInyectar += "<br>";
+  stringInyectar += "</li>"
+stringInyectar += "</lu>";
+a.innerHTML = stringInyectar;
+
+        var contador=0;
+        var cantidad=0;
+        var costediario=0;
+        window.onload=function(){
+        
+        var stringDiario="Lo recibes en tu dirección";
+        var diasrepetir=": Una única vez";
+        document.getElementById('contenedor').innerHTML +="<br><a class='list-group-item list-group-item-info flex-column align-items-start'<div class='d-flex w-100 justify-content-between'><h3 class='text-center'>Actualmente tienes los siguientes pedidos realizados</h3>";
+        for (var i = 0; i < arrayPedidos.length && arrayPedidos[usuarioactual][i]!=undefined; i++) {
+            document.getElementById('contenedor').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1' id='diadereparto"+i+"'>Pedido diario "+contador+"</h5></div></a>";
+           var cont=0;
+            contador++;
+            for (var j=0; j < productos.length; j++) {
+                if(arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined && (arrayPedidos[usuarioactual][i][0][productos[j]].dias!=undefined && cont==0)){
+                   var kml="diadereparto"+i;
+                   document.getElementById(kml).innerHTML +="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+stringDiario+":"+arrayPedidos[usuarioactual][i][0][productos[j]].dias;
+                    cont++;
+                   
+                   
+                   }
+                else
+                    if(cont==0 &&arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined && arrayPedidos[usuarioactual][i][0][productos[j]].dias==undefined  ){
+                        var kml="diadereparto"+i;
+                   document.getElementById(kml).innerHTML +="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPedido Unico",
+                       cont++;
+                    }
+                if (arrayPedidos[usuarioactual][i][0][productos[j]] !== undefined) {
+
+                    cantidad=arrayPedidos[usuarioactual][i][0][productos[j]].cantidad;
+                    costediario=arrayPedidos[usuarioactual][i][0][productos[j]].precioporcantidad;
+                    dias=arrayPedidos[usuarioactual][i][0][productos[j]].dias;
+                    console.log(arrayPedidos[usuarioactual][i][0][productos[j]]);
+                    document.getElementById('contenedor').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><p class='mb-1'>" + productos[j] + "<br> Cantidad: " + cantidad + " unidades<br> Coste diario: " + costediario+ "€<br></p></div></a>";
+                
+                  
+                }
+                //alert(document.getElementById('contenedor').innerHTML);
+            }
+        }
+        }
 </script>
