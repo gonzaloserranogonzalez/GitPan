@@ -23,16 +23,17 @@
                                     <a class="nav-link" href="#">Encargos</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="pedidosusuario.html">Mis pedidos</a>
+                                    <a class="nav-link" href="pedidosusuario.html">Mis reservas</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="areapersonal.html">Area personal</a>
                                   </li>
                                 </ul>
                                 <ul class="navbar-nav ml-auto nav-flex-icons"><!-- Para boton de cerrar sesion -->
                     
                                     <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
                                     <li class="nav-item avatar">
-                                        <a class="nav-link p-0" href="#">
-                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                                                alt="avatar image" height="35">
+                                         <a class="nav-link p-0" href="areapersonal.html" id = "avatar">
                                         </a>
                                     </li>
                             </ul>
@@ -147,7 +148,11 @@ function obtenerNombre(i){
         var j=0;
         var p;
         document.getElementById('preciototal').style.display='block';
-      
+        if(contadorCarrito < 1){
+                    var div =document.getElementById('carritovacio');
+                    div.style.display = 'none';
+
+                }
         for(j;j<productos.length && productos[j]!=nombre;j++);
         var precio=conoferta[j];
          var sinespacios=nombre.replace(/ /g,"-");
@@ -212,7 +217,11 @@ function obtenerNombre(i){
         }
         li.parentNode.removeChild(li);
     }
+    
+    var imgusuarios=JSON.parse(localStorage.getItem("imagenesusuarios"));
+    var usuarioactual=JSON.parse(localStorage.getItem("usuarioactual"));
 
+    document.getElementById('avatar').innerHTML +="<img src='"+imgusuarios[usuarioactual]+"' class='rounded-circle z-depth-0' alt='avatar image' height='35'>";
  </script>
 
 <script type="text/javascript">
