@@ -347,11 +347,15 @@
   }
   function mostrarClientes() {
     var a = document.getElementById("contenedor");
+    var stringInyectar = "";
+
     //a.innerHTML = "<table id='tablaClientes' style='margin-top:20px;'></table>";
 
     a.innerHTML = "<br><h2>Bienvenido al área de clientes.</h2>";
     a.innerHTML += "<br><br><div class='input-group mb-3' style='float:left; width:50%'><input id='buscador' class='form-control' style='width:30%' type='search' placeholder='Introduce el usuario a buscar'></input><div class='input-group-append'><button class='btn btn-outline-secondary' onclick='buscarusuario();' ><i class='em em-mag'></i></div></button></div><br><br>";
     a.innerHTML += "<br><p>A continuación se muestran los datos de todos los clientes:</p>";
+
+    stringInyectar = "<ul class='list-group list-group-flush'>"
     /*
         var i = 1;
         var j = 0;
@@ -437,21 +441,24 @@
 
     
 */
-console.log(arrayClientes);
+console.log(arrayClientes.length);
     for (i = 1; i < arrayClientes.length; i++) {
-      a.innerHTML += "<br><b>Cliente:</b> " + arrayClientes[i][0][i].nombre + " " + arrayClientes[i][0][i].apellido1 + " " + arrayClientes[i][0][i].apellido2;
-      a.innerHTML += "<br><b>Direccion:</b> " + arrayClientes[i][0][i].direccion;
-      a.innerHTML += "<br><b>Ciudad:</b> " + arrayClientes[i][0][i].ciudad;
-      a.innerHTML += "<br><b>Código postal:</b> " + arrayClientes[i][0][i].codPostal;
-      a.innerHTML += "<br><b>Número de teléfono:</b> " + arrayClientes[i][0][i].telefono;
-      a.innerHTML += "<br><b>DNI:</b> " + arrayClientes[i][0][i].dni;
-      a.innerHTML += "<br><b>Email:</b> " + arrayClientes[i][0][i].email;
+      stringInyectar += "<li class='list-group-item'>";
+      stringInyectar += "<br><b>Cliente:</b> " + arrayClientes[i][0][i].nombre + " " + arrayClientes[i][0][i].apellido1 + " " + arrayClientes[i][0][i].apellido2;
+      stringInyectar += "<br><b>Direccion:</b> " + arrayClientes[i][0][i].direccion;
+      stringInyectar += "<br><b>Ciudad:</b> " + arrayClientes[i][0][i].ciudad;
+      stringInyectar += "<br><b>Código postal:</b> " + arrayClientes[i][0][i].codPostal;
+      stringInyectar += "<br><b>Número de teléfono:</b> " + arrayClientes[i][0][i].telefono;
+      stringInyectar += "<br><b>DNI:</b> " + arrayClientes[i][0][i].dni;
+      stringInyectar += "<br><b>Email:</b> " + arrayClientes[i][0][i].email;
       // localStorage.setItem("usuarioactual", i)
 
-      a.innerHTML += "<br><button class='botonclientes' value='" + i + "' onclick='return hacerEncargo(value)'> Realizar encargo</button>";
-      a.innerHTML += "<br>";
+      stringInyectar += "<br><button class='botonclientes' value='" + i + "' onclick='return hacerEncargo(value)'> Realizar encargo</button>";
+      stringInyectar += "<br>";
+      stringInyectar += "</li>"
     }
-
+    stringInyectar += "</lu>"
+    a.innerHTML += stringInyectar;
 
   }
 

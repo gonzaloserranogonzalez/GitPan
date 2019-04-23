@@ -29,14 +29,15 @@ body{
     padding-bottom: 30px;
     height:content-box;
     background-color: whitesmoke;
-    font-family: Montserrat;
+    font-family: "Century Gothic";
     text-transform: none;
     opacity: 0.9;
     border-radius: 10px;
 }
+
 .list-group-item{
     background-color: #fff3cd;
-    font-family: Montserrat;
+    font-family: "Century Gothic";
     margin: 5px;
     opacity: 0.9;
 }
