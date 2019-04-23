@@ -101,36 +101,33 @@
                             for (var i = 0; i < arrayPedidos.length; i++) {
                                 arrayPedidos[i] = new Array(10);
                             }
-                            if (localStorage.getItem("arrayClientes") === null) {
-                                var arrayClientes = new Array(bdusuarios.length);
+                            var arrayClientes = new Array(bdusuarios.length);
 
-                                var cliente1 = JSON.parse("[{\"1\":{\"nombre\":\"Yoel\",\"apellido1\":\"Castillo\",\"apellido2\":\"Montero\",\"direccion\":\"Calle San Romualdo 13\",\"ciudad\":\"Madrid\",\"telefono\":\"678362576\",\"dni\":\"89374657B\",\"codPostal\":\"28003\"}}]");
+                            if (localStorage.getItem("arrayClientes") === null) {
+                                var cliente1 = JSON.parse("[{\"1\":{\"nombre\":\"Yoel\",\"apellido1\":\"Castillo\",\"apellido2\":\"Montero\",\"direccion\":\"Calle San Romualdo 13\",\"ciudad\":\"Madrid\",\"telefono\":\"678362576\",\"dni\":\"89374657B\",\"codPostal\":\"28003\", \"email\":\"yoel.cmontero@alumnos.upm.es\"}}]");
                                 arrayClientes[1] = cliente1;
 
-                                var cliente2 = JSON.parse("[{\"2\":{\"nombre\":\"Javier\",\"apellido1\":\"Santos\",\"apellido2\":\"Sanchez\",\"direccion\":\"Calle La Fontanilla, 93\",\"ciudad\":\" Hinojosa del Duque\",\"telefono\":\" 764 383 358\",\"dni\":\"40934083B\",\"codPostal\":\" 14270\"}}]");
+                                var cliente2 = JSON.parse("[{\"2\":{\"nombre\":\"Javier\",\"apellido1\":\"Santos\",\"apellido2\":\"Sanchez\",\"direccion\":\"Calle La Fontanilla, 93\",\"ciudad\":\" Hinojosa del Duque\",\"telefono\":\" 764 383 358\",\"dni\":\"40934083B\",\"codPostal\":\" 14270\", \"email\":\"javier.santos.sanchez@alumnos.upm.es\" }}]");
                                 arrayClientes[2] = cliente2;
 
-                                var cliente3 = JSON.parse("[{\"3\":{\"nombre\":\"Guillermo\",\"apellido1\":\"Sanchez\",\"apellido2\":\"Gutierrez-Cabello\",\"direccion\":\"Calle Canarias, 40\",\"ciudad\":\" Azuqueca de Henares\",\"telefono\":\" 772 543 826\",\"dni\":\"00124486B\",\"codPostal\":\" 19200\"}}]");
+                                var cliente3 = JSON.parse("[{\"3\":{\"nombre\":\"Guillermo\",\"apellido1\":\"Sanchez\",\"apellido2\":\"Gutierrez-Cabello\",\"direccion\":\"Calle Canarias, 40\",\"ciudad\":\" Azuqueca de Henares\",\"telefono\":\" 772 543 826\",\"dni\":\"00124486B\",\"codPostal\":\" 19200\", \"email\":\"guillesanchezgc@gmail.com\"}}]");
                                 arrayClientes[3] = cliente3;
 
-                                var cliente4 = JSON.parse("[{\"4\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37310\"}}]");
+                                var cliente4 = JSON.parse("[{\"4\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37310\", \"email\":\"gonzalo.serrano.gonzalez@alumnos.upm.es\"}}]");
                                 arrayClientes[4] = cliente4;
 
-                                var cliente5 = JSON.parse("[{\"5\":{\"nombre\":\"Gonzalo\",\"apellido1\":\"Serrano\",\"apellido2\":\"Gonzalez\",\"direccion\":\"Calle San Andrés, 34\",\"ciudad\":\" Macotera\",\"telefono\":\" 772 543 826\",\"dni\":\"52902484Z\",\"codPostal\":\" 37175\"}}]");
+                                var cliente5 = JSON.parse("[{\"5\":{\"nombre\":\"Eva\",\"apellido1\":\"Gil\",\"apellido2\":\"Garcia\",\"direccion\":\"Calle Cuevas de Ambrosio, 78\",\"ciudad\":\" León\",\"telefono\":\" 749 417 793\",\"dni\":\"00445464Z\",\"codPostal\":\" 24000\", \"email\":\"evagil@etsisi.upm.es\"}}]");
                                 arrayClientes[5] = cliente5;
 
-                                var cliente6 = JSON.parse("[{\"6\":{\"nombre\":\"Eva\",\"apellido1\":\"Gil\",\"apellido2\":\"Garcia\",\"direccion\":\"Calle Cuevas de Ambrosio, 78\",\"ciudad\":\" León\",\"telefono\":\" 749 417 793\",\"dni\":\"00445464Z\",\"codPostal\":\" 24000\"}}]");
+                                var cliente6 = JSON.parse("[{\"6\":{\"nombre\":\"Manuel\",\"apellido1\":\" Aponte\",\"apellido2\":\" Tejada\",\"direccion\":\"Calle Rosa de los Vientos, 33\",\"ciudad\":\" Vejer de la Frontera\",\"telefono\":\" 749 417 793\",\"dni\":\"38583953F\",\"codPostal\":\" 11150\", \"email\":\"manolo@alumnos.upm.es\"}}]");
                                 arrayClientes[6] = cliente6;
 
-                                var cliente7 = JSON.parse("[{\"7\":{\"nombre\":\"Manuel\",\"apellido1\":\" Aponte\",\"apellido2\":\" Tejada\",\"direccion\":\"Calle Rosa de los Vientos, 33\",\"ciudad\":\" Vejer de la Frontera\",\"telefono\":\" 749 417 793\",\"dni\":\"38583953F\",\"codPostal\":\" 11150\"}}]");
-                                arrayClientes[7] = cliente7;
+                                var cliente7 = JSON.parse("[{\"7\":{\"nombre\":\"Luisa\",\"apellido1\":\" Elizondo\",\"apellido2\":\" Olivera\",\"direccion\":\" Avda. Andalucía, 86\",\"ciudad\":\" Ribafrecha\",\"telefono\":\" 758 070 587\",\"dni\":\"43584312C\",\"codPostal\":\" 26130\", \"email\":\"luisa@alumnos.upm.es\"}}]");
+                                arrayClientes[7] = cliente7
 
-                                var cliente8 = JSON.parse("[{\"8\":{\"nombre\":\"Luisa\",\"apellido1\":\" Elizondo\",\"apellido2\":\" Olivera\",\"direccion\":\" Avda. Andalucía, 86\",\"ciudad\":\" Ribafrecha\",\"telefono\":\" 758 070 587\",\"dni\":\"43584312C\",\"codPostal\":\" 26130\"}}]");
+                                var cliente8 = JSON.parse("[{\"8\":{\"nombre\":\"Alexa\",\"apellido1\":\" Coronado\",\"apellido2\":\" Lara\",\"direccion\":\" Cañada del Rosal, 63\",\"ciudad\":\" Ayamonte\",\"telefono\":\"682 467 236\",\"dni\":\"12738941H\",\"codPostal\":\" 21400\", \"email\":\"alexao@alumnos.upm.es\"}}]");
                                 arrayClientes[8] = cliente8;
-
-                                var cliente9 = JSON.parse("[{\"9\":{\"nombre\":\"Alexa\",\"apellido1\":\" Coronado\",\"apellido2\":\" Lara\",\"direccion\":\" Cañada del Rosal, 63\",\"ciudad\":\" Ayamonte\",\"telefono\":\"682 467 236\",\"dni\":\"12738941H\",\"codPostal\":\" 21400\"}}]");
-                                arrayClientes[9] = cliente9;
-                                localStorage.setItem("arrayClientes", JSON.stringify(arrayPedidos));
+                                localStorage.setItem("arrayClientes", JSON.stringify(arrayClientes));
                             }
 
                             if (localStorage.getItem("arrayPedidos") === null) {

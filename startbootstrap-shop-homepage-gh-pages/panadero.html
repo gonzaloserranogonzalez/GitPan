@@ -73,6 +73,7 @@
   precios = JSON.parse(localStorage.getItem("precios"));
   antiguos = JSON.parse(localStorage.getItem("preciosantiguos"));
   ofertas = JSON.parse(localStorage.getItem("ofertas"));
+  var arrayClientes = JSON.parse(localStorage.getItem("arrayClientes"));
   window.onload = function () {
     arrayPedidos = JSON.parse(localStorage.getItem("arrayPedidos"));
     console.log(arrayPedidos);
@@ -278,7 +279,6 @@
 
   }
   function buscarusuario() {
-    var arrayClientes = localStorage.getItem("arrayClientes");
     var a = document.getElementById("buscador");
     var i = 1;
     var buscar = a.value;
@@ -303,7 +303,9 @@
       a.innerHTML += "<br><b>Ciudad:</b> " + arrayClientes[i][0][i].ciudad;
       a.innerHTML += "<br><b>Código postal:</b> " + arrayClientes[i][0][i].codPostal;
       a.innerHTML += "<br><b>Número de teléfono:</b> " + arrayClientes[i][0][i].telefono;
-      a.innerHTML += "<br><b>ID usuario:</b> " + arrayClientes[i][0][i].dni;
+      a.innerHTML += "<br><b>DNI:</b> " + arrayClientes[i][0][i].dni;
+      a.innerHTML += "<br><b>Email:</b> " + arrayClientes[i][0][i].email;
+
 
 
 
@@ -373,7 +375,7 @@
     }*/
 
 
-    var arrayClientes = new Array(usuarios.length);
+   /* var arrayClientes = new Array(usuarios.length);
 
     var cliente1 = JSON.parse("[{\"1\":{\"nombre\":\"Yoel\",\"apellido1\":\"Castillo\",\"apellido2\":\"Montero\",\"direccion\":\"Calle San Romualdo 13\",\"ciudad\":\"Madrid\",\"telefono\":\"678362576\",\"dni\":\"89374657B\",\"codPostal\":\"28003\"}}]");
     arrayClientes[1] = cliente1;
@@ -402,16 +404,17 @@
     var cliente9 = JSON.parse("[{\"9\":{\"nombre\":\"Alexa\",\"apellido1\":\" Coronado\",\"apellido2\":\" Lara\",\"direccion\":\" Cañada del Rosal, 63\",\"ciudad\":\" Ayamonte\",\"telefono\":\"682 467 236\",\"dni\":\"12738941H\",\"codPostal\":\" 21400\"}}]");
     arrayClientes[9] = cliente9;
 
-    console.log(arrayClientes);
-
-
+    
+*/
+console.log(arrayClientes);
     for (i = 1; i < arrayClientes.length; i++) {
       a.innerHTML += "<br><b>Cliente:</b> " + arrayClientes[i][0][i].nombre + " " + arrayClientes[i][0][i].apellido1 + " " + arrayClientes[i][0][i].apellido2;
       a.innerHTML += "<br><b>Direccion:</b> " + arrayClientes[i][0][i].direccion;
       a.innerHTML += "<br><b>Ciudad:</b> " + arrayClientes[i][0][i].ciudad;
       a.innerHTML += "<br><b>Código postal:</b> " + arrayClientes[i][0][i].codPostal;
       a.innerHTML += "<br><b>Número de teléfono:</b> " + arrayClientes[i][0][i].telefono;
-      a.innerHTML += "<br><b>ID usuario:</b> " + arrayClientes[i][0][i].dni;
+      a.innerHTML += "<br><b>DNI:</b> " + arrayClientes[i][0][i].dni;
+      a.innerHTML += "<br><b>Email:</b> " + arrayClientes[i][0][i].email;
       // localStorage.setItem("usuarioactual", i)
 
       a.innerHTML += "<br><button class='botonclientes' value='" + i + "' onclick='return hacerEncargo(value)'> Realizar encargo</button>";
