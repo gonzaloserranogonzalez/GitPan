@@ -1,261 +1,276 @@
 <html>
-        <img lang="en" onload = "cogedatos">
-        <title>Encargos - PanAPP</title>
-                <head>
-                  <meta charset="utf-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1">
-                  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-                  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-                  
-                </head>
-<body background="BackGroundOverAll.jpg">
-<section id 	= "arriba">
-                         <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
-                                <a class="navbar-brand" href="eleccion.html">PanAPP</a>
-                                <ul class="navbar-nav">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="shopping_grid.html">Productos del dia</a>
-                                  </li>
-                                  <li class="nav-item active">
-                                    <a class="nav-link" href="#">Encargos</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="pedidosusuario.html">Mis pedidos</a>
-                                  </li>
-                                </ul>
-                                <ul class="navbar-nav ml-auto nav-flex-icons"><!-- Para boton de cerrar sesion -->
-                    
-                                    <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
-                                    <li class="nav-item avatar">
-                                        <a class="nav-link p-0" href="#">
-                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                                                alt="avatar image" height="35">
-                                        </a>
-                                    </li>
-                            </ul>
-                         </nav>
-</section>
-        <a class='flotante' href="#arriba"  style="width:50px; padding-bottom:65px;"> <img style="display: scroll; position: fixed; bottom: 40px; top: auto; right: 15px; left: auto; height: auto; width: 20px" src="upscrollarrow.png"></img></a>
-        <img style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: auto; width: 20px" src="downscrollarrow.png"></img>
+<img lang="en" onload="cogedatos">
+<title>Encargos - PanAPP</title>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-function obtenerNombre(i){
-      var contador=0;
-        var oferta;
-        var auxiliar=i.getAttribute("id");
-        auxiliar=auxiliar.slice(8);
-       // alert(auxiliar);
-        var variable=document.getElementById('headermodal').innerHTML=productos[auxiliar];
-        variable=document.getElementById('parrafo2').innerHTML=descripcion[auxiliar];
-        oferta="El precio es "+conoferta[auxiliar]+"€";
-        document.getElementById('precio1').innerHTML=oferta;
-       
-    }
+</head>
 
-  function enviardatos(){
-        var carritofinal=jQuery.makeArray(carrito);
-        var enviarcarrito=(JSON.stringify(carritofinal));
-        localStorage.setItem("producto1","Chapata");
-        localStorage.setItem("costecarrito",preciofactura);
-        localStorage.setItem("numproductos",contadorCarrito);
-        localStorage.setItem("carrito", enviarcarrito) //ES EL CARRITO EN FORMA DE ARRAY
-        var a=localStorage.getItem("pedidos");
-        pedidoactual[a]=carrito;
-        localStorage.setItem("pedidoactual",pedidoactual);
-        localStorage.setItem("tipopedido", "Encargo");
-      //alert(enviar);
+<body background="BackGroundOverAll.jpg">
+    <section id="arriba">
+        <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+            <a class="navbar-brand" href="eleccion.html">PanAPP</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="shopping_grid.html">Productos del dia</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Encargos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pedidosusuario.html">Mis pedidos</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <!-- Para boton de cerrar sesion -->
 
-    }
+                <a href="login.html" class="navbar-brand pull-right"><small>Cerrar sesión</small></a>
+                <li class="nav-item avatar">
+                    <a class="nav-link p-0" href="#">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
+                            class="rounded-circle z-depth-0" alt="avatar image" height="35">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <a class='flotante' href="#arriba" style="width:50px; padding-bottom:65px;"> <img
+            style="display: scroll; position: fixed; bottom: 40px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
+            src="upscrollarrow.png"></img></a>
+    <img style="display: scroll; position: fixed; bottom: 20px; top: auto; right: 15px; left: auto; height: auto; width: 20px"
+        src="downscrollarrow.png"></img>
 
-    function anadircarrito(nombre,cantidad){
-        var j=0;
-        var p;
-        document.getElementById('preciototal').style.display='block';
-        if(contadorCarrito < 1){
-                    var div =document.getElementById('carritovacio');
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+
+            function obtenerNombre(i) {
+                var contador = 0;
+                var oferta;
+                var auxiliar = i.getAttribute("id");
+                auxiliar = auxiliar.slice(8);
+                // alert(auxiliar);
+                var variable = document.getElementById('headermodal').innerHTML = productos[auxiliar];
+                variable = document.getElementById('parrafo2').innerHTML = descripcion[auxiliar];
+                oferta = "El precio es " + conoferta[auxiliar] + "€";
+                document.getElementById('precio1').innerHTML = oferta;
+
+            }
+
+            function enviardatos() {
+                var carritofinal = jQuery.makeArray(carrito);
+                var enviarcarrito = (JSON.stringify(carritofinal));
+                localStorage.setItem("producto1", "Chapata");
+                localStorage.setItem("costecarrito", preciofactura);
+                localStorage.setItem("numproductos", contadorCarrito);
+                localStorage.setItem("carrito", enviarcarrito) //ES EL CARRITO EN FORMA DE ARRAY
+                var a = localStorage.getItem("pedidos");
+                pedidoactual[a] = carrito;
+                localStorage.setItem("pedidoactual", pedidoactual);
+                localStorage.setItem("tipopedido", "Encargo");
+                //alert(enviar);
+
+            }
+
+            function anadircarrito(nombre, cantidad) {
+                var j = 0;
+                var p;
+                document.getElementById('preciototal').style.display = 'block';
+                if (contadorCarrito < 1) {
+                    var div = document.getElementById('carritovacio');
                     div.style.display = 'none';
 
                 }
-        for(j;j<productos.length && productos[j]!=nombre;j++);
-        var precio=conoferta[j];
-         var sinespacios=nombre.replace(/ /g,"-");
-       // alert(sinespacios);
-        var table=document.getElementById("carritoderecha");
-        if(carrito[nombre]==undefined){
-            carrito[nombre]={"nombre": productos[j], "cantidad": cantidad, "precioproducto":precio, "precioporcantidad":precio*cantidad};
-            //var fila=table.insertRow(0);
-            //fila.id="carrito"+contadorCarrito;
-            //var columna = fila.insertCell(0);
-            var columna="producto"+nombre;
-            //columna.className="carrodecompra";
-            table.innerHTML+=" <li class='list-group-item d-flex justify-content-between lh-condensed'><div id='"+columna+"'><h6 class='my-0'> <b  data-indice=\""+sinespacios+"\">Producto: "+productos[j]+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad: "+cantidad+" unidades.<br>Precio total: "+cantidad*precio+"€"+"<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'><br>Eliminar<i class='em em-x'></i></a></li>";
-            contadorCarrito++;
-            preciofactura=preciofactura + cantidad*precio;
-            stock[j]-=cantidad;
+                for (j; j < productos.length && productos[j] != nombre; j++);
+                var precio = conoferta[j];
+                var sinespacios = nombre.replace(/ /g, "-");
+                // alert(sinespacios);
+                var table = document.getElementById("carritoderecha");
+                if (carrito[nombre] == undefined) {
+                    carrito[nombre] = { "nombre": productos[j], "cantidad": cantidad, "precioproducto": precio, "precioporcantidad": precio * cantidad };
+                    //var fila=table.insertRow(0);
+                    //fila.id="carrito"+contadorCarrito;
+                    //var columna = fila.insertCell(0);
+                    var columna = "producto" + nombre;
+                    //columna.className="carrodecompra";
+                    table.innerHTML += " <li class='list-group-item d-flex justify-content-between lh-condensed'><div id='" + columna + "'><h6 class='my-0'> <b  data-indice=\"" + sinespacios + "\">Producto: " + productos[j] + ".</b><br>Precio por producto: " + precio + "€.<br>Cantidad: " + cantidad + " unidades.<br>Precio total: " + cantidad * precio + "€" + "<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'><br>Eliminar<i class='em em-x'></i></a></li>";
+                    contadorCarrito++;
+                    preciofactura = preciofactura + cantidad * precio;
+                    stock[j] -= cantidad;
 
-        }
-        else   {
-            carrito[nombre].cantidad=parseInt(carrito[nombre].cantidad)+parseInt(cantidad);
-            var dif=parseInt(carrito[nombre].cantidad)-parseInt(cantidad);
-            carrito[nombre].precioporcantidad=parseInt(precio*carrito[productos[j]].cantidad);
-            var column=document.getElementById("producto"+nombre);
-            var columna="producto"+nombre;
-            //alert(column);
-            if(contadorCarrito>0)
-            var eliminar="carrito"+(contadorCarrito-1);
-            else
-            var eliminar="carrito"+(contadorCarrito);
-           // alert(eliminar);
-            column.innerHTML="<h6 class='my-0'><b data-indice=\""+sinespacios+"\">Producto: "+nombre+".</b><br>Precio por producto: "+precio+"€.<br>Cantidad: "+carrito[nombre].cantidad+" unidades.<br>Precio total: "+carrito[nombre].precioporcantidad+"€<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'><br>Eliminar<i class='em em-x'></i></a></li>";
-            preciofactura=preciofactura+cantidad*precio;
-            stock[j]-=cantidad;
+                }
+                else {
+                    carrito[nombre].cantidad = parseInt(carrito[nombre].cantidad) + parseInt(cantidad);
+                    var dif = parseInt(carrito[nombre].cantidad) - parseInt(cantidad);
+                    carrito[nombre].precioporcantidad = parseInt(precio * carrito[productos[j]].cantidad);
+                    var column = document.getElementById("producto" + nombre);
+                    var columna = "producto" + nombre;
+                    //alert(column);
+                    if (contadorCarrito > 0)
+                        var eliminar = "carrito" + (contadorCarrito - 1);
+                    else
+                        var eliminar = "carrito" + (contadorCarrito);
+                    // alert(eliminar);
+                    column.innerHTML = "<h6 class='my-0'><b data-indice=\"" + sinespacios + "\">Producto: " + nombre + ".</b><br>Precio por producto: " + precio + "€.<br>Cantidad: " + carrito[nombre].cantidad + " unidades.<br>Precio total: " + carrito[nombre].precioporcantidad + "€<br><a href='#close' class='text-center' onclick='eliminarcarrito(this);'><br>Eliminar<i class='em em-x'></i></a></li>";
+                    preciofactura = preciofactura + cantidad * precio;
+                    stock[j] -= cantidad;
 
-        }
+                }
 
-         p=document.getElementById('preciototal');
+                p = document.getElementById('preciototal');
 
-        if(preciofactura<0)
-            preciofactura=0;
-         
-         p.innerHTML="<li class='list-group-item d-flex justify-content-between lh-condensed'>El precio total es: "+preciofactura.toFixed(2) +"€</li>";
+                if (preciofactura < 0)
+                    preciofactura = 0;
 
-    }
-    function eliminarcarrito(puntero){
-        var a = puntero.parentElement;console.log("a",a.id);
-        var h6 =puntero.parentElement;console.log("h6",h6.id);
-        var div= h6.parentElement;console.log("div",div.id);
-        var divid= div.id;console.log("divid",divid);
-        var producto=divid.replace("producto","");
-        console.log("producto",producto);
-        var li = div.parentElement;console.log("li",li.id);
-        preciofactura=parseInt(preciofactura-carrito[producto].precioporcantidad);
-        p=document.getElementById('preciototal');
-        p.innerHTML="<li class='list-group-item d-flex justify-content-between lh-condensed'>El precio total es: "+preciofactura.toFixed(2) +"€</li>";
-        carrito[producto]=undefined;
-        contadorCarrito--;
-        if(contadorCarrito<1){
-            document.getElementById('Finalizarcompra').style.display='none';
-            document.getElementById('preciototal').style.display='none';
-            document.getElementById('carritovacio').style.display = 'block';
-        }
-        li.parentNode.removeChild(li);
-    }
+                p.innerHTML = "<li class='list-group-item d-flex justify-content-between lh-condensed'>El precio total es: " + preciofactura.toFixed(2) + "€</li>";
 
- </script>
+            }
+            function eliminarcarrito(puntero) {
+                var a = puntero.parentElement; console.log("a", a.id);
+                var h6 = puntero.parentElement; console.log("h6", h6.id);
+                var div = h6.parentElement; console.log("div", div.id);
+                var divid = div.id; console.log("divid", divid);
+                var producto = divid.replace("producto", "");
+                console.log("producto", producto);
+                var li = div.parentElement; console.log("li", li.id);
+                preciofactura = parseInt(preciofactura - carrito[producto].precioporcantidad);
+                p = document.getElementById('preciototal');
+                p.innerHTML = "<li class='list-group-item d-flex justify-content-between lh-condensed'>El precio total es: " + preciofactura.toFixed(2) + "€</li>";
+                carrito[producto] = undefined;
+                contadorCarrito--;
+                if (contadorCarrito < 1) {
+                    document.getElementById('Finalizarcompra').style.display = 'none';
+                    document.getElementById('preciototal').style.display = 'none';
+                    document.getElementById('carritovacio').style.display = 'block';
+                }
+                li.parentNode.removeChild(li);
+            }
 
-<script type="text/javascript">
-   var aux;
-    var productos=new Array();
-    var mitadArray=JSON.parse(localStorage.getItem("productos"));
-    for(var i=15;i<30;i++)
-        productos[i]=mitadArray[i];
+        </script>
+
+        <script type="text/javascript">
+            var aux;
+            var productos = new Array();
+            var mitadArray = JSON.parse(localStorage.getItem("productos"));
+            for (var i = 15; i < 30; i++)
+                productos[i] = mitadArray[i];
 
 
 
-    var imgGrandes = JSON.parse(localStorage.getItem("imagenes"));
-    var descripcion = JSON.parse(localStorage.getItem("descripcion"));
-    var pedidoactual=new Array();
-    var conoferta=JSON.parse(localStorage.getItem("precios"));
-    var precios=JSON.parse(localStorage.getItem("preciosantiguos"));
-     var ofertas=JSON.parse(localStorage.getItem("ofertas"));
-   var stock=JSON.parse(localStorage.getItem("stock"));
-    var preciofactura=0;
-    var carrito=new Object();
-    var IMGS=document.getElementsByClassName("product-image");
-    var PRODUCTOS=document.getElementsByClassName("product-content");
-    //var productos=JSON.parse(localStorage.getItem("productos"));
-       console.log(PRODUCTOS);
-        var i=15;
-        console.log(IMGS);
-        console.log(productos);
-     var contadorCarrito=0;
-    window.onload=function(){
-         
-    
-    for(j in PRODUCTOS){
-        console.log(productos[i]);
-        //alert(productos[i]);
-        //alert(imgGrandes[i]);
-        var imagenfinal= "<img class=\"pic-1\" src=\""+imgGrandes[i]+"\" >";
-        var sinrebaja="<span class=\"product-new-label\">Oferta</span> <span class=\"product-discount-label\">"+ofertas[i]+"%</span>";
-        IMGS[j].innerHTML=imagenfinal;
-        if(ofertas[i]!=0)
-            IMGS[j].innerHTML+=sinrebaja;
-        var nombre="<h3 class=\"title\"  data-puntero=\""+i+"\"><a href=\"#openModal\" id=\"Producto"+(aux)+"\" onclick=\" obtenerNombre(this);\">"+productos[i]+"</a></h3>";
-        PRODUCTOS[j].innerHTML=nombre;
-        var rebaja="<div class=\"price\">"+conoferta[i]+"€<span>"+precios[i]+"€</span></div>";
-        sinrebaja="<div class='price'>"+precios[i]+"€</div>";
-        if(ofertas[i]!=0)
-            PRODUCTOS[j].innerHTML+=rebaja;
-        else
-            PRODUCTOS[j].innerHTML+=sinrebaja;
-        
-        i++;
-    }
+            var imgGrandes = JSON.parse(localStorage.getItem("imagenes"));
+            var descripcion = JSON.parse(localStorage.getItem("descripcion"));
+            var pedidoactual = new Array();
+            var conoferta = JSON.parse(localStorage.getItem("precios"));
+            var precios = JSON.parse(localStorage.getItem("preciosantiguos"));
+            var ofertas = JSON.parse(localStorage.getItem("ofertas"));
+            var stock = JSON.parse(localStorage.getItem("stock"));
+            var preciofactura = 0;
+            var carrito = new Object();
+            var IMGS = document.getElementsByClassName("product-image");
+            var PRODUCTOS = document.getElementsByClassName("product-content");
+            //var productos=JSON.parse(localStorage.getItem("productos"));
+            console.log(PRODUCTOS);
+            var i = 15;
+            console.log(IMGS);
+            console.log(productos);
+            var contadorCarrito = 0;
+            window.onload = function () {
 
-    }
-</script>
 
-<link rel="stylesheet" href="shopping_grid.css" />
-<style>
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-</style>
+                for (j in PRODUCTOS) {
+                    console.log(productos[i]);
+                    //alert(productos[i]);
+                    //alert(imgGrandes[i]);
+                    var imagenfinal = "<img class=\"pic-1\" src=\"" + imgGrandes[i] + "\" >";
+                    var sinrebaja = "<span class=\"product-new-label\">Oferta</span> <span class=\"product-discount-label\">" + ofertas[i] + "%</span>";
+                    IMGS[j].innerHTML = imagenfinal;
+                    if (ofertas[i] != 0)
+                        IMGS[j].innerHTML += sinrebaja;
+                    var nombre = "<h3 class=\"title\"  data-puntero=\"" + i + "\"><a href=\"#openModal\" id=\"Producto" + (aux) + "\" onclick=\" obtenerNombre(this);\">" + productos[i] + "</a></h3>";
+                    PRODUCTOS[j].innerHTML = nombre;
+                    var rebaja = "<div class=\"price\">" + conoferta[i] + "€<span>" + precios[i] + "€</span></div>";
+                    sinrebaja = "<div class='price'>" + precios[i] + "€</div>";
+                    if (ofertas[i] != 0)
+                        PRODUCTOS[j].innerHTML += rebaja;
+                    else
+                        PRODUCTOS[j].innerHTML += sinrebaja;
+
+                    i++;
+                }
+
+            }
+        </script>
+
+        <link rel="stylesheet" href="shopping_grid.css" />
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Montserrat');
+        </style>
     </head>
     <div id="openModal" class="modalDialog">
         <div style="font-family:Montserrat; height: auto; width: 50%">
             <div>
-            <a href="#close" title="Close" class="close" onclick="document.getElementById('cantidades').value = 1;">X</a>
-            <div id="headermodal" style="font-family:Montserrat;text-align: center"><h></h></div>
-            <p id="parrafo2" style="font-family: Montserrat"></p>
-            <p id="precio1" style="font-family: Montserrat"></p>
+                <a href="#close" title="Close" class="close"
+                    onclick="document.getElementById('cantidades').value = 1;">X</a>
+                <div id="headermodal" style="font-family:Montserrat;text-align: center">
+                    <h></h>
+                </div>
+                <p id="parrafo2" style="font-family: Montserrat"></p>
+                <p id="precio1" style="font-family: Montserrat"></p>
             </div>
-        Cantidad: <input type="number" value="1" min="1" name="cantidades" id="cantidades" style="width: 50%; height: auto">
-        <a href="#close" onclick="document.getElementById('cantidades').value = 1;"><ul style="padding-inline-start:0px; padding-top: 10px"><button type="button" class="buttonAddtocart" onclick="
+            Cantidad: <input type="number" value="1" min="1" name="cantidades" id="cantidades"
+                style="width: 50%; height: auto">
+            <a href="#close" onclick="document.getElementById('cantidades').value = 1;">
+                <ul style="padding-inline-start:0px; padding-top: 10px"><button type="button" class="buttonAddtocart"
+                        onclick="
             var comprar=document.getElementById('headermodal').innerHTML;var cantidad=document.getElementById('cantidades');
-            anadircarrito(comprar,cantidad.value);if(contadorCarrito>0)document.getElementById('Finalizarcompra').style.display='block';">Añadir al Carrito <img src="MetaforaCarrito.png" width="20" height="20" ></button>
+            anadircarrito(comprar,cantidad.value);if(contadorCarrito>0)document.getElementById('Finalizarcompra').style.display='block';">Añadir
+                        al Carrito <img src="MetaforaCarrito.png" width="20" height="20"></button>
             </a>
-            <!--<button type="button" class="buttonAddtocart">     Comprar     </button>--></ul>
-	</div>
-   
-</div>
+            <!--<button type="button" class="buttonAddtocart">     Comprar     </button>-->
+            </ul>
+        </div>
 
-<h3>Productos de encargo</h3>
-<div class="container">
-    <div class="container2">
+    </div>
+
+    <h3>Productos de encargo</h3>
+    <div class="container">
+        <div class="container2">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-        <div class="product-grid" id="Producto15" onclick="imagenModal(this)">
-                <div class="product-image" id='Imagen15'>
-                    <span class="product-new-label">Oferta</span>
-                    <span class="product-discount-label">20%</span>
-                </div>
-                <div class="product-content" id='Contenido15'>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
-        </div>
-            <div class="product-grid" id="Producto16"  onclick="imagenModal(this)">
-                    <div class="product-image" id='Imagen16'>
-                        <span class="product-new-label">Oferta</span>
-                        <span class="product-discount-label">20%</span>
-                    </div>
-                    <div class="product-content" id='Contenido16'>
-                        <div class="price">$16.00
-                            <span>$20.00</span>
+                    <div class="product-grid" id="Producto15" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen15'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
                         </div>
-                        <a class="add-to-cart" href="">+ Add To Cart</a>
+                        <div class="product-content" id='Contenido15'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
                     </div>
-            </div>
-                <div class="product-grid" id="Producto17" onclick="imagenModal(this)">
+                    <div class="product-grid" id="Producto16" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen16'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
+                        </div>
+                        <div class="product-content" id='Contenido16'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-grid" id="Producto17" onclick="imagenModal(this)">
                         <div class="product-image" id='Imagen17'>
                             <span class="product-new-label">Oferta</span>
                             <span class="product-discount-label">20%</span>
@@ -266,13 +281,13 @@ function obtenerNombre(i){
                             </div>
                             <a class="add-to-cart" href="">+ Add To Cart</a>
                         </div>
-                </div>
+                    </div>
                     </section>
-                    <section id 	= "section3">
-                    
+                    <section id="section3">
 
- 
-        <div class="product-grid" id="Producto18" onclick="imagenModal(this)">
+
+
+                        <div class="product-grid" id="Producto18" onclick="imagenModal(this)">
                             <div class="product-image" id='Imagen18'>
                                 <span class="product-new-label">Oferta</span>
                                 <span class="product-discount-label">20%</span>
@@ -283,128 +298,128 @@ function obtenerNombre(i){
                                 </div>
                                 <a class="add-to-cart" href="">+ Add To Cart</a>
                             </div>
-                    </div>
-        <div class="product-grid" id="Producto19" onclick="imagenModal(this)">
-            <div class="product-image" id="Imagen19">
-                <span class="product-new-label">Oferta</span>
-                <span class="product-discount-label">50%</span>
-            </div>
-            <div class="product-content" id='Contenido19'>
-                <div class="price">$5.00
-                    <span>$10.00</span>
-                </div>
-                <a class="add-to-cart" href="">+ Add To Cart</a>
-            </div>
-        </div>
-                </section>
-        </div>
-      <div class="col-xs-12 col-md-4">  
-        <div class="product-grid" id="Producto20" onclick="imagenModal(this)">
-                <div class="product-image" id='Imagen20'>
-                    <span class="product-new-label">Oferta</span>
-                    <span class="product-discount-label">20%</span>
-                </div>
-                <div class="product-content" id='Contenido20'>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
-            </div>
-     
-            <div class="product-grid" id="Producto21" onclick="imagenModal(this)">
-                    <div class="product-image" id='Imagen21'>
-                        <span class="product-new-label">Oferta</span>
-                        <span class="product-discount-label">20%</span>
-                    </div>
-                    <div class="product-content" id='Contenido21'>
-                        <div class="price">$16.00
-                            <span>$20.00</span>
                         </div>
-                        <a class="add-to-cart" href="">+ Add To Cart</a>
-                    </div>
+                        <div class="product-grid" id="Producto19" onclick="imagenModal(this)">
+                            <div class="product-image" id="Imagen19">
+                                <span class="product-new-label">Oferta</span>
+                                <span class="product-discount-label">50%</span>
+                            </div>
+                            <div class="product-content" id='Contenido19'>
+                                <div class="price">$5.00
+                                    <span>$10.00</span>
+                                </div>
+                                <a class="add-to-cart" href="">+ Add To Cart</a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="product-grid" id="Producto22" onclick="imagenModal(this)">
+                <div class="col-xs-12 col-md-4">
+                    <div class="product-grid" id="Producto20" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen20'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
+                        </div>
+                        <div class="product-content" id='Contenido20'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
+                    </div>
+
+                    <div class="product-grid" id="Producto21" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen21'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
+                        </div>
+                        <div class="product-content" id='Contenido21'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-grid" id="Producto22" onclick="imagenModal(this)">
                         <div class="product-image" id='Imagen22'>
                             <span class="product-new-label">Oferta</span>
                             <span class="product-discount-label">20%</span>
                         </div>
                         <div class="product-content" id='Contenido22'>
                             <div class="price">$16.00
-                                
-                            </div>
-                       
-                        </div>
-                    </div>
-    
-                    <div class="product-grid" id="Producto23" onclick="imagenModal(this)">
-                            <div class="product-image" id='Imagen23'>
-                                <span class="product-new-label">Oferta</span>
-                                <span class="product-discount-label">20%</span>
-                            </div>
-                            <div class="product-content" id='Contenido23'>
-                                <div class="price">$16.00
-                                    <span>$20.00</span>
-                                </div>
-                                <a class="add-to-cart" href="">+ Add To Cart</a>
-                            </div>
-                        </div>
-  
-   
-        <div class="product-grid" id="Producto24" onclick="imagenModal(this)">
-            <div class="product-image" id='Imagen24'>
-                <span class="product-new-label">Oferta</span>
-                <span class="product-discount-label">20%</span>
-            </div>
-            <div class="product-content" id='Contenido24'>
-                <div class="price">$16.00
-                    <span>$20.00</span>
-                </div>
-                <a class="add-to-cart" href="">+ Add To Cart</a>
-            </div>
-        </div>
-        </div>
-        
-        <div class="col-xs-12 col-md-4">
-        <div class="product-grid" id="Producto25" onclick="imagenModal(this)">
-                <div class="product-image" id='Imagen25'>
-                    <span class="product-new-label">Oferta</span>
-                    <span class="product-discount-label">20%</span>
-                </div>
-                <div class="product-content" id='Contenido25'>
-                    <div class="price">$16.00
-                        <span>$20.00</span>
-                    </div>
-                    <a class="add-to-cart" href="">+ Add To Cart</a>
-                </div>
-            </div>
-            <div class="product-grid" id="Producto26" onclick="imagenModal(this)">
-                    <div class="product-image" id='Imagen26'>
-                        <span class="product-new-label">Oferta</span>
-                        <span class="product-discount-label">20%</span>
-                    </div>
-                    <div class="product-content" id='Contenido26'>
-                        <div class="price">$16.00
-                            <span>$20.00</span>
-                        </div>
-                        <a class="add-to-cart" href="">+ Add To Cart</a>
-                    </div>
-                </div>
-               
 
-        <div class="product-grid" id="Producto27" onclick="imagenModal(this)">
-                    <div class="product-image" id='Imagen27'>
-                        <span class="product-new-label">Oferta</span>
-                        <span class="product-discount-label">20%</span>
-                    </div>
-                    <div class="product-content" id='Contenido27'>
-                        <div class="price">$16.00
-                            <span>$20.00</span>
+                            </div>
+
                         </div>
-                        <a class="add-to-cart" href="">+ Add To Cart</a>
+                    </div>
+
+                    <div class="product-grid" id="Producto23" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen23'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
+                        </div>
+                        <div class="product-content" id='Contenido23'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
+                    </div>
+
+
+                    <div class="product-grid" id="Producto24" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen24'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
+                        </div>
+                        <div class="product-content" id='Contenido24'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
                     </div>
                 </div>
-                <div class="product-grid" id="Producto28" onclick="imagenModal(this)">
+
+                <div class="col-xs-12 col-md-4">
+                    <div class="product-grid" id="Producto25" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen25'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
+                        </div>
+                        <div class="product-content" id='Contenido25'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-grid" id="Producto26" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen26'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
+                        </div>
+                        <div class="product-content" id='Contenido26'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
+                    </div>
+
+
+                    <div class="product-grid" id="Producto27" onclick="imagenModal(this)">
+                        <div class="product-image" id='Imagen27'>
+                            <span class="product-new-label">Oferta</span>
+                            <span class="product-discount-label">20%</span>
+                        </div>
+                        <div class="product-content" id='Contenido27'>
+                            <div class="price">$16.00
+                                <span>$20.00</span>
+                            </div>
+                            <a class="add-to-cart" href="">+ Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-grid" id="Producto28" onclick="imagenModal(this)">
                         <div class="product-image" id='Imagen28'>
                             <span class="product-new-label">Oferta</span>
                             <span class="product-discount-label">20%</span>
@@ -417,36 +432,46 @@ function obtenerNombre(i){
                         </div>
                     </div>
                     <div class="product-grid" id="Producto29" onclick="imagenModal(this)">
-                            <div class="product-image" id='Imagen29'>
-                            </div>
-                            <div class="product-content" id='Contenido29'>
-                                <div class="price">
-                                </div>
+                        <div class="product-image" id='Imagen29'>
+                        </div>
+                        <div class="product-content" id='Contenido29'>
+                            <div class="price">
                             </div>
                         </div>
-     
-</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="divTotal" style="background: rgba(255,193,7,0.95)">
+            <table id="tablaTotal" name="factura" style="width:80%; ">
+                <ul class="list-group mb-3" id="carritoderecha">
+                    <li class='list-group-item d-flex justify-content-between lh-condensed'>
+                        <div style='width: 75%; margin: 0 auto;'><b>Carrito de la compra <img src="MetaforaCarrito.png"
+                                    width="20" height="20"> </b>
+                    </li>
+                </ul>
+                <ul class="list-group mb-3" id="preciototal"></ul>
+            </table>
+            <p id="Facturafinal"></p>
+            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat"
+                href="formulariopago\checkout.html" onclick="enviardatos()"><b>Finalizar Compra </b><i
+                    class="em em-white_check_mark"></i></a>
+        </div>
     </div>
-</div>
 
+</body>
 
-
-<div id="divTotal" style="background: rgba(255,193,7,0.95)" >
-    <table id="tablaTotal" name="factura" style="width:80%; "><ul class="list-group mb-3" id="carritoderecha"><li class='list-group-item d-flex justify-content-between lh-condensed'><div style='width: 75%; margin: 0 auto;'><b>Carrito de la compra  <img src="MetaforaCarrito.png" width="20" height="20" > </b></li></ul><ul class="list-group mb-3" id="preciototal"></ul></table>
-    <p id="Facturafinal"></p>
-            <a id="Finalizarcompra" class="text-center" style="display:none; font-family:Montserrat" href="formulariopago\checkout.html" onclick="enviardatos()"><b>Finalizar Compra </b><i class="em em-white_check_mark"></i></a>
-</div>
-</div>
-
-        </body>
 </html>
 <script>
 
-function imagenModal(item){
-    obtenerNombre(item);
-    window.location.href = "#openModal";
-}
-var table = document.getElementById("carritoderecha");
-    table.innerHTML += " <div id='carritovacio'><li class='list-group-item d-flex justify-content-between lh-condensed'> <br><br><br>Tu carrito se encuentra vacío actualmente.<br><br><br><br></li></div>";
+    function imagenModal(item) {
+        obtenerNombre(item);
+        window.location.href = "#openModal";
+    }
+    var table = document.getElementById("carritoderecha");
+    table.innerHTML += " <div id='carritovacio'><li class='list-group-item d-flex justify-content-between lh-condensed'> <br><br><br><h4>Tu carrito se encuentra vacío actualmente</h4><br><br><br><br></li></div>";
 </script>
-
