@@ -173,7 +173,7 @@
 
     stringinyectar += "<ul class='list-group list-group-flush'>";
     stringinyectar += "<br><h2>  Seleccione el usuario sobre el cual quiere ver información:<br></h2>";
-    for (var i = 1; i < usuarios.length; i++) {
+      for (var i = 1; i < usuarios.length; i++) {
       stringinyectar += "<li  id='" + usuarios[i] + "' class='list-group-item' href='#' onclick='mostrarcompracliente(this.id);return false;'><div><a href='#' id='" + usuarios[i] + "' onclick='mostrarcompracliente(this.id);return false;' class='nombre'>" + MaysPrimera(usuarios[i]) + "</a></div>";
       var numpedidos = 0;
       for (var j = 0; arrayPedidos[i][j] != null; j++) {
@@ -355,7 +355,7 @@
 
     stringInyectar = "<ul class='list-group list-group-flush'>"
 
-    qconsole.log(arrayClientes.length);
+    console.log(arrayClientes.length);
     for (i = 1; i < arrayClientes.length; i++) {
       stringInyectar += "<li class='list-group-item'>";
       stringInyectar += "<br><b>Cliente:</b> " + arrayClientes[i][0][i].nombre + " " + arrayClientes[i][0][i].apellido1 + " " + arrayClientes[i][0][i].apellido2;
