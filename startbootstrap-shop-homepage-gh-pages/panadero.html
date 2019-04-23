@@ -188,14 +188,12 @@
     a.innerHTML = stringinyectar;
   }
 
-  function MaysPrimera(string){
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+
 
   function mostrarcompracliente(login) {
     var stringinyectar = "";
     var a = document.getElementById("contenedor");
-    stringinyectar += "<br><br><div class='list-group'><a href='#' class='list-group-item list-group-item-action list-group-item-primary'><h5 class='mb-1'>Usuario: " + login + "</h5></a>";
+    stringinyectar += "<br><br><div class='list-group'><a href='#' class='list-group-item list-group-item-action list-group-item-primary'><h5 class='mb-1'>Usuario: " + MaysPrimera(login) + "</h5></a>";
     var comprausuario = 0;
     //console.log(arrayPedidos[0][0][0][productos[6]].nombre);
     //stringinyectar.innerHTML += "<br><br> Usuario: " + login;
@@ -234,6 +232,10 @@
       current[0].className = current[0].className.replace(" active", "");
       this.className += " active";
     });
+  }
+
+  function MaysPrimera(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
 
