@@ -57,8 +57,7 @@
             var contadorCarrito = 0;
             var productos = ["Barra Rustica", "Barra de picos", "Chapata", "Torta de Aranda", "Baguette", "Muffin con virutas de chocolate", "Muffin de fresa", "Muffin de Chocolate", "Croissant", "Croissant de chocolato", "Palmera choco", "Bocaditos de nata", "Bocaditos de trufa", "Cookie de chocolate", "Donut casero"];
             var imgGrandes = ["Rustica1.png", "Picos2.png", "Chapata3.png", "Torta4.png", "Baguette5.png", "Muffin.png", "MuffinFresa.png", "MuffinChoco.png", "croissant.png", "croissantChoco.png", "PalmeraChoco.png", "BocaditoNata.png", "BpcaditoDeNata.png", "cookieChoco.png", "donut.png"];
-            var descripcion = ["Ingredientes: harina, levadura y sal. Apto para celiacos. Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: harina, levadura y sal. Apto para celiacos Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: harina, levadura y sal. Apto para celiacos Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: harina, levadura y sal. Apto para celiacos Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: harina, levadura y sal. Apto para celiacos Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, chocolate Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, fresa, nata Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Huevo, azúcar, leche, harina, mantequilla, levadura, chocolate Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Levadura, harina, mantequilla, sal y azúcar Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Levadura, harina, mantequilla, chocolate, sal y azúcar Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Hojaldre, harina, mantequilla, chocolate, sal y azúcar Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Mantequilla, nata, sal, harina, huevo, nata Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Mantequilla, nata, sal, harina, huevo, nata Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Harina, azucar, mantequilla, huevo, chocolate Peso: 0.5 Kg. Caducidad 30/05/2019", "Ingredientes: Harina, sal, azúcar, huevo Peso: 0.5 Kg. Caducidad 30/05/2019"];
-
+            var descripcion = JSON.parse(localStorage.getItem(descripcion));
             var pedidoactual = new Array();
            
             var conoferta = JSON.parse(localStorage.getItem("precios"));
@@ -285,7 +284,7 @@
 
     </div>
 
-    <h3 class="tit">Productos del día</h3>
+    <h3 class="tit">Productos del dia</h3>
     <div class="container">
         <div class="container2">
             <div class="row">
