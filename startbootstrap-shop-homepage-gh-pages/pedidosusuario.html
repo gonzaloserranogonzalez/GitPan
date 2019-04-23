@@ -72,7 +72,7 @@
         
         var stringDiario="Lo recibes en tu dirección";
         var diasrepetir=": Una única vez";
-        document.getElementById('lista').innerHTML +="<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h3 class='text-center'>Actualmente tienes los siguientes pedidos encargos</h3>";
+        document.getElementById('lista').innerHTML +="<br><a class='list-group-item list-group-item-info flex-column align-items-start'<div class='d-flex w-100 justify-content-between'><h3 class='text-center'>Actualmente tienes los siguientes pedidos encargos</h3>";
         for (var i = 0; i < arrayPedidos.length && arrayPedidos[usuarioactual][i]!=undefined; i++) {
             document.getElementById('lista').innerHTML += "<a class='list-group-item list-group-item-info flex-column align-items-start'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1' id='diadereparto"+i+"'>Pedido diario "+contador+"</h5></div></a>";
            var cont=0;
