@@ -22,7 +22,7 @@ h4{
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
 	pointer-events: none;
-	.bott
+
 }
 .modalDialog:target {
 	opacity:1;
